@@ -18,6 +18,13 @@ public class ExpenseRepository implements IExpenseRepository {
 
     private static List<Expense> listExpense = new ArrayList<Expense>();
 
+    /**
+     * @return the listExpense
+     */
+    public static List<Expense> getListExpense() {
+        return listExpense;
+    }
+
     public ExpenseRepository() {
     }
 
@@ -25,7 +32,7 @@ public class ExpenseRepository implements IExpenseRepository {
         if (exp == null) {
             throw new IllegalArgumentException();
         }
-        listExpense.add(exp);
+        getListExpense().add(exp);
 
     }
     // class member
