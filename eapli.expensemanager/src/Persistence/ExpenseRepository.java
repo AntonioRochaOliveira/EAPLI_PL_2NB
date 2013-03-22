@@ -51,9 +51,12 @@ public class ExpenseRepository implements IExpenseRepository {
         }
         getListTExpense().add(Texp);
 
+<<<<<<< HEAD
     }
     
     public static List<Expense> getListExpense() {
         return listExpense;
+=======
+>>>>>>> 9292ff9c82c66c0ae68f565702e46b7769af1b3f
     }
 }
