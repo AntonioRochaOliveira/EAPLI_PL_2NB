@@ -4,7 +4,6 @@
  */
 package Persistence;
 import Model.*;
-import java.util.List;
 /**
  *
  * @author losa

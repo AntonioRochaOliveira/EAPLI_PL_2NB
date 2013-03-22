@@ -1,11 +1,16 @@
-#java specific
+# Java specific
 *.class
 
-#netbeans ignore personal stuff 
+# Package Files
+*.jar
+*.war
+*.ear
+
+# netbeans ignore personal stuff 
 nbproject/private/
 
 
-#netbeans specific
+# netbeans specific
 nbproject/build-impl.xml
 nbproject/genfiles.properties
 
