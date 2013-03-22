@@ -15,10 +15,10 @@ import java.util.concurrent.TimeUnit;
  *
  * @author sdcastro
  */
-public class GestaoDespesas {
+public class ExpensesManagement {
            
 
-    public BigDecimal getGastoSemanal() {
+    public BigDecimal getWeeklyExpense() {
         Calendar today = Calendar.getInstance();        
         Date todayDate = today.getTime();
         
