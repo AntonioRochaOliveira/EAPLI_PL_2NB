@@ -9,7 +9,7 @@ public class IncomeTypeRepository {
 	private List<IncomeType> list;
 
 	public IncomeTypeRepository(){
-		list = new ArrayList<>();
+		list = new ArrayList<IncomeType>();
 	}
 
 	public void save(IncomeType incomeType) {
