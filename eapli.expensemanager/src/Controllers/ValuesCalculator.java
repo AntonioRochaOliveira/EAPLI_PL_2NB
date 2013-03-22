@@ -4,6 +4,7 @@
  */
 package Controllers;
 import Model.Expense;
+import Model.Income;
 import Persistence.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -51,14 +52,14 @@ public class ValuesCalculator {
         BigDecimal amount;
         
         //Get all expenses from ExpensesRepository
-        List<Expense> listExpense=repository.getExpenses();
-        
-        for(int i=0;i<listExpense.size(); i++){
-            
-            expense=(Expense)listExpense.get(i);
-            amount=expense.getAmount();
-            sum+=amount.floatValue();            
-        }
+//        List<Expense> listExpense=repository.getExpenses();
+//        
+//        for(int i=0;i<listExpense.size(); i++){
+//            
+//            expense=(Expense)listExpense.get(i);
+//            amount=expense.getAmount();
+//            sum+=amount.floatValue();            
+//        }
         
         return sum;
     }
@@ -73,14 +74,14 @@ public class ValuesCalculator {
         BigDecimal amount;
         
          //Get all incomes from IncomesRepository
-        List<Income> listIncome=repository.getIncomes();
-        
-        for(int i=0;i<listIncome.size(); i++){
-            
-            expense=(Expense)listIncome.get(i);
-            amount=expense.getAmount();
-            sum+=amount.floatValue();            
-        }
+//        List<Income> listIncome=repository.getIncomes();
+//        
+//        for(int i=0;i<listIncome.size(); i++){
+//            
+//            expense=(Expense)listIncome.get(i);
+//            amount=expense.getAmount();
+//            sum+=amount.floatValue();            
+//        }
         
         return sum;
     }

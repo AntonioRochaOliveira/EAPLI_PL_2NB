@@ -9,12 +9,6 @@
 # netbeans ignore personal stuff 
 nbproject/private/
 
-
-# netbeans specific
-nbproject/build-impl.xml
-nbproject/genfiles.properties
-
-
 ## generic files to ignore
 *~
 *.lock
@@ -30,18 +24,4 @@ dist/
 #Ignora .project eclipse.
 .project
 
-<<<<<<< HEAD
-=======
-/eapli.expensemanager/nbproject/private
 
-#Ignora as classes compiladas.
-/eapli.expensemanager/build
-/eapli.util/build
-/eapli.expensemanager/dist
-/eapli.util/dist
-
-
-
-#Ignora .project ecplise.
-.project
->>>>>>> 9292ff9c82c66c0ae68f565702e46b7769af1b3f
