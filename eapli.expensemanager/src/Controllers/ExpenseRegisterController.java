@@ -5,6 +5,7 @@
 package Controllers;
 
 import Model.Expense;
+import Model.GestaoDespesas;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -22,6 +23,9 @@ public class ExpenseRegisterController {
         Expense expense = new Expense( what, date, amount);
         ExpenseRepository repo = new ExpenseRepository();
         repo.save(expense);
+        GestaoDespesas gd = new GestaoDespesas();
+        
+        System.out.println("Gasto Semanal: " + gd.getGastoSemanal().toString());
     }
     
 }

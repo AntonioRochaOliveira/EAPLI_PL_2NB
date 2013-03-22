@@ -24,4 +24,8 @@ public class ExpenseRepository  implements IExpenseRepository
         listExpense.add(exp);
       
     }
+    
+    public static List<Expense> getListExpense() {
+        return listExpense;
+    }
 }
