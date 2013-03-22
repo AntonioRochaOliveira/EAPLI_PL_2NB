@@ -3,10 +3,17 @@
 /eapli.util/nbproject/private
 
 /eapli.expensemanager/nbproject/private
+<<<<<<< HEAD
 
 #Ignora as classes compiladas.
 /eapli.expensemanager/build
 /eapli.util/build
+<<<<<<< HEAD
 
 #Ignora .project ecplise.
 .project
+=======
+=======
+/eapli.expensemanager/dist/
+>>>>>>> o git obrigou-me a fazer commit
+>>>>>>> o git obrigou-me a fazer commit
