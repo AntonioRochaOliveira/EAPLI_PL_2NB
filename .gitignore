@@ -1,6 +1,27 @@
-/eapli.expensemanager/nbproject/private
+#java specific
+*.class
 
-/eapli.util/nbproject/private
+#netbeans ignore personal stuff 
+nbproject/private/
 
-/eapli.expensemanager/nbproject/private
-/eapli.expensemanager/dist/
+
+#netbeans specific
+nbproject/build-impl.xml
+nbproject/genfiles.properties
+
+
+## generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+
+
+#Ignora as classes compiladas.
+build/
+dist/
+
+#Ignora .project eclipse.
+.project
+
