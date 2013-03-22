@@ -7,6 +7,10 @@
 #Ignora as classes compiladas.
 /eapli.expensemanager/build
 /eapli.util/build
+/eapli.expensemanager/dist
+/eapli.util/dist
+
+
 
 #Ignora .project ecplise.
 .project
