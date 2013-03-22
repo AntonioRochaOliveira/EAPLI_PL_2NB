@@ -4,6 +4,6 @@
 
 /eapli.expensemanager/nbproject/private
 
-.project
-.gitignore
-*.class
+#Ignora as classes compiladas.
+/eapli.expensemanager/build
+/eapli.util/build
