@@ -1,13 +1,29 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
+
+import eapli.util.DateTime;
+import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  *
- * @author Joana
+ * @author jverde
  */
 public class Income {
+        private BigDecimal amount;
+        private IncomeType incomeType;
+        private String description;
+        private Date dateOccurred;
+        
     
+        protected Income() {}
+
+    
+        protected Income(BigDecimal amount, IncomeType incomeType, String description,  Date dateOccurred) {
+            this.amount = amount; 
+            this.incomeType = incomeType;
+            this.description = description;
+            this.dateOccurred = dateOccurred;
+        }
+    
+
 }
