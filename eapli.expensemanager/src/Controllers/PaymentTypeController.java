@@ -5,7 +5,6 @@
 package Controllers;
 
 import Model.PaymentType;
-import Model.PaymentTypeAditionalInformation;
 import Presentation.PaymentTypeUI;
 
 /**
@@ -26,26 +25,13 @@ public class PaymentTypeController {
         return paymentType;
     }
     
-    public void createCash()
+    public void createPaymentType(String type)
     {
-        paymentType=new PaymentType("Cash");
+        paymentType=new PaymentType(type);
     }
     
-    public void createCheque(int chequeNumber)
+    public void addAditionalInformation(String key, Object Value)
     {
-        PaymentTypeAditionalInformation aditionalInformation=new PaymentTypeAditionalInformation();
-        aditionalInformation.put("Number", chequeNumber);
-        paymentType=new PaymentType("Cheque",aditionalInformation);
+        paymentType.addAditionalInformation(key, Value);
     }
-    
-     public void createCreditCard()
-    {
-         paymentType=new PaymentType("Credit Card");
-    }
-     
-     public void createDebitCard()
-     {
-      paymentType=new PaymentType("Debit Card");
-     }
-    
 }

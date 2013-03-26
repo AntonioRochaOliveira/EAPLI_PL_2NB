@@ -4,32 +4,38 @@
  */
 package Model;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
  * @author xiko
  */
 public class PaymentType {
-    
+
     String name;
-    PaymentTypeAditionalInformation aditionalInformation;
+    Map<String, Object> aditionalInformation = new HashMap<String, Object>();
     
     public PaymentType(String name) {
-        this.name=name;
-        aditionalInformation=null;
+        this.name = name;
     }
 
-    public PaymentType(String name, PaymentTypeAditionalInformation aditionalInformation) {
-        this.name = name;
-        this.aditionalInformation = aditionalInformation;
+    public void addAditionalInformation(String key, Object value) {
+        aditionalInformation.put(key, value);
     }
 
     @Override
     public String toString() {
-        return   name +  ((aditionalInformation != null)?aditionalInformation:"");
+             StringBuilder temp=new StringBuilder();
+             temp.append(name);
+        for (String key : aditionalInformation.keySet())
+            {
+            temp.append("\n\t")
+                .append(key)
+                .append(" - ")
+                .append(aditionalInformation.get(key))
+                .append("\n");
+            }  
+      return temp.toString();
     }
-    
-    
-    
 }

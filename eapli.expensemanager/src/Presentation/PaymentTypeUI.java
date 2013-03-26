@@ -27,17 +27,19 @@ public class PaymentTypeUI {
 
         switch (option) {
             case 1:
-                controller.createCash();
+                controller.createPaymentType("Cash");
                 break;
             case 2:
                 int chequeNumber = Console.readInteger("Check Number:");
-                controller.createCheque(chequeNumber);
+                 controller.createPaymentType("Check");
+               
+                controller.addAditionalInformation("Check number",chequeNumber);
                 break;
             case 3:
-                controller.createCreditCard();
+               controller.createPaymentType("Credit Card");
                 break;
             case 4:
-                controller.createDebitCard();
+                controller.createPaymentType("Debit Card");
                 break;
 
         }
