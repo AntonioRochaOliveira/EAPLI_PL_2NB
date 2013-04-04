@@ -6,9 +6,20 @@ import java.util.List;
 import Model.IncomeType;
 
 public class IncomeTypeRepository {
+	
+	private static IncomeTypeRepository instance = null;
+	
 	private List<IncomeType> list;
 
-	public IncomeTypeRepository(){
+	public static synchronized IncomeTypeRepository getInstance() {
+		
+		if (instance == null)
+			instance = new IncomeTypeRepository();
+		
+		return instance;
+	}
+	
+	private IncomeTypeRepository(){
 		list = new ArrayList<IncomeType>();
 	}
 

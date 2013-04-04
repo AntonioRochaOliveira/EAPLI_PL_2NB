@@ -11,7 +11,7 @@ public class RegisterIncomeTypeController {
 
 	public void regIncomeType(String name, String description) {
 		IncomeType incomeType = new IncomeType(name,description);
-		IncomeTypeRepository repo = new IncomeTypeRepository();
+		IncomeTypeRepository repo = IncomeTypeRepository.getInstance();
 		repo.save(incomeType);
 	}
 }
