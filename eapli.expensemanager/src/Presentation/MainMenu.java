@@ -37,6 +37,7 @@ public class MainMenu {
             case 3:
                 TypeOfExpenseUI uiTOE = new TypeOfExpenseUI();
                 uiTOE.mainLoop();
+                break;
             case 4:
                 RegisterIncomeUI uiRI = new RegisterIncomeUI();
                 break;
