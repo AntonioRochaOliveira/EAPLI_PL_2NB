@@ -18,7 +18,7 @@ public class BalanceController {
     //Methods
     public float getBalance(){
         
-        ValuesCalculator valuesCalculator=new ValuesCalculator();
+        Accounting valuesCalculator=new Accounting();
         
         return valuesCalculator.getBalance();
     }

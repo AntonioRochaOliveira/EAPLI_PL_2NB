@@ -12,19 +12,9 @@ import java.util.List;
  *
  * @author Fábio Mendonça/Fernando Silva
  */
-public class ValuesCalculator {
+public class Accounting {
     
-    private static ValuesCalculator instance = null;
-    
-    protected ValuesCalculator(){}
-    
-    public static ValuesCalculator getInstance(){
-        
-        if(instance==null)
-            instance=new ValuesCalculator();
-            
-        return instance;
-    }
+    public Accounting(){}
     
     //Methods
     public float getBalance(){
@@ -82,6 +72,25 @@ public class ValuesCalculator {
             sum+=amount.floatValue();            
         }
         
+        //Gets the initial Balance
+        amount=getValue();
+        sum+=amount.floatValue();
+        
         return sum;
+    }
+    
+    //Sets the inicial balance
+    public void setValue(BigDecimal inicial){
+
+        StartingBalanceRepository balanceRepository=new StartingBalanceRepository();
+        balanceRepository.setValue(inicial);
+    }
+    
+    //Gets the initial balance
+    public BigDecimal getValue(){
+        
+        StartingBalanceRepository balanceRepository=new StartingBalanceRepository();
+        
+        return balanceRepository.getValue();
     }
 }
