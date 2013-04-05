@@ -19,6 +19,7 @@ public class MainMenu {
         System.out.println("1. Register an expense");
         System.out.println("2. Register income type");
         System.out.println("3. Register expense type");
+        System.out.println("4. Register an Income");
         System.out.println("0. Exit\n\n");
         
         int option = Console.readInteger("Please choose a option");
@@ -36,6 +37,10 @@ public class MainMenu {
             case 3:
                 TypeOfExpenseUI uiTOE = new TypeOfExpenseUI();
                 uiTOE.mainLoop();
+            case 4:
+                RegisterIncomeUI uiRI = new RegisterIncomeUI();
+                break;
+                
         }
     }
 }
