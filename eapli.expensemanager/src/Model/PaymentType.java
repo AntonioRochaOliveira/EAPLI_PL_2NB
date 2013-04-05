@@ -19,6 +19,10 @@ public class PaymentType {
     public PaymentType(String name) {
         this.name = name;
     }
+    
+    public PaymentType(){
+        
+    }
 
     public void addAditionalInformation(String key, Object value) {
         aditionalInformation.put(key, value);

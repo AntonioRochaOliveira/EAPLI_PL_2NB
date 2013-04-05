@@ -10,16 +10,17 @@ package Model;
  */
 public class PayMode {
     //class member
-    private PayType payT;
+    private PaymentType payT;
     private String description;
+    private long number;
     
     PayMode()
     {
-        payT = new PayType();
+        payT = new PaymentType();
         description = "Sem descrição";
     }
     
-    PayMode(PayType p, String description)
+    PayMode(PaymentType p, String description)
     {
         payT = p;
         this.description = description;
@@ -28,30 +29,37 @@ public class PayMode {
     /**
      * @return the payT
      */
-    public PayType getPayT() {
+    public PaymentType getPayT() {
         return payT;
     }
 
     /**
      * @param payT the payT to set
      */
-    public void setPayT(PayType payT) {
+    public void setPayT(PaymentType payT) {
         this.payT = payT;
     }
 
+    public void setNumber(int number){
+        this.number = number;
+    }
     /**
      * @return the description
      */
     public String getDescription() {
         return description;
     }
-
+    
+    public long getNumber(){
+        return number;
+    }
     /**
      * @param description the description to set
      */
     public void setDescription(String description) {
         this.description = description;
     }
+    
     
     
 }
