@@ -16,9 +16,10 @@ import java.util.Date;
 
 public class Expense {
     
-    String description;
-   
-    BigDecimal amount;
+    private String description;   
+    private Date dateOccurred;
+    private BigDecimal amount;
+       
     
     protected Expense() {}
     
@@ -31,6 +32,7 @@ public class Expense {
             throw new IllegalArgumentException();
         }
         this.description = description;
+        this.dateOccurred = dateOccurred;
         this.amount = amount;
     }
     
@@ -42,5 +44,8 @@ public class Expense {
         return amount;
     }
 
+    public Date getDateOccurred() {
+        return dateOccurred;
+    }
    
 }
