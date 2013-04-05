@@ -8,6 +8,7 @@ package Model;
  *
  * @author Karlos
  */
+
 public class TypeOfExpense {
 
     String description;
