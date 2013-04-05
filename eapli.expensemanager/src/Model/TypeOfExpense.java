@@ -4,14 +4,11 @@
  */
 package Model;
 
-import eapli.util.DateTime;
-import java.math.BigDecimal;
-import java.util.Date;
-
 /**
  *
  * @author Karlos
  */
+
 public class TypeOfExpense {
 
     String description;
