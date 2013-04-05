@@ -9,6 +9,7 @@ import Model.IncomeType;
 import Persistence.IncomeRepository;
 import Persistence.IncomeTypeRepository;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -24,6 +25,7 @@ public class RegisterIncomeController {
     }
     
     public List getIncomesType(){
+        
         return incomeTypeRepository.getIncomeType();
     }
     
