@@ -15,10 +15,10 @@ public class Income {
     private String description;
     private Date dateOccurred;
 
-    protected Income() {
+    public Income() {
     }
 
-    protected Income(BigDecimal amount, IncomeType incomeType, String description, Date dateOccurred) {
+    public Income(BigDecimal amount, IncomeType incomeType, String description, Date dateOccurred) {
         this.amount = amount;
         this.incomeType = incomeType;
         this.description = description;
