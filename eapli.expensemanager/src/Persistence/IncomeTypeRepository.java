@@ -26,5 +26,9 @@ public class IncomeTypeRepository {
 	public void save(IncomeType incomeType) {
 		list.add(incomeType);
 	}
+      
+        public List getIncomeType() {
+                return list;
+        }
 	
 }
