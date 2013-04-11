@@ -23,4 +23,8 @@ public class IncomeRepository {
     public void save(Income income) {
         list.add(income);
     }
+    
+    public List<Income> getIncomes(){
+    	return list;
+    }
 }

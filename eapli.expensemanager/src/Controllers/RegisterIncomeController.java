@@ -23,15 +23,16 @@ public class RegisterIncomeController {
     IncomeTypeRepository incomeTypeRepository;
     
     public RegisterIncomeController() {
+    	incomeTypeRepository = IncomeTypeRepository.getInstance();
     }
     
-    public List getIncomesType(){
+    public List<IncomeType> getIncomesType(){
         
-        return incomeTypeRepository.getIncomeType();
+        return incomeTypeRepository.getIncomeTypes();
     }
     
     public void createIncome(BigDecimal amount, IncomeType incomeType, String what, Date date) {
         CheckingAccount checkingAccount = new CheckingAccount();
-        checkingAccount.createIncome(amount, incomeType, what, date);
+        checkingAccount.add(new Income(amount, incomeType, what, date));
     }
 }

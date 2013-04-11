@@ -25,7 +25,7 @@ public class RegisterIncomeUI {
 		controller = new RegisterIncomeController();
 		System.out.println("* * *  REGISTER AN INCOME  * * *\n");
                 
-                 BigDecimal amount = new BigDecimal(readAmount());
+                 BigDecimal amount = readAmount();
                  Date date = readDate();
                  String what = readDescription();
                  
@@ -37,8 +37,8 @@ public class RegisterIncomeUI {
 		System.out.println("New Income Recorded.");
 	}
     
-    private String readAmount(){
-        return Console.readLine("Amount:");
+    private BigDecimal readAmount(){
+        return new BigDecimal(Console.readDouble("Amount:"));
     }
     
     private Date readDate(){
@@ -61,9 +61,8 @@ public class RegisterIncomeUI {
 
         int option = Console.readInteger("Please choose a option");
         
-        if(option>0 && option < listIncomeType.size()){
+        if(option>0 && option <= listIncomeType.size()){
             return listIncomeType.get(option-1);
-        }
-        return null;
+        } else return selectIncomeType(listIncomeType);
     }
 }
