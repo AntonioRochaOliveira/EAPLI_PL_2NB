@@ -103,4 +103,10 @@ public class Expense {
     public void setComment(String comment) {
         this.comment = comment;
     }
+    
+    @Override
+    public String toString()
+    {
+        return "Valor: "+amount.toString()+" Comentário: "+comment.toString(); //Incompleto
+    }
 }

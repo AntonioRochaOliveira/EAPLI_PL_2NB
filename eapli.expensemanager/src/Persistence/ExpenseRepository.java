@@ -41,7 +41,7 @@ public class ExpenseRepository implements IExpenseRepository {
     /**
      * @return the listTExpense
      */
-    public static List<TypeOfExpense> getListTExpense() {
+    public List<TypeOfExpense> getListTExpense() {
         return listTExpense;
     }
 
