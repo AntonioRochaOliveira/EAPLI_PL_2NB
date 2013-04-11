@@ -25,13 +25,14 @@ public class MonthlyExpenseUI {
         System.out.println("* * *  ***************  * * *\n");
         int mes;
         mes = Console.readInteger("What month:");
-        controller.getExpensesMonth(mes);
+        float despesa=controller.getExpensesMonth(mes);
 //Este array list deve ser criado no controler  MonthlyExpense
 //        listExpense = new ArrayList<Expense>();
 //        ;
+        System.out.println("Despesas do mes %d "+mes+"despesas do mes total %f"+despesa);
     }
 
-    
+  
    
     int option = Console.readInteger("Please choose a option");
 }
