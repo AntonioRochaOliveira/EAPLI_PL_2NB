@@ -45,11 +45,10 @@ public class MainMenu {
             case 4:
                 RegisterIncomeUI uiRI = new RegisterIncomeUI();
                 break;
-            /*
             case 5:
-                RegisterIncomeUI uiRI = new RegisterIncomeUI();
+                MonthlyExpenseUI uiME = new MonthlyExpenseUI();
                 break;
-            */   
+               
         }
        }while(option != 0);
     }
