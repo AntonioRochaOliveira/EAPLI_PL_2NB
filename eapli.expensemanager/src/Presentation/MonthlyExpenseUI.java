@@ -18,40 +18,26 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+public class MonthlyExpenseUI {
 
-
-   public class MonthlyExpenseUI {
-    
     MonthlyExpenseController controller;
     List<Expense> listExpense;
 
-    public MonthlyExpenseUI(){
-        
-		controller = new MonthlyExpenseController();
-		System.out.println("* * *  Monthly Expense  * * *\n");
-                
-                
-                 Date date = readDate();
-                 
-                 
-                 listExpense = new ArrayList<Expense>();
-                 ;
-                 
+    public MonthlyExpenseUI() {
 
-		
-	}
-    
-   
-    
-    private Date readDate(){
+        controller = new MonthlyExpenseController();
+        System.out.println("* * *  Monthly Expense  * * *\n");
+        System.out.println("* * *  ***************  * * *\n");    
+             
+
+//Este array list deve ser criado no controler  MonthlyExpense
+//        listExpense = new ArrayList<Expense>();
+//        ;
+    }
+
+    private Date readDate() {
         return Console.readDate("When:");
     }
-    
-   
-
-    
-
-        int option = Console.readInteger("Please choose a option");
-        
-       
+    int option = Console.readInteger("Please choose a option");
 }
+    
