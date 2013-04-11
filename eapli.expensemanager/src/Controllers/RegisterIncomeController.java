@@ -4,6 +4,7 @@
  */
 package Controllers;
 
+import Model.CheckingAccount;
 import Model.Income;
 import Model.IncomeType;
 import Persistence.IncomeRepository;
@@ -30,8 +31,7 @@ public class RegisterIncomeController {
     }
     
     public void createIncome(BigDecimal amount, IncomeType incomeType, String what, Date date) {
-        Income income = new Income(amount, incomeType, what, date);
-        IncomeRepository repo = new IncomeRepository();
-        repo.save(income);
+        CheckingAccount checkingAccount = new CheckingAccount();
+        checkingAccount.createIncome(amount, incomeType, what, date);
     }
 }
