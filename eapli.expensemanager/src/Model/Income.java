@@ -24,5 +24,9 @@ public class Income {
         this.description = description;
         this.dateOccurred = dateOccurred;
     }
+    
+    public BigDecimal getAmount() {
+        return amount;
+    }
 }
 
