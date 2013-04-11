@@ -27,17 +27,17 @@ public class MonthlyExpenseUI {
 
         controller = new MonthlyExpenseController();
         System.out.println("* * *  Monthly Expense  * * *\n");
-        System.out.println("* * *  ***************  * * *\n");    
-             
+        System.out.println("* * *  ***************  * * *\n");
+
 
 //Este array list deve ser criado no controler  MonthlyExpense
 //        listExpense = new ArrayList<Expense>();
 //        ;
     }
 
-    private Date readDate() {
-        return Console.readDate("When:");
+    private int readMonth() {
+        return Console.readInteger("What month:");
     }
+    
     int option = Console.readInteger("Please choose a option");
 }
-    
