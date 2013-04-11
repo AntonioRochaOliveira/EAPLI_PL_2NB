@@ -27,7 +27,7 @@ public class ExpensesManagement {
         
 
         for (Expense e : ExpenseRepository.getListExpense()) {
-            if(DateTime.getDateDiff(e.getDateOccurred(), todayDate, TimeUnit.DAYS) < 7 ) {         
+            if(DateTime.getDateDiff(e.getDate(), todayDate, TimeUnit.DAYS) < 7 ) {         
                 weekExpense = weekExpense.add(e.getAmount());
             }
             
