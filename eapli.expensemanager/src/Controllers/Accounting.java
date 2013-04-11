@@ -41,7 +41,7 @@ public class Accounting {
         BigDecimal amount;
         
         //Get all expenses from ExpensesRepository
-        List<Expense> listExpense=repository.getExpenses();
+        List<Expense> listExpense=repository.getListExpense();
         
         for(int i=0;i<listExpense.size(); i++){
             
@@ -63,7 +63,7 @@ public class Accounting {
         BigDecimal amount;
         
          //Get all incomes from IncomesRepository
-        List<Income> listIncome=repository.getIncomes();
+        List<Income> listIncome=repository.getListIncome();
         
         for(int i=0;i<listIncome.size(); i++){
             
