@@ -24,7 +24,11 @@ class ExpenseRegisterUI {
         BigDecimal amount = new BigDecimal(value);
         
         ExpenseRegisterController controller = new ExpenseRegisterController();
-        controller.registerExpense(what, date, amount);
+        
+        //comentei chamada ao metodo .registerExpense porque não corresponde á declaração:
+        //Bruno Flávio:
+        //controller.registerExpense(what, date, amount);
+        System.err.println("ExpenseRegisterUI.java:31!! Ver comentário.");
         
         System.out.println("expense recorded.");
     }

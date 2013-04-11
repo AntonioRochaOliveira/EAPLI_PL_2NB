@@ -14,17 +14,20 @@ import java.util.List;
  */
 public class IncomeRepository {
 
-    private List<Income> list;
+    private static List<Income> listIncome=new ArrayList<Income>();
 
     public IncomeRepository() {
-        list = new ArrayList<Income>();
+        listIncome = new ArrayList<Income>();
     }
 
     public void save(Income income) {
-        list.add(income);
+        if (income == null) {
+                throw new IllegalArgumentException();
+        }
+        getListIncome().add(income);
+    }
+    public static List<Income> getListIncome(){
+        return listIncome;
     }
     
-    public List<Income> getIncomes(){
-    	return list;
-    }
 }

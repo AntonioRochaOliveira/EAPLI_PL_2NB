@@ -25,8 +25,10 @@ public class Income {
         this.dateOccurred = dateOccurred;
     }
 
+
 	public BigDecimal getAmount() {
 		return amount;
 	}
+
 }
 

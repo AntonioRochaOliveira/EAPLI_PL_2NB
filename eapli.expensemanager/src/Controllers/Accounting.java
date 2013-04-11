@@ -34,15 +34,13 @@ public class Accounting {
     
     public float getExpensesTotal(){
         
-        //New Object ExpensesRepository
-        ExpenseRepository repository=new ExpenseRepository();
-        
+      
         float sum=0.0f;
         Expense expense;
         BigDecimal amount;
         
         //Get all expenses from ExpensesRepository
-        List<Expense> listExpense=repository.getExpenses();
+        List<Expense> listExpense=ExpenseRepository.getListExpense();
         
         for(int i=0;i<listExpense.size(); i++){
             
@@ -56,15 +54,12 @@ public class Accounting {
     
     public float getIncomesTotal(){
         
-        //New Object IncomeRepository
-        IncomeRepository repository=new IncomeRepository();
-        
         float sum=0.0f;
         Income income;
         BigDecimal amount;
         
          //Get all incomes from IncomesRepository
-        List<Income> listIncome=repository.getIncomes();
+        List<Income> listIncome=IncomeRepository.getListIncome();
         
         for(int i=0;i<listIncome.size(); i++){
             
