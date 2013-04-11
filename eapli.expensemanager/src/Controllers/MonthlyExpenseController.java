@@ -24,24 +24,14 @@ public class MonthlyExpenseController {
         
     }
     
-    public void expensesList(int mes){
-        
-        List<Expense> expenses = new ArrayList<Expense>();
-        ExpenseRepository repo = new ExpenseRepository();
-        expenses = repo.getListExpense();
-        Accounting b = new Accounting();
-        //b.groupByMonth(mes);//conta corrente vai tratar do filtro de despesas por mes
-    }
- 
     public float getExpensesMonth(int mes){
-        ExpenseRepository repository=new ExpenseRepository();
       
         BigDecimal amount;
         float sum=0.0f;
         Expense expense;
         Date data;
         
-        List<Expense> listExpense=repository.getListExpense();
+        List<Expense> listExpense=ExpenseRepository.getListExpense();
         
         for(int i=0;i<listExpense.size(); i++){
        
@@ -57,6 +47,5 @@ public class MonthlyExpenseController {
         }
         return sum;
     }
-    
     
 }
