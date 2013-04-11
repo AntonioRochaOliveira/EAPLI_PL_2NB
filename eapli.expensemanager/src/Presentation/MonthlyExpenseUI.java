@@ -9,6 +9,7 @@ package Presentation;
  * @author João
  */
 import Controllers.MonthlyExpenseController;
+import Model.Expense;
 
 import Model.IncomeType;
 import eapli.util.Console;
@@ -22,7 +23,7 @@ import java.util.List;
    public class MonthlyExpenseUI {
     
     MonthlyExpenseController controller;
-    List<IncomeType> listIncomeType;
+    List<Expense> listExpense;
 
     public MonthlyExpenseUI(){
         
@@ -31,13 +32,12 @@ import java.util.List;
                 
                 
                  Date date = readDate();
-                 String what = readDescription();
                  
-                 listIncomeType = new ArrayList<IncomeType>();
+                 
+                 listExpense = new ArrayList<Expense>();
                  ;
-                 IncomeType incomeType = selectIncomeType(listIncomeType);
+                 
 
-		//controller.createMonthlyExpense( incomeType, what, date);
 		
 	}
     
@@ -47,25 +47,11 @@ import java.util.List;
         return Console.readDate("When:");
     }
     
-    private String readDescription(){
-            return Console.readLine("Description:");
-    }
+   
 
-    private IncomeType selectIncomeType(List<IncomeType> listIncomeType) {
-        
-        System.out.println("===================");
-        System.out.println("  INCOME TYPES  ");
-        System.out.println("===================\n");
-
-        for (int i=0; i< listIncomeType.size();i++){
-            System.out.println((i+1) + ". "+ listIncomeType.get(i).getName());
-        }
+    
 
         int option = Console.readInteger("Please choose a option");
         
-        if(option>0 && option < listIncomeType.size()){
-            return listIncomeType.get(option-1);
-        }
-        return null;
-    }
+       
 }
