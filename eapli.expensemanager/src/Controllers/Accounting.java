@@ -18,6 +18,10 @@ public class Accounting {
     public Accounting(){}
     
     //Methods
+    public void viewBalance() {
+        System.out.println("\n\t O Seu Salto é : " + getBalance()+"\n");
+    }
+    
     public float getBalance(){
         
         float expenses, incomes;                 
