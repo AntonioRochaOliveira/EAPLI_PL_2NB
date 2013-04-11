@@ -10,12 +10,7 @@ package Presentation;
  */
 import Controllers.MonthlyExpenseController;
 import Model.Expense;
-
-import Model.IncomeType;
 import eapli.util.Console;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class MonthlyExpenseUI {
@@ -28,16 +23,16 @@ public class MonthlyExpenseUI {
         controller = new MonthlyExpenseController();
         System.out.println("* * *  Monthly Expense  * * *\n");
         System.out.println("* * *  ***************  * * *\n");
-
-
+        int mes;
+        mes = Console.readInteger("What month:");
+        float despesa=controller.getExpensesMonth(mes);
 //Este array list deve ser criado no controler  MonthlyExpense
 //        listExpense = new ArrayList<Expense>();
 //        ;
+        System.out.println("Despesas do mes %d "+mes+"despesas do mes total %f"+despesa);
     }
 
-    private int readMonth() {
-        return Console.readInteger("What month:");
-    }
-    
+  
+   
     int option = Console.readInteger("Please choose a option");
 }

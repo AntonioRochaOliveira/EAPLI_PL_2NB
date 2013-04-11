@@ -57,10 +57,7 @@ public class MainMenu {
                 break;
             case 7:
                 Accounting a = new Accounting();
-                //comentei a chamada a viewBalance() porque não está definida.
-                //Bruno Flávio.
-                //a.viewBalance();
-                System.err.println("MainMenu.java:63: Ver comentário");
+                System.out.println("O saldo atual é "+a.getBalance());
                 break;
                
         }

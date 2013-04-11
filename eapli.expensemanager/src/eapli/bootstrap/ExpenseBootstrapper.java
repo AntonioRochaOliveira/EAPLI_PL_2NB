@@ -4,9 +4,7 @@
  */
 package eapli.bootstrap;
 
-import Model.Expense;
 import Persistence.ExpenseRepository;
-import java.math.BigDecimal;
 
 /**
  *
