@@ -31,7 +31,7 @@ class ExpenseRegisterUI {
         List<TypeOfExpense> lista = new ArrayList<TypeOfExpense>();
         lista = eR.getListTExpense();
         int i;
-        for(i = 0; i <= lista.size(); i++)
+        for(i = 0; i < lista.size(); i++)
         {
             System.out.println(i+1+":"+lista.get(i));
         }
