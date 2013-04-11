@@ -11,41 +11,95 @@ import java.util.Date;
 
 /**
  *
- * @author Paulo Gandra Sousa
+ * @author Márcio Martins
  */
 
 public class Expense {
     
-    private String description;   
-    private Date dateOccurred;
-    private BigDecimal amount;
-       
     
+    private BigDecimal amount;
+    private TypeOfExpense type;
+    private Date date;
+    private PayMode payM;
+    private String comment; 
     protected Expense() {}
     
-    public Expense( String description, Date dateOccurred, BigDecimal amount) {
-        if (description == null || dateOccurred == null || amount == null) {
-            throw new IllegalArgumentException();
-        }
-        // cannot record a negative expense or a zero EUR expense
-        if (amount.signum() == -1 || amount.signum() ==  0) {
-            throw new IllegalArgumentException();
-        }
-        this.description = description;
-        this.dateOccurred = dateOccurred;
-        this.amount = amount;
+    public Expense(BigDecimal amount, TypeOfExpense type, Date date, PayMode payM, String comment)
+    {
+        setAmount(amount);
+        setType(type);
+        setDate(date);
+        setPayM(payM);
+        setComment(comment);
     }
     
-    public Expense( String description, int year, int month, int day, BigDecimal amount) {
-        this( description, DateTime.newDate(year, month, day), amount);
-    }
-    
+    /**
+     * @return the amount
+     */
     public BigDecimal getAmount() {
         return amount;
     }
 
-    public Date getDateOccurred() {
-        return dateOccurred;
+    /**
+     * @param amount the amount to set
+     */
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
     }
-   
+
+    /**
+     * @return the type
+     */
+    public TypeOfExpense getType() {
+        return type;
+    }
+
+    /**
+     * @param type the type to set
+     */
+    public void setType(TypeOfExpense type) {
+        this.type = type;
+    }
+
+    /**
+     * @return the date
+     */
+    public Date getDate() {
+        return date;
+    }
+
+    /**
+     * @param date the date to set
+     */
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    /**
+     * @return the payM
+     */
+    public PayMode getPayM() {
+        return payM;
+    }
+
+    /**
+     * @param payM the payM to set
+     */
+    public void setPayM(PayMode payM) {
+        this.payM = payM;
+    }
+
+    /**
+     * @return the comment
+     */
+    public String getComment() {
+        return comment;
+    }
+
+    /**
+     * @param comment the comment to set
+     */
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 }
