@@ -82,14 +82,14 @@ public class Accounting {
     //Sets the inicial balance
     public void setValue(BigDecimal inicial){
 
-        StartingBalanceRepository balanceRepository=new StartingBalanceRepository();
+        StartingBalanceRepository balanceRepository= StartingBalanceRepository.instance();
         balanceRepository.setValue(inicial);
     }
     
     //Gets the initial balance
     public BigDecimal getValue(){
         
-        StartingBalanceRepository balanceRepository=new StartingBalanceRepository();
+        StartingBalanceRepository balanceRepository= StartingBalanceRepository.instance();
         
         return balanceRepository.getValue();
     }
