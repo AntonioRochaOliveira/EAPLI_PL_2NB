@@ -12,6 +12,8 @@ import eapli.util.Console;
  */
 public class MainMenu {
     public void mainLoop() {
+        int option;
+        do{
         System.out.println("===================");
         System.out.println("  EXPENSE MANAGER  ");
         System.out.println("===================\n");
@@ -20,9 +22,11 @@ public class MainMenu {
         System.out.println("2. Register income type");
         System.out.println("3. Register expense type");
         System.out.println("4. Register an Income");
+        System.out.println("5. View Month Expenses");
         System.out.println("0. Exit\n\n");
         
-        int option = Console.readInteger("Please choose a option");
+        option = Console.readInteger("Please choose a option");
+        
         switch (option) {
             case 0: 
                 System.out.println("bye bye ...");
@@ -41,7 +45,12 @@ public class MainMenu {
             case 4:
                 RegisterIncomeUI uiRI = new RegisterIncomeUI();
                 break;
-                
+            /*
+            case 5:
+                RegisterIncomeUI uiRI = new RegisterIncomeUI();
+                break;
+            */   
         }
+       }while(option != 0);
     }
 }
