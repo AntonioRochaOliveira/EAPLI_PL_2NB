@@ -4,6 +4,7 @@
  */
 package Controllers;
 import Model.Expense;
+import Model.Income;
 import Persistence.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -33,15 +34,13 @@ public class Accounting {
     
     public float getExpensesTotal(){
         
-        //New Object ExpensesRepository
-        ExpenseRepository repository=new ExpenseRepository();
-        
+      
         float sum=0.0f;
         Expense expense;
         BigDecimal amount;
         
         //Get all expenses from ExpensesRepository
-        List<Expense> listExpense=repository.getListExpense();
+        List<Expense> listExpense=ExpenseRepository.getListExpense();
         
         for(int i=0;i<listExpense.size(); i++){
             
@@ -54,21 +53,17 @@ public class Accounting {
     }
     
     public float getIncomesTotal(){
-        
-        //New Object IncomeRepository
-        IncomeRepository repository=new IncomeRepository();
-        
         float sum=0.0f;
-        Expense expense;
+        Income income;
         BigDecimal amount;
         
          //Get all incomes from IncomesRepository
-        List<Income> listIncome=repository.getListIncome();
+        List<Income> listIncome=IncomeRepository.getListIncome();
         
         for(int i=0;i<listIncome.size(); i++){
             
-            expense=(Expense)listIncome.get(i);
-            amount=expense.getAmount();
+            income=(Income)listIncome.get(i);
+            amount=income.getAmount();
             sum+=amount.floatValue();            
         }
         
