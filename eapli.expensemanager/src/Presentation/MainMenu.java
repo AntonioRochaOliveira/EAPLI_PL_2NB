@@ -4,8 +4,8 @@
  */
 package Presentation;
 
+import Controllers.Accounting;
 import eapli.util.Console;
-import.Controllers.Accounting;
 
 /**
  *
@@ -56,8 +56,8 @@ public class MainMenu {
                 uiSB.mainLoop();
                 break;
             case 7:
-                Accounting saldo = new Accounting();
-                saldo.viewBalance();
+                Accounting a = new Accounting();
+                a.viewBalance();
                 break;
                
         }
