@@ -22,6 +22,7 @@ public class Expense {
     private Date date;
     private PayMode payM;
     private String comment; 
+   
     protected Expense() {}
     
     public Expense(BigDecimal amount, TypeOfExpense type, Date date, PayMode payM, String comment)
