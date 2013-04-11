@@ -9,6 +9,7 @@ import Persistence.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  *
  * @author Fábio Mendonça/Fernando Silva
@@ -18,8 +19,8 @@ public class Accounting {
     public Accounting(){}
     
     //Methods
-    public void viewBalance() {
-        System.out.println("\n\t O Seu Salto é : " + getBalance()+"\n");
+    public void viewBalance() {       
+        System.out.println("\n\t O Seu Salto é : " + getBalance()+"€\n");        
     }
     
     public float getBalance(){
