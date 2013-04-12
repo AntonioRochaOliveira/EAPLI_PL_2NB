@@ -4,6 +4,7 @@
  */
 package Controllers;
 
+import Model.CheckingAccount;
 import java.math.BigDecimal;
 
 /**
@@ -17,13 +18,15 @@ public class StartingBalanceController {
     
     public void setValue(BigDecimal amount)
     {
-        Accounting account = new Accounting();
+        CheckingAccount account = new CheckingAccount();
         account.setValue(amount);
     }
     
+    
+    
     public BigDecimal getValue()
     {
-        Accounting account = new Accounting();
+        CheckingAccount account = new CheckingAccount();
         return account.getValue();
     }
 }
