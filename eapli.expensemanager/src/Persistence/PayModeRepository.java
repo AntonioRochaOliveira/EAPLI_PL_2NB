@@ -2,7 +2,9 @@
 package Persistence;
 
 import Model.PayMode;
+import Model.PaymentType;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -19,11 +21,13 @@ public class PayModeRepository implements IPayModeRepository{
 		if (instance == null)
 			instance = new PayModeRepository();
 		
+                
 		return instance;
 	}
 	
 	private PayModeRepository(){
 		list = new ArrayList<PayMode>();
+                list.add(new PayMode(new PaymentType("Cash"),new HashMap<String,Object>()));
 	}
 
 	public void save(PayMode paymode) {
