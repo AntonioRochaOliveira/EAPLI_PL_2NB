@@ -37,7 +37,8 @@ class ExpenseRegisterUI {
             {
                 System.out.println(i+1+":"+lista.get(i));
             }
-            type = Console.readInteger("Select index:");  
+            type = Console.readInteger("Select index:"); 
+            type--;
         }else{
             String op;
             op = Console.readLine("Do not have any type of expense created, want to creat? [y]/[n]");
