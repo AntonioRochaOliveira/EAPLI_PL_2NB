@@ -17,10 +17,13 @@ import java.util.List;
 
 /**
  *
- * @author Paulo Gandra Sousa
+ * @author Márcio Martins & Miguel Ribeiro
  */
 class ExpenseRegisterUI {
     public void mainLoop() {
+        
+        ExpenseRegisterController controller = new ExpenseRegisterController();
+        
         System.out.println("* * *  REGISTER AN EXPENSE  * * *\n");
         
         double value = Console.readDouble("Amount:");
@@ -29,7 +32,7 @@ class ExpenseRegisterUI {
         System.out.println("Select type of expense");
         ExpenseRepository eR = new ExpenseRepository();
         List<TypeOfExpense> lista = new ArrayList<TypeOfExpense>();
-        lista = eR.getListTExpense();
+        lista = controller.getExpenseTypes();
         int type; /* Index of type expense */
         if(lista.size() > 0)
         {
@@ -67,7 +70,7 @@ class ExpenseRegisterUI {
         String what = Console.readLine("Comment:");
         
         
-        ExpenseRegisterController controller = new ExpenseRegisterController();
+        
 
         controller.registerExpense(amount,lista.get(type),date,null,what);
      
