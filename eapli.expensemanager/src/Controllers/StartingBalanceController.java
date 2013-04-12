@@ -22,6 +22,8 @@ public class StartingBalanceController {
         account.setValue(amount);
     }
     
+    
+    
     public BigDecimal getValue()
     {
         CheckingAccount account = new CheckingAccount();
