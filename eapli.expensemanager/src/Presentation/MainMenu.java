@@ -57,7 +57,7 @@ public class MainMenu {
                 uiSB.mainLoop();
                 break;
             case 7:
-                Accounting a = new Accounting();
+                CheckingAccount a = new CheckingAccount();
                 System.out.println("O saldo atual é "+a.getBalance());
                 break;
             case 8:

@@ -10,15 +10,13 @@ package Controllers;
  */
 public class BalanceController {
     
-    public BalanceController(){
-        
-        
+    public BalanceController(){               
     }
     
     //Methods
     public float getBalance(){
         
-        Accounting valuesCalculator=new Accounting();
+        final CheckingAccount valuesCalculator=new CheckingAccount();
         
         return valuesCalculator.getBalance();
     }
