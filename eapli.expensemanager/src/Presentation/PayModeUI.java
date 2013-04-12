@@ -15,14 +15,12 @@ import java.util.List;
 public class PayModeUI {
 
     public PayModeUI() {
-    }
-    
-    public void mainLoop() {
-        System.out.println("* * *  REGISTER A PAYMENT MODE  * * *\n");
+         System.out.println("* * *  REGISTER A PAYMENT MODE  * * *\n");
        
         RegisterPayModeController controller = new RegisterPayModeController(this); 
         System.out.println("Payment Mode recorded.");
     }
+    
     
     public String getPaymentType(List<String> types) {
         System.out.print("Payment Types\n");
