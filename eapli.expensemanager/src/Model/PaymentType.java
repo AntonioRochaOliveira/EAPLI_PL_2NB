@@ -4,7 +4,10 @@
  */
 package Model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,32 +17,27 @@ import java.util.Map;
 public class PaymentType {
 
     String name;
-    Map<String, Object> aditionalInformation = new HashMap<String, Object>();
+    Map<String,String>aditionalInformationNames;
     
     public PaymentType(String name) {
+        this.aditionalInformationNames = new HashMap<String,String>();
         this.name = name;
     }
     
     public PaymentType(){
+        this.aditionalInformationNames = new HashMap<String,String>();
         
     }
 
-    public void addAditionalInformation(String key, Object value) {
-        aditionalInformation.put(key, value);
+    public void addAditionalInformationName(String key,String value) {
+        aditionalInformationNames.put(key,value);
     }
 
-    @Override
-    public String toString() {
-             StringBuilder temp=new StringBuilder();
-             temp.append(name);
-        for (String key : aditionalInformation.keySet())
-            {
-            temp.append("\n\t")
-                .append(key)
-                .append(" - ")
-                .append(aditionalInformation.get(key))
-                .append("\n");
-            }  
-      return temp.toString();
+    public Map<String, String> getAditionalInformationNames() {
+        return aditionalInformationNames;
+    }
+
+    public String getName() {
+        return name;
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @author Castro
  */
-public class PayModeRepository {
+public class PayModeRepository implements IPayModeRepository{
     private static PayModeRepository instance = null;
 	
 	private List<PayMode> list;

@@ -4,6 +4,10 @@
  */
 package Model;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 /**
  *
  * @author Miguel Ribeiro
@@ -11,55 +15,31 @@ package Model;
 public class PayMode {
     //class member
     private PaymentType payT;
-    private String description;
-    private long number;
+    Map<String, Object> aditionalInformation;
     
-    PayMode()
+    public PayMode(PaymentType paymentType,Map<String, Object> aditionalInformation)
     {
-        payT = new PaymentType();
-        description = "Sem descrição";
+       payT=paymentType;
+       this.aditionalInformation=aditionalInformation;
     }
     
-    PayMode(PaymentType p, String description)
-    {
-        payT = p;
-        this.description = description;
-    }
-
-    /**
-     * @return the payT
-     */
     public PaymentType getPayT() {
         return payT;
     }
 
-    /**
-     * @param payT the payT to set
-     */
-    public void setPayT(PaymentType payT) {
-        this.payT = payT;
-    }
+    @Override
+    public String toString() {
+         StringBuilder temp=new StringBuilder();
+         temp.append(payT.name);
 
-    public void setNumber(int number){
-        this.number = number;
-    }
-    /**
-     * @return the description
-     */
-    public String getDescription() {
-        return description;
-    }
-    
-    public long getNumber(){
-        return number;
-    }
-    /**
-     * @param description the description to set
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    
-    
-    
+        for (String key : aditionalInformation.keySet())
+            {
+            temp.append("| ")
+                .append(key)
+                .append(" ")
+                .append(aditionalInformation.get(key))
+                .append(" |");
+            }
+        return temp.toString(); 
+    } 
 }
