@@ -12,9 +12,19 @@ import java.util.List;
  *
  * @author jverde
  */
-public class IncomeRepository {
+public class IncomeRepository implements IIncomeRepository {
+    
+    private static IncomeRepository instance = null;
 
-    private static List<Income> listIncome=new ArrayList<Income>();
+    private static List<Income> listIncome;
+    
+    public static synchronized IncomeRepository getInstance() {
+		
+		if (instance == null)
+			instance = new IncomeRepository();
+		
+		return instance;
+	}
 
     public IncomeRepository() {
         listIncome = new ArrayList<Income>();
@@ -26,6 +36,7 @@ public class IncomeRepository {
         }
         getListIncome().add(income);
     }
+    
     public static List<Income> getListIncome(){
         return listIncome;
     }
