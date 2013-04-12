@@ -2,7 +2,7 @@ package Model;
 
 public class TypeOfExpense {
 
-    String description;
+    private String description;
 
     protected TypeOfExpense() {
     }
@@ -13,5 +13,24 @@ public class TypeOfExpense {
         }
         this.description = description;
     }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
    
+    @Override
+    public String toString()
+    {
+        return "Tipo de Despesa: "+getDescription();
+    }
 }
