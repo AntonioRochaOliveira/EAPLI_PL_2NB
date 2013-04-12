@@ -23,8 +23,8 @@ public class PayMode {
        this.aditionalInformation=aditionalInformation;
     }
     
-    public PaymentType getPayT() {
-        return payT;
+    public String getPaymentTypeName() {
+        return payT.getName();
     }
 
     @Override

@@ -22,7 +22,7 @@ public class StartingBalanceUI {
         StartingBalanceController controller = new StartingBalanceController();
         System.out.println("Current starting balance: "+ controller.getValue().toString());
         double value = Console.readDouble("\n Amount:");
-        
+
         BigDecimal amount = new BigDecimal(value);
         controller.setValue(amount);
     }
