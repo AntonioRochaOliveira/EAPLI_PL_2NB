@@ -10,7 +10,7 @@ public class TypeOfExpenseController {
     
     public void TypeOfExpense(String description) {
         TypeOfExpense Texpense = new TypeOfExpense( description);
-        ExpenseRepository repoToE = new ExpenseRepository();
+        TypeOfExpenseRepository repoToE = new TypeOfExpenseRepository();
         repoToE.save(Texpense);
     }
  
