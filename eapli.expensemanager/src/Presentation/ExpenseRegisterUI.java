@@ -60,17 +60,17 @@ class ExpenseRegisterUI {
         
         
         
-        Date date = Console.readDate("Data da Despesa: \"dd-MM-yyyy\"");
+        Date date = Console.readDate("Date of expense: \"dd-MM-yyyy\"");
         //PayMode pM = new PayMode();//Input tipo de pagamento
         //Input detalhes de pagamento
         
-        String what = Console.readLine("Comentário:");
+        String what = Console.readLine("Comment:");
         
         
         ExpenseRegisterController controller = new ExpenseRegisterController();
 
         controller.registerExpense(amount,lista.get(type),date,null,what);
      
-        System.out.println("Despesa guardada com sucesso");
+        System.out.println("Expense saved");
     }
 }
