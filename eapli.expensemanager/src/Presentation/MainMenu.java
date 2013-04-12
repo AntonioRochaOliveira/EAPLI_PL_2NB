@@ -4,7 +4,6 @@
  */
 package Presentation;
 
-import Controllers.CheckingAccount;
 import eapli.util.Console;
 
 /**
