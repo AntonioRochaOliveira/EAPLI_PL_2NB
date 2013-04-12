@@ -30,21 +30,18 @@ public class PaymentTypeRepository implements IPaymentTypeRepository {
                 PaymentType check = new PaymentType("Check");
                 check.addAditionalInformationName("Number","Integer");
                 
-                PaymentType cash = new PaymentType("Cash");
-                
                 PaymentType credit = new PaymentType("Credit card");
                 credit.addAditionalInformationName("Bank","String");
                 credit.addAditionalInformationName("Number","Integer");
-                credit.addAditionalInformationName("Creation Date","Date");
+                credit.addAditionalInformationName("Validation Date","Date");
                 
                 PaymentType debit = new PaymentType("Debit Card");
                 debit.addAditionalInformationName("Bank","String");
                 debit.addAditionalInformationName("Number","Integer");
-                debit.addAditionalInformationName("Creation Date","Date");
+                debit.addAditionalInformationName("Validation","Date");
                 
                 list.add(debit);
                 list.add(credit);
-                list.add(cash);
                 list.add(check);
 	}
 
