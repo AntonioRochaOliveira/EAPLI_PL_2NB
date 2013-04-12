@@ -21,8 +21,9 @@ import java.util.Map;
 public class RegisterPayModeController {
 
     public RegisterPayModeController() {
-        List<PaymentType> typeList = PaymentTypeRepository.getInstance().getAll();
-        PayModeUI ui = new PayModeUI();        
+        List<PaymentType> typeList = PaymentTypeRepository.getInstance().getPaymentType();
+        PayModeUI ui = new PayModeUI();
+        
         LinkedList<String> types = new LinkedList();
         for (PaymentType s : typeList) {
             types.add(s.getName());
@@ -45,7 +46,7 @@ public class RegisterPayModeController {
     }
 
     public RegisterPayModeController(PayModeUI ui) {
-        List<PaymentType> typeList = PaymentTypeRepository.getInstance().getAll();
+        List<PaymentType> typeList = PaymentTypeRepository.getInstance().getPaymentType();
         
         LinkedList<String> types = new LinkedList();
         for (PaymentType s : typeList) {

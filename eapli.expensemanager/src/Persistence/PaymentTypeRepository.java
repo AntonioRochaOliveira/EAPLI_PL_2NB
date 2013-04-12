@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author xiko
  */
-public class PaymentTypeRepository implements IPaymentRepository {
+public class PaymentTypeRepository implements IPaymentTypeRepository {
     private static PaymentTypeRepository instance = null;
 	
 	private List<PaymentType> list;
@@ -30,6 +30,8 @@ public class PaymentTypeRepository implements IPaymentRepository {
                 PaymentType check = new PaymentType("Check");
                 check.addAditionalInformationName("Number","Integer");
                 
+                PaymentType cash = new PaymentType("Cash");
+                
                 PaymentType credit = new PaymentType("Credit card");
                 credit.addAditionalInformationName("Bank","String");
                 credit.addAditionalInformationName("Number","Integer");
@@ -42,19 +44,16 @@ public class PaymentTypeRepository implements IPaymentRepository {
                 
                 list.add(debit);
                 list.add(credit);
+                list.add(cash);
                 list.add(check);
 	}
 
-         @Override
-    public List<PaymentType> getAll() {
-          return list;
-          }
-
     @Override
-    public void save(Object obj) {
-        if (obj instanceof PaymentType)
-        list.add((PaymentType)obj);
-        else
-              throw new IllegalArgumentException();
-    }
+	public void save(PaymentType incomeType) {
+		list.add(incomeType);
+	}
+      
+        public List getPaymentType() {
+                return list;
+        }
 }
