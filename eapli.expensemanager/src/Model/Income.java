@@ -1,6 +1,5 @@
 package Model;
 
-import eapli.util.DateTime;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -24,9 +23,11 @@ public class Income {
         this.description = description;
         this.dateOccurred = dateOccurred;
     }
-    
-    public BigDecimal getAmount() {
-        return amount;
-    }
+
+
+	public BigDecimal getAmount() {
+		return amount;
+	}
+
 }
 

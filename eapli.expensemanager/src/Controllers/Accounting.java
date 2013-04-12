@@ -3,14 +3,14 @@
  * and open the template in the editor.
  */
 package Controllers;
-import Model.Expense;
-import Model.Income;
-import Persistence.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
+import Model.Expense;
+import Model.Income;
+import Persistence.ExpenseRepository;
+import Persistence.IncomeRepository;
+import Persistence.StartingBalanceRepository;
 /**
  *
  * @author Fábio Mendonça/Fernando Silva
@@ -20,10 +20,6 @@ public class Accounting {
     public Accounting(){}
     
     //Methods
-    public void viewBalance() {       
-        System.out.println("\n\t O Seu Salto é : " + getBalance()+"€\n");        
-    }
-    
     public float getBalance(){
         
         float expenses, incomes;                 
@@ -59,6 +55,7 @@ public class Accounting {
     }
     
     public float getIncomesTotal(){
+        
         float sum=0.0f;
         Income income;
         BigDecimal amount;
@@ -68,8 +65,8 @@ public class Accounting {
         
         for(int i=0;i<listIncome.size(); i++){
             
-            income=(Income)listIncome.get(i);
-            amount=income.getAmount();
+            income= listIncome.get(i);
+            amount= income.getAmount();
             sum+=amount.floatValue();            
         }
         

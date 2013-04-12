@@ -5,10 +5,15 @@
 package Presentation;
 
 import Controllers.ExpenseRegisterController;
+import Model.PayMode;
+import Model.TypeOfExpense;
+import Persistence.ExpenseRepository;
 
 import eapli.util.Console;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -18,14 +23,31 @@ class ExpenseRegisterUI {
     public void mainLoop() {
         System.out.println("* * *  REGISTER AN EXPENSE  * * *\n");
         
-        String what = Console.readLine("Description:");
-        Date date = Console.readDate("When:");
         double value = Console.readDouble("Amount:");
         BigDecimal amount = new BigDecimal(value);
         
-        ExpenseRegisterController controller = new ExpenseRegisterController();
-        controller.registerExpense(what, date, amount);
+        System.out.println("Selecione o tipo de despesa");
+        ExpenseRepository eR = new ExpenseRepository();
+        List<TypeOfExpense> lista = new ArrayList<TypeOfExpense>();
+        lista = eR.getListTExpense();
+        int i;
+        for(i = 0; i < lista.size(); i++)
+        {
+            System.out.println(i+1+":"+lista.get(i));
+        }
+        int type = Console.readInteger("Indice:");
         
+        Date date = Console.readDate("Data da Despesa:");
+        //PayMode pM = new PayMode();//Input tipo de pagamento
+        //Input detalhes de pagamento
+        
+        String what = Console.readLine("Comentário:");
+        
+        
+        ExpenseRegisterController controller = new ExpenseRegisterController();
+
+        controller.registerExpense(amount,lista.get(type),date,null,what);
+     
         System.out.println("expense recorded.");
     }
 }

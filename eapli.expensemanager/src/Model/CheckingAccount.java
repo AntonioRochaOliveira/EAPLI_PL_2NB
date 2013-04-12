@@ -4,10 +4,8 @@
  */
 package Model;
 
+import Persistence.ExpenseRepository;
 import Persistence.IncomeRepository;
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
 
 /**
  *
@@ -15,30 +13,19 @@ import java.util.List;
  */
 public class CheckingAccount {
     
-    private List list;
+	IncomeRepository incomeRepo;
+	ExpenseRepository expenseRepo;
     
-    public boolean createIncome(BigDecimal amount, IncomeType incomeType, String what, Date date) {
-        Income income = new Income(amount, incomeType, what, date);
-        if (add(income)){
-            try {
-                IncomeRepository repo = new IncomeRepository();
-                repo.save(income);
-            } catch (Exception e) {
-                System.out.print(e);
-            }
-            return true;
-        }
-        else
-            return false;
+    public CheckingAccount() {
+    	incomeRepo = new IncomeRepository();
+    	expenseRepo = new ExpenseRepository();
     }
     
-    private boolean add(Income income){
-        try {
-            this.list.add(income);
-            return true;
-        } catch (Exception e) {
-            System.out.print(e);
-            return false;
-        }
+    public void add(Income income){
+            incomeRepo.save(income);
+    }
+    
+    public void add(Expense expense) {
+    	expenseRepo.save(expense);
     }
 }

@@ -57,7 +57,7 @@ public class MainMenu {
                 break;
             case 7:
                 Accounting a = new Accounting();
-                a.viewBalance();
+                System.out.println("O saldo atual é "+a.getBalance());
                 break;
                
         }

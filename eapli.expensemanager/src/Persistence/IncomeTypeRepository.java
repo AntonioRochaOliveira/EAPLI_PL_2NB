@@ -27,8 +27,8 @@ public class IncomeTypeRepository {
 		list.add(incomeType);
 	}
       
-        public List getIncomeType() {
-                return list;
-        }
+    public List<IncomeType> getIncomeTypes() {
+        return list;
+    }
 	
 }

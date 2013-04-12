@@ -29,4 +29,5 @@ public class IncomeRepository {
     public static List<Income> getListIncome(){
         return listIncome;
     }
+    
 }
