@@ -4,6 +4,7 @@
  */
 package Persistence;
 import Model.TypeOfExpense;
+import java.util.List;
 
 /**
  *
@@ -12,5 +13,5 @@ import Model.TypeOfExpense;
 public interface ITypeOfExpenseRepository {
      void save(TypeOfExpense Texp);
     
-  //  List<TypeOfExpense> getAllTypeOfExpenses();  
+    List<TypeOfExpense> getAllTypeOfExpenses();  
 }
