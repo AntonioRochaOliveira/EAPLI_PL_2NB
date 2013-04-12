@@ -55,7 +55,6 @@ public class PayModeUI {
               if (classType.equals("Boolean")) {
             return Console.readBoolean(variableName);
         }
-        //Erro
-        return null;
+        throw new IllegalArgumentException();
     }
 }

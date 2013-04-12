@@ -2,14 +2,16 @@
 package Persistence;
 
 import Model.PayMode;
+import Model.PaymentType;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
  *
  * @author Castro
  */
-public class PayModeRepository implements IPayModeRepository{
+public class PayModeRepository implements IPaymentRepository{
     private static PayModeRepository instance = null;
 	
 	private List<PayMode> list;
@@ -24,13 +26,20 @@ public class PayModeRepository implements IPayModeRepository{
 	
 	private PayModeRepository(){
 		list = new ArrayList<PayMode>();
+                //For testing Purposes
+                list.add(new PayMode(new PaymentType("Cash"),new HashMap<String,Object>()));
 	}
 
-	public void save(PayMode paymode) {
-		list.add(paymode);
-	}
-      
-        public List getPayMode() {
-                return list;
-        }
+	      @Override
+    public List getAll() {
+          return list;
+          }
+
+    @Override
+    public void save(Object obj) {
+        if (obj instanceof PayMode)
+        list.add((PayMode)obj);
+        else
+              throw new IllegalArgumentException();
+    }
 }

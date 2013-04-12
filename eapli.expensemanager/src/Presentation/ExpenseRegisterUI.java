@@ -8,7 +8,7 @@ import Controllers.ExpenseRegisterController;
 import Model.PayMode;
 import Model.TypeOfExpense;
 import Persistence.ExpenseRepository;
-
+import Persistence.PayModeRepository;
 import eapli.util.Console;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -38,15 +38,25 @@ class ExpenseRegisterUI {
         int type = Console.readInteger("Indice:");
         
         Date date = Console.readDate("Data da Despesa:");
-        //PayMode pM = new PayMode();//Input tipo de pagamento
-        //Input detalhes de pagamento
+      
+        //Input tipo de pagamento
+        System.out.println("Selecione o Meio de Pagamento");
+        i=0;        
+        List<PayMode> payModeList = PayModeRepository.getInstance().getAll();
+         for(PayMode pm:payModeList)
+        {
+            System.out.print((i++)+":"+pm+"\n");
+        }
+        PayMode payMode = payModeList.get(Console.readInteger("Introduza a sua escolha:"));
+        
+        //Fim Input Tipo Pagamento
         
         String what = Console.readLine("Comentário:");
         
         
         ExpenseRegisterController controller = new ExpenseRegisterController();
 
-        controller.registerExpense(amount,lista.get(type),date,null,what);
+        controller.registerExpense(amount,lista.get(type),date,payMode,what);
      
         System.out.println("expense recorded.");
     }
