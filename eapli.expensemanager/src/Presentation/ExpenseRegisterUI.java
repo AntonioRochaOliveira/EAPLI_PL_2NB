@@ -26,18 +26,40 @@ class ExpenseRegisterUI {
         double value = Console.readDouble("Amount:");
         BigDecimal amount = new BigDecimal(value);
         
-        System.out.println("Selecione o tipo de despesa");
+        System.out.println("Select type of expense");
         ExpenseRepository eR = new ExpenseRepository();
         List<TypeOfExpense> lista = new ArrayList<TypeOfExpense>();
         lista = eR.getListTExpense();
-        int i;
-        for(i = 0; i < lista.size(); i++)
+        int type; /* Index of type expense */
+        if(lista.size() > 0)
         {
-            System.out.println(i+1+":"+lista.get(i));
+            for(int i = 0; i < lista.size(); i++)
+            {
+                System.out.println(i+1+":"+lista.get(i));
+            }
+            type = Console.readInteger("Select index:");  
+        }else{
+            String op;
+            op = Console.readLine("Do not have any type of expense created, want to creat? [y]/[n]");
+            while (!op.equalsIgnoreCase("y") && !op.equalsIgnoreCase("n"))
+            {
+                op = Console.readLine("Select correct option [y]/[n]");
+            }
+            if(op.equalsIgnoreCase("y"))
+            {
+                TypeOfExpenseUI uiTE = new TypeOfExpenseUI();
+                uiTE.mainLoop();
+                type = eR.getListTExpense().size() - 1;
+            }else{
+                System.out.println("Do not possible insert a expense without first create a type of expense");
+                System.out.println("This option will be exit!\n\n");
+                return;
+            }
         }
-        int type = Console.readInteger("Indice:");
         
-        Date date = Console.readDate("Data da Despesa:");
+        
+        
+        Date date = Console.readDate("Data da Despesa: \"dd-MM-yyyy\"");
         //PayMode pM = new PayMode();//Input tipo de pagamento
         //Input detalhes de pagamento
         
@@ -48,6 +70,6 @@ class ExpenseRegisterUI {
 
         controller.registerExpense(amount,lista.get(type),date,null,what);
      
-        System.out.println("expense recorded.");
+        System.out.println("Despesa guardada com sucesso");
     }
 }
