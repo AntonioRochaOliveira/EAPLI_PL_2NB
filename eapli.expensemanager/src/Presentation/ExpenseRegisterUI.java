@@ -17,60 +17,40 @@ import java.util.List;
 
 /**
  *
- * @author Paulo Gandra Sousa
+ * @author Márcio Martins & Miguel Ribeiro
  */
 class ExpenseRegisterUI {
     public void mainLoop() {
+        
+        ExpenseRegisterController controller = new ExpenseRegisterController();
+        
         System.out.println("* * *  REGISTER AN EXPENSE  * * *\n");
         
         double value = Console.readDouble("Amount:");
         BigDecimal amount = new BigDecimal(value);
         
-        System.out.println("Select type of expense");
+        System.out.println("Selecione o tipo de despesa");
         ExpenseRepository eR = new ExpenseRepository();
         List<TypeOfExpense> lista = new ArrayList<TypeOfExpense>();
-        lista = eR.getListTExpense();
+        lista = controller.getExpenseTypes();
         int type; /* Index of type expense */
         if(lista.size() > 0)
         {
-            for(int i = 0; i < lista.size(); i++)
-            {
-                System.out.println(i+1+":"+lista.get(i));
-            }
-            type = Console.readInteger("Select index:"); 
-            type--;
-        }else{
-            String op;
-            op = Console.readLine("Do not have any type of expense created, want to creat? [y]/[n]");
-            while (!op.equalsIgnoreCase("y") && !op.equalsIgnoreCase("n"))
-            {
-                op = Console.readLine("Select correct option [y]/[n]");
-            }
-            if(op.equalsIgnoreCase("y"))
-            {
-                TypeOfExpenseUI uiTE = new TypeOfExpenseUI();
-                uiTE.mainLoop();
-                type = eR.getListTExpense().size() - 1;
-            }else{
-                System.out.println("Do not possible insert a expense without first create a type of expense");
-                System.out.println("This option will be exit!\n\n");
-                return;
-            }
+            System.out.println(i+1+":"+lista.get(i));
         }
+        int type = Console.readInteger("Indice:");
         
-        
-        
-        Date date = Console.readDate("Date of expense: \"dd-MM-yyyy\"");
+        Date date = Console.readDate("Data da Despesa:");
         //PayMode pM = new PayMode();//Input tipo de pagamento
         //Input detalhes de pagamento
         
-        String what = Console.readLine("Comment:");
+        String what = Console.readLine("Comentário:");
         
         
-        ExpenseRegisterController controller = new ExpenseRegisterController();
+        
 
         controller.registerExpense(amount,lista.get(type),date,null,what);
      
-        System.out.println("Expense saved");
+        System.out.println("expense recorded.");
     }
 }

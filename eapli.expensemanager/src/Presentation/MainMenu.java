@@ -4,7 +4,6 @@
  */
 package Presentation;
 
-import Controllers.Accounting;
 import eapli.util.Console;
 
 /**
@@ -26,6 +25,7 @@ public class MainMenu {
         System.out.println("5. View Month Expenses");
         System.out.println("6. Start Balance");
         System.out.println("7. View Balance");
+        System.out.println("8. Register payment mode");
         System.out.println("0. Exit\n\n");
         
         option = Console.readInteger("Please choose a option");
@@ -56,8 +56,11 @@ public class MainMenu {
                 uiSB.mainLoop();
                 break;
             case 7:
-                Accounting a = new Accounting();
+                CheckingAccount a = new CheckingAccount();
                 System.out.println("O saldo atual é "+a.getBalance());
+                break;
+            case 8:
+               new PayModeUI();
                 break;
                
         }

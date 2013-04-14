@@ -3,22 +3,20 @@
  * and open the template in the editor.
  */
 package Controllers;
-
+import Model.CheckingAccount;
 /**
  *
  * @author Fábio Mendonça/Fernando Silva
  */
-public class BalanceController {
+public class BalanceController{
     
-    public BalanceController(){
-        
-        
+    public BalanceController(){               
     }
     
     //Methods
     public float getBalance(){
         
-        Accounting valuesCalculator=new Accounting();
+        CheckingAccount valuesCalculator=new CheckingAccount();
         
         return valuesCalculator.getBalance();
     }
