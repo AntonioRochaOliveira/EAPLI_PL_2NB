@@ -1,12 +1,13 @@
 package Controllers;
 
+import Model.CheckingAccount;
 import Model.IncomeType;
 import Persistence.IncomeTypeRepository;
 
-public class RegisterIncomeTypeController {
+public class RegisterIncomeTypeController extends BaseController{
 	
 	public RegisterIncomeTypeController(){
-		
+		super(new CheckingAccount());
 	}
 
 	public void regIncomeType(String name, String description) {
