@@ -1,6 +1,6 @@
 package Presentation;
 
-import java.util.concurrent.ConcurrentHashMap;
+import Controllers.BaseController;
 
 public class BaseUI {
 	BaseController controller;
