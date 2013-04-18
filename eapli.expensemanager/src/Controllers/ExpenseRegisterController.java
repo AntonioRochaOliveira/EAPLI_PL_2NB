@@ -5,7 +5,6 @@
 package Controllers;
 
 import Model.Expense;
-import Model.ExpensesManagement;
 import Model.PayMode;
 import Model.TypeOfExpense;
 
@@ -25,10 +24,7 @@ public class ExpenseRegisterController {
         Expense expense = new Expense(amount,type,date,payM,comment);
         ExpenseRepository repo = new ExpenseRepository();
         repo.save(expense);
-        
-        ExpensesManagement em = new ExpensesManagement();
-        
-        System.out.println("Gasto Semanal: " + em.getWeeklyExpense().toString());
+                             
     
     }
     
