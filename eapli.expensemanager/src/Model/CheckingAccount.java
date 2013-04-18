@@ -7,8 +7,12 @@ package Model;
 import Persistence.ExpenseRepository;
 import Persistence.IncomeRepository;
 import Persistence.StartingBalanceRepository;
+import eapli.util.DateTime;
 import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -100,4 +104,27 @@ public class CheckingAccount {
     public void add(Expense expense) {
         expenseRepo.save(expense);
     }
+    
+    
+    
+    public BigDecimal getWeeklyExpense() {
+        Calendar today = Calendar.getInstance();        
+        Date todayDate = today.getTime();
+        
+        BigDecimal weekExpense = BigDecimal.ZERO;
+        
+        
+
+        for (Expense e : ExpenseRepository.getListExpense()) {
+            if(DateTime.getDateDiff(e.getDate(), todayDate, TimeUnit.DAYS) < 7 ) {         
+                weekExpense = weekExpense.add(e.getAmount());
+            }
+            
+        }        
+        
+        return weekExpense;
+    }
+    
+    
+    
 }
