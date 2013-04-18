@@ -24,4 +24,5 @@ public class StartingBalanceController extends BaseController{
     public CheckingAccount buildCheckingAccount() {
 		return new CheckingAccount();	
 	}
+    
 }
