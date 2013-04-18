@@ -4,19 +4,15 @@ import java.math.BigDecimal;
 
 import Model.CheckingAccount;
 
-public class BaseController {
+public abstract class BaseController {
 
-	CheckingAccount account;
-	
-	public BaseController(CheckingAccount account){
-		this.account = account;		
-	}
+	public abstract CheckingAccount buildCheckingAccount();
 	
 	public BigDecimal getBalance() {
 		
 		//TODO: alterar para return account.getBalance() 
 		//assim que o .getBAlance retornar um BigDecimal.
-		return new BigDecimal( account.getBalance() );
+		return new BigDecimal( buildCheckingAccount().getBalance() );
 	}
-		
+
 }

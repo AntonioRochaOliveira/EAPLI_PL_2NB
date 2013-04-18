@@ -4,6 +4,7 @@
  */
 package Controllers;
 import Model.CheckingAccount;
+import java.math.BigDecimal;
 /**
  *
  * @author Fábio Mendonça/Fernando Silva
@@ -14,7 +15,7 @@ public class BalanceController{
     }
     
     //Methods
-    public float getBalance(){
+    public BigDecimal getBalance(){
         
         CheckingAccount valuesCalculator=new CheckingAccount();
         
