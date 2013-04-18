@@ -2,17 +2,14 @@ package Presentation;
 
 import Controllers.BaseController;
 
-public class BaseUI {
-	BaseController baseController;
+public abstract class BaseUI {
 	
 	public BaseUI(){
 	}
 
 	public void displayBalance(){
-		if(baseController == null){
-			System.err.println("Base controller undefined");
-			return;
-		}
-		System.out.printf("* * *  CURRENT BALANCE  %.2f * * *\n",baseController.getBalance());
+		System.out.printf("* * *  CURRENT BALANCE  %.2f * * *\n",buildBaseController().getBalance());
 	}
+	
+	public abstract BaseController buildBaseController();
 }
