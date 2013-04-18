@@ -10,9 +10,8 @@ public abstract class BaseController {
 	
 	public BigDecimal getBalance() {
 		
-		//TODO: alterar para return account.getBalance() 
-		//assim que o .getBAlance retornar um BigDecimal.
-		return new BigDecimal( buildCheckingAccount().getBalance() );
+		return buildCheckingAccount().getBalance();
+		
 	}
 
 }
