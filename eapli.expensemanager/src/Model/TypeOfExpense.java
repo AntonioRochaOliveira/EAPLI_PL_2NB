@@ -19,7 +19,7 @@ public class TypeOfExpense {
     }
     
     public void setDescription(String description) {
-        setDescription(description);
+        this.description = description;
     }
    
 }
