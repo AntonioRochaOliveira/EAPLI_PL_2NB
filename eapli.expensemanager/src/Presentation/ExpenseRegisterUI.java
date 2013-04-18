@@ -25,7 +25,16 @@ class ExpenseRegisterUI extends BaseUI{
     public void mainLoop() {
         
         controller = new ExpenseRegisterController();
-        
+        showContent();        
+    }
+    
+    @Override
+	public BaseController buildBaseController() {
+		return controller;
+	}
+
+    @Override
+    public void showContent() {
         System.out.println("* * *  REGISTER AN EXPENSE  * * *\n");
         
         double value = Console.readDouble("Amount:");
@@ -57,9 +66,9 @@ class ExpenseRegisterUI extends BaseUI{
      
         System.out.println("expense recorded.");
     }
-    
     @Override
-	public BaseController buildBaseController() {
-		return controller;
-	}
+    public String getTitle()
+    {
+		return "Expense Register";
+    }
 }
