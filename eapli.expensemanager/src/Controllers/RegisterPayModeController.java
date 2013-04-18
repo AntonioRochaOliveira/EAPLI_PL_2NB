@@ -4,6 +4,7 @@
  */
 package Controllers;
 
+import Model.CheckingAccount;
 import Model.PaymentType;
 import Model.PayMode;
 import Persistence.PayModeRepository;
@@ -18,7 +19,7 @@ import java.util.Map;
  *
  * @author xiko
  */
-public class RegisterPayModeController {
+public class RegisterPayModeController extends BaseController {
 
     public RegisterPayModeController(PayModeUI ui) {
         List<PaymentType> typeList = PaymentTypeRepository.getInstance().getPaymentType();
@@ -44,5 +45,10 @@ public class RegisterPayModeController {
         PayModeRepository.getInstance().save(new PayMode(paymentType,aditionalInformation));
         
     }
+
+    @Override
+    public CheckingAccount buildCheckingAccount() {
+       return new CheckingAccount();
+    }
+
 }
-    
