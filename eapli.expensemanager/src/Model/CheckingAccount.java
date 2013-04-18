@@ -116,7 +116,7 @@ public class CheckingAccount {
         
 
         for (Expense e : ExpenseRepository.getListExpense()) {
-            if(DateTime.getDateDiff(e.getDate(), todayDate, TimeUnit.DAYS) < 7 ) {         
+            if(DateTime.getDateDiff(e.getDate(), todayDate, TimeUnit.DAYS) < 8 ) {         
                 weekExpense = weekExpense.add(e.getAmount());
             }
             
