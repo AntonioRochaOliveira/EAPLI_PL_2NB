@@ -4,6 +4,7 @@
  */
 package Presentation;
 
+import Controllers.BaseController;
 import Controllers.ExpenseRegisterController;
 import Model.PayMode;
 import Model.TypeOfExpense;
@@ -19,10 +20,11 @@ import java.util.List;
  *
  * @author Márcio Martins & Miguel Ribeiro
  */
-class ExpenseRegisterUI {
+class ExpenseRegisterUI extends BaseUI{
+    ExpenseRegisterController controller;
     public void mainLoop() {
         
-        ExpenseRegisterController controller = new ExpenseRegisterController();
+        controller = new ExpenseRegisterController();
         
         System.out.println("* * *  REGISTER AN EXPENSE  * * *\n");
         
@@ -33,12 +35,14 @@ class ExpenseRegisterUI {
         ExpenseRepository eR = new ExpenseRepository();
         List<TypeOfExpense> lista = new ArrayList<TypeOfExpense>();
         lista = controller.getExpenseTypes();
-        int type; /* Index of type expense */
+        int type;/* Index of type expense */
         if(lista.size() > 0)
         {
-            System.out.println(i+1+":"+lista.get(i));
+            for(int i=0;i<lista.size();i++){
+                System.out.println(i+1+":"+lista.get(i));
+            }
         }
-        int type = Console.readInteger("Indice:");
+        type = Console.readInteger("Indice:");
         
         Date date = Console.readDate("Data da Despesa:");
         //PayMode pM = new PayMode();//Input tipo de pagamento
@@ -53,4 +57,9 @@ class ExpenseRegisterUI {
      
         System.out.println("expense recorded.");
     }
+    
+    @Override
+	public BaseController buildBaseController() {
+		return controller;
+	}
 }
