@@ -20,9 +20,10 @@ public class StartingBalanceController extends BaseController{
         return account.getValue();
     }
     
+    /**/
+    
     @Override
     public CheckingAccount buildCheckingAccount() {
 		return new CheckingAccount();	
 	}
-    
 }
