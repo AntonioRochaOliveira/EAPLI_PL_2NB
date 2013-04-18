@@ -7,26 +7,31 @@ package Model;
 import Persistence.ExpenseRepository;
 import Persistence.IncomeRepository;
 import Persistence.StartingBalanceRepository;
+import eapli.util.DateTime;
 import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
  * @author joel
  */
 public class CheckingAccount {
-    
-	IncomeRepository incomeRepo;
-	ExpenseRepository expenseRepo;
-    
-   public CheckingAccount() {
-    	incomeRepo = new IncomeRepository();
-    	expenseRepo = new ExpenseRepository();
-    }
-     //Methods
-    public float getBalance() {
 
-        float expenses, incomes;
+    IncomeRepository incomeRepo;
+    ExpenseRepository expenseRepo;
+
+    public CheckingAccount() {
+        incomeRepo = new IncomeRepository();
+        expenseRepo = new ExpenseRepository();
+    }
+    //Methods
+
+    public BigDecimal getBalance() {
+
+        BigDecimal expenses, incomes;
 
         //Calculate total expenses in Expenses repository
         expenses = getExpensesTotal();
@@ -35,13 +40,14 @@ public class CheckingAccount {
         incomes = getIncomesTotal();
 
         //Return balance
-        return (incomes - expenses);
+        incomes = incomes.subtract(expenses);
+        return (incomes);
     }
 
-    public float getExpensesTotal() {
+    public BigDecimal getExpensesTotal() {
 
 
-        float sum = 0.0f;
+        BigDecimal sum = new BigDecimal(0);
         Expense expense;
         BigDecimal amount;
 
@@ -52,15 +58,15 @@ public class CheckingAccount {
 
             expense = (Expense) listExpense.get(i);
             amount = expense.getAmount();
-            sum += amount.floatValue();
+            sum = sum.add(amount);
         }
 
         return sum;
     }
 
-    public float getIncomesTotal() {
+    public BigDecimal getIncomesTotal() {
 
-        float sum = 0.0f;
+        BigDecimal sum = new BigDecimal(0);
         Income income;
         BigDecimal amount;
 
@@ -71,12 +77,12 @@ public class CheckingAccount {
 
             income = listIncome.get(i);
             amount = income.getAmount();
-            sum += amount.floatValue();
+            sum = sum.add(amount);
         }
 
         //Gets the initial Balance
         amount = getValue();
-        sum += amount.floatValue();
+        sum = sum.add(amount);
 
         return sum;
     }
@@ -89,15 +95,36 @@ public class CheckingAccount {
     //Gets the initial balance
     public BigDecimal getValue() {
         return StartingBalanceRepository.getValue();
-    }       
-        
- 
-    
-    public void add(Income income){
-            incomeRepo.save(income);
     }
-    
+
+    public void add(Income income) {
+        incomeRepo.save(income);
+    }
+
     public void add(Expense expense) {
-    	expenseRepo.save(expense);
+        expenseRepo.save(expense);
     }
+    
+    
+    
+    public BigDecimal getWeeklyExpense() {
+        Calendar today = Calendar.getInstance();        
+        Date todayDate = today.getTime();
+        
+        BigDecimal weekExpense = BigDecimal.ZERO;
+        
+        
+
+        for (Expense e : ExpenseRepository.getListExpense()) {
+            if(DateTime.getDateDiff(e.getDate(), todayDate, TimeUnit.DAYS) < 8 ) {         
+                weekExpense = weekExpense.add(e.getAmount());
+            }
+            
+        }        
+        
+        return weekExpense;
+    }
+    
+    
+    
 }
