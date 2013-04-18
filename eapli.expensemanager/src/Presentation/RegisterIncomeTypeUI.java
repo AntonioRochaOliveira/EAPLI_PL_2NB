@@ -1,13 +1,13 @@
 package Presentation;
 
 import eapli.util.Console;
+import Controllers.BaseController;
 import Controllers.RegisterIncomeTypeController;
 
 public class RegisterIncomeTypeUI extends BaseUI{
 	RegisterIncomeTypeController controller;
 	public RegisterIncomeTypeUI(){
 		controller = new RegisterIncomeTypeController();
-		baseController = controller;
 		displayBalance();
 		System.out.println("* * *  REGISTER AN INCOME TYPE  * * *\n");
 		String name = readName();
@@ -22,5 +22,10 @@ public class RegisterIncomeTypeUI extends BaseUI{
 	
 	private String readDescription(){
 		return Console.readLine("Description:");
+	}
+
+	@Override
+	public BaseController buildBaseController() {
+		return controller;
 	}
 }
