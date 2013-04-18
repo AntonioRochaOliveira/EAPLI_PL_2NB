@@ -9,17 +9,22 @@ import java.math.BigDecimal;
  *
  * @author Fábio Mendonça/Fernando Silva
  */
-public class BalanceController{
+public class BalanceController extends BaseController{
     
     public BalanceController(){               
     }
     
     //Methods
-    public BigDecimal getBalance(){
+//    public BigDecimal getBalance(){
+//        
+//        CheckingAccount valuesCalculator=buildCheckingAccount();
+//        
+//        return valuesCalculator.getBalance();
+//    }
+    
+    public CheckingAccount buildCheckingAccount(){
         
-        CheckingAccount valuesCalculator=new CheckingAccount();
-        
-        return valuesCalculator.getBalance();
+        return new CheckingAccount();
     }
     
 }
