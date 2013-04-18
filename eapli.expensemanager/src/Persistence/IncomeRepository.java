@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author jverde
  */
-public class IncomeRepository implements IIncomeRepository {
+public class IncomeRepository {
     
     private static IncomeRepository instance = null;
 
