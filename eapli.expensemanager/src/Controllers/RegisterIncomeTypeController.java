@@ -6,8 +6,9 @@ import Persistence.IncomeTypeRepository;
 
 public class RegisterIncomeTypeController extends BaseController{
 	
-	public RegisterIncomeTypeController(){
-		super(new CheckingAccount());
+	
+	public CheckingAccount buildCheckingAccount() {
+		return new CheckingAccount();	
 	}
 
 	public void regIncomeType(String name, String description) {
