@@ -41,6 +41,7 @@ public class MainMenu {
                 break;
             case 2:
                 RegisterIncomeTypeUI uiRIT = new RegisterIncomeTypeUI();
+                uiRIT.show();
                 break;
             case 3:
                 TypeOfExpenseUI uiTOE = new TypeOfExpenseUI();

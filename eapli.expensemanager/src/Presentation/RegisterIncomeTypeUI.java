@@ -8,12 +8,6 @@ public class RegisterIncomeTypeUI extends BaseUI{
 	RegisterIncomeTypeController controller;
 	public RegisterIncomeTypeUI(){
 		controller = new RegisterIncomeTypeController();
-		displayBalance();
-		System.out.println("* * *  REGISTER AN INCOME TYPE  * * *\n");
-		String name = readName();
-		String description = readDescription();
-		controller.regIncomeType(name,description);
-		System.out.println("New Income Type Recorded.");
 	}
 	
 	private String readName(){
@@ -27,5 +21,18 @@ public class RegisterIncomeTypeUI extends BaseUI{
 	@Override
 	public BaseController buildBaseController() {
 		return controller;
+	}
+
+	@Override
+	public String getTitle() {
+		return  "REGISTER AN INCOME TYPE";
+	}
+
+	@Override
+	public void showContent() {
+		String name = readName();
+		String description = readDescription();
+		controller.regIncomeType(name,description);
+		System.out.println("New Income Type Recorded.");
 	}
 }
