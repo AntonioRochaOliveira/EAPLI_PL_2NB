@@ -9,6 +9,7 @@ import Controllers.ExpenseRegisterController;
 import Model.PayMode;
 import Model.TypeOfExpense;
 import Persistence.ExpenseRepository;
+import Persistence.PayModeRepository;
 
 import eapli.util.Console;
 import java.math.BigDecimal;
@@ -40,7 +41,7 @@ class ExpenseRegisterUI extends BaseUI{
         double value = Console.readDouble("Amount:");
         BigDecimal amount = new BigDecimal(value);
         
-        System.out.println("Selecione o tipo de despesa");
+        System.out.println("Select type of expense");
         ExpenseRepository eR = new ExpenseRepository();
         List<TypeOfExpense> lista = new ArrayList<TypeOfExpense>();
         lista = controller.getExpenseTypes();
@@ -51,18 +52,30 @@ class ExpenseRegisterUI extends BaseUI{
                 System.out.println(i+1+":"+lista.get(i));
             }
         }
-        type = Console.readInteger("Indice:");
+        type = Console.readInteger("Option:");
+            
+        Date date = Console.readDate("Date of Expense:");
         
-        Date date = Console.readDate("Data da Despesa:");
-        //PayMode pM = new PayMode();//Input tipo de pagamento
-        //Input detalhes de pagamento
+        PayMode pM;
+        List<PayMode> listaPM = PayModeRepository.getInstance().getPayMode();
+        System.out.println("Select PayMode of Expense. [0] to creat new.");
+        for (int i = 0; i < listaPM.size(); i++)
+        {
+            System.out.println(i+1+": "+listaPM.get(i)+"\n");
+        }
+        int op = Console.readInteger("Option:");
         
-        String what = Console.readLine("Comentário:");
+        if(op == 0)
+        {
+            PayModeUI pMUI = new PayModeUI();
+            pMUI.showContent();
+        }
+        // DO NOT SUPORT ERRORS OF INDEX
+        pM = listaPM.get(op - 1);
+                
+        String what = Console.readLine("Description:");
         
-        
-        
-
-        controller.registerExpense(amount,lista.get(type),date,null,what);
+        controller.registerExpense(amount,lista.get(type - 1),date,pM,what);
      
         System.out.println("expense recorded.");
     }
