@@ -34,6 +34,7 @@ public class TypeOfExpenseRepositoryTest {
         List<TypeOfExpense> listaTeste=new ArrayList<TypeOfExpense>();
         listaTeste.add(Texp);
         listaTeste.add(Texp2);
+       
     }
     
     @Before
@@ -68,6 +69,7 @@ public class TypeOfExpenseRepositoryTest {
         TypeOfExpense Texp2 = new TypeOfExpense("teste2");
         TypeOfExpenseRepository instance = new TypeOfExpenseRepository();
         instance.save(Texp);
+        instance.save(Texp2);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -85,4 +87,6 @@ public class TypeOfExpenseRepositoryTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+    
+    
 }
