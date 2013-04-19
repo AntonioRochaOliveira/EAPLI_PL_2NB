@@ -6,7 +6,7 @@ import Persistence.IncomeTypeRepository;
 
 public class RegisterIncomeTypeController extends BaseController{
 	
-	
+	@Override
 	public CheckingAccount buildCheckingAccount() {
 		return new CheckingAccount();	
 	}
