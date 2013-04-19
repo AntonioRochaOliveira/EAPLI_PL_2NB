@@ -23,5 +23,5 @@ public class StartingBalanceController extends BaseController{
     @Override
     public CheckingAccount buildCheckingAccount() {
 		return new CheckingAccount();	
-	}
+    }
 }
