@@ -63,7 +63,8 @@ public class RegisterIncomeControllerTest {
 
         List<Income> listIncome = IncomeRepository.getListIncome();
         
-        assertTrue(listIncome.contains(income)); // erro Junit.framework.AssertionFailedError 
+        if(!listIncome.contains(income)) // erro Junit.framework.AssertionFailedError 
+        fail("The test case is a prototype.");
         
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");

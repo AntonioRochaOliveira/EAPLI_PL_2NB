@@ -29,22 +29,11 @@ public class StartingBalanceRepository {
     }
     
     public static BigDecimal getValue() {
-      if(instance == null) {
-         instance = new StartingBalanceRepository();
-         return instance.initial;
-      }
       return instance.initial;
    }
     
     public static void setValue(BigDecimal value) {
-      if(instance == null) 
-      {
-         instance = new StartingBalanceRepository();
+
          instance.initial = value;
-      }
-      else 
-      {
-         instance.initial = value;
-      }
    }
 }
