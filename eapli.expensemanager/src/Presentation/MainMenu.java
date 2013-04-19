@@ -69,6 +69,7 @@ public class MainMenu {
                     break;
                 case 9:
                     new PayModeUI();
+                    new PayModeUI().showContent();
                     break;
             }
         } while (option != 0);

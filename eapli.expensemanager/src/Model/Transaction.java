@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author Márcio
  */
-public abstract class Transaction {
+public class Transaction {
     private BigDecimal amount;
     private Date date;
     private String description; 
