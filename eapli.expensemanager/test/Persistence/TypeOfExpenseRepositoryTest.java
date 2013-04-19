@@ -5,6 +5,7 @@
 package Persistence;
 
 import Model.TypeOfExpense;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -28,6 +29,12 @@ public class TypeOfExpenseRepositoryTest {
     
     @AfterClass
     public static void tearDownClass() {
+        TypeOfExpense Texp = new TypeOfExpense("teste1");
+        TypeOfExpense Texp2 = new TypeOfExpense("teste2");
+        List<TypeOfExpense> listaTeste=new ArrayList<TypeOfExpense>();
+        listaTeste.add(Texp);
+        listaTeste.add(Texp2);
+       
     }
     
     @Before
@@ -45,8 +52,8 @@ public class TypeOfExpenseRepositoryTest {
     public void testGetListTExpense() {
         System.out.println("getListTExpense");
         TypeOfExpenseRepository instance = new TypeOfExpenseRepository();
-        List expResult = instance.getListTExpense();
-        List result = instance.getListTExpense();
+        List expResult = instance.getAllTypeOfExpenses();
+        List result = instance.getAllTypeOfExpenses();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -58,9 +65,11 @@ public class TypeOfExpenseRepositoryTest {
     @Test
     public void testSave() {
         System.out.println("save");
-        TypeOfExpense Texp = null;
+        TypeOfExpense Texp = new TypeOfExpense("teste1");
+        TypeOfExpense Texp2 = new TypeOfExpense("teste2");
         TypeOfExpenseRepository instance = new TypeOfExpenseRepository();
         instance.save(Texp);
+        instance.save(Texp2);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -78,4 +87,6 @@ public class TypeOfExpenseRepositoryTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+    
+    
 }
