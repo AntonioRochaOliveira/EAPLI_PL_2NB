@@ -4,6 +4,7 @@
  */
 package Model;
 
+import eapli.util.DateTime;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -23,7 +24,7 @@ public class Expense extends Transaction{
    
     protected Expense() {}
     
-    public Expense(BigDecimal amount, TypeOfExpense type, Date date, PayMode payM, String description)
+    public Expense(BigDecimal amount, TypeOfExpense type, DateTime date, PayMode payM, String description)
     {
         
        super(amount,date,description);
