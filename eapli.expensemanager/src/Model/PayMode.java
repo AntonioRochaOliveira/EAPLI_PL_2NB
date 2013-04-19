@@ -22,6 +22,10 @@ public class PayMode {
        payT=paymentType;
        this.aditionalInformation=aditionalInformation;
     }
+
+    PayMode() {
+        
+    }
     
     public String getPaymentTypeName() {
         return payT.getName();
