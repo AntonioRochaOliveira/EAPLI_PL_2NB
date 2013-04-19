@@ -33,7 +33,7 @@ public class MonthlyExpenseUI extends BaseUI {
     @Override
     public void showContent() {
 
-        System.out.println("* * *  REGISTER A PAYMENT MODE  * * *\n");
+       
         int mes;
         mes = Console.readInteger("What month:");
         float despesa = controller.getExpensesMonth(mes);
