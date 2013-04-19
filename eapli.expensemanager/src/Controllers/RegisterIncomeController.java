@@ -7,10 +7,8 @@ package Controllers;
 import Model.CheckingAccount;
 import Model.Income;
 import Model.IncomeType;
-import Persistence.IncomeRepository;
 import Persistence.IncomeTypeRepository;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 

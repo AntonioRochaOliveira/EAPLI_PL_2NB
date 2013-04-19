@@ -5,16 +5,19 @@
 package Presentation;
 
 import Controllers.BaseController;
-import Controllers.StartingBalanceController;
+import Controllers.PlacementSavingsController;
 import eapli.util.Console;
 import java.math.BigDecimal;
 
-
-public class StartingBalanceUI extends BaseUI{
-    StartingBalanceController controller;
-    public StartingBalanceUI()
+/**
+ *
+ * @author i111057
+ */
+public class PlacementSavingsUI extends BaseUI{
+    PlacementSavingsController controller;
+    public PlacementSavingsUI()
     {
-        controller = new StartingBalanceController();
+        controller = new PlacementSavingsController();
     }
     
     public double mainLoop() {
@@ -28,14 +31,16 @@ public class StartingBalanceUI extends BaseUI{
     
     @Override
     public String getTitle() {
-	return  "* * * STARTING BALANCE * * *";
+	return  "* * * PLACEMENT SAVINGS * * *";
     }
 
     @Override
     public void showContent() {
         double value = mainLoop();
 	BigDecimal amount = new BigDecimal(value);
-        controller.setValue(amount);
-	System.out.println("New Starting Balance Recorded.");
+        //controller.setValue(amount);
+        //SE ATINGIR VALOR PRINT PARABENS
+        //ELSE
+	System.out.println("New Placement Registered.");
     }
 }
