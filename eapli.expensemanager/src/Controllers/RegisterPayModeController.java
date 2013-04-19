@@ -21,10 +21,16 @@ import java.util.Map;
  */
 public class RegisterPayModeController extends BaseController {
 
+    private PayMode payMode;
+    
+    public RegisterPayModeController() {
+    this(new PayModeUI());
+    }
+    
     public RegisterPayModeController(PayModeUI ui) {
         //Retorna os Tipos de Pagamento para uma lista;
         List<PaymentType> typeList = PaymentTypeRepository.getInstance().getPaymentType();
-        
+
         //Extrai a string name de todos os tipo de pagamento
         LinkedList<String> types = new LinkedList();
         for (PaymentType s : typeList) {
@@ -33,24 +39,34 @@ public class RegisterPayModeController extends BaseController {
         //Envia essas strings para a UI para que o utilizador escolha uma
         String type = ui.getPaymentType(types);
         PaymentType paymentType = null;
-        
+
         //Escolhe o objecto que a string escolhida pertence
         for (PaymentType s : typeList) {
             if (type.equals(s.getName())) {
                 paymentType = s;
             }
         }
-        //Vai buscar 
-        Map<String, Object> aditionalInformation = new HashMap<String,Object>();
+        //Vai buscar todas as variaveis a preencher pelo utilizador do paymentType
+        Map<String, Object> aditionalInformation = new HashMap<String, Object>();
         for (String s : paymentType.getAditionalInformationNames().keySet()) {
-            aditionalInformation.put(s, ui.getAditionalInformation(s,paymentType.getAditionalInformationNames().get(s)));
+            //Envia para a UI o nome e tipo da Variavel e retorna um objecto com esse tipo
+            aditionalInformation.put(s, ui.getAditionalInformation(s, paymentType.getAditionalInformationNames().get(s)));
         }
-        PayModeRepository.getInstance().save(new PayMode(paymentType,aditionalInformation));
+        payMode = new PayMode(paymentType, aditionalInformation);
+        //Guarda no Repositorio
+        PayModeRepository.getInstance().save(payMode);
     }
 
     @Override
     public CheckingAccount buildCheckingAccount() {
-       return new CheckingAccount();
+        return new CheckingAccount();
+    }
+
+    /**
+     * @return the payMode
+     */
+    public PayMode getPayMode() {
+        return payMode;
     }
 
 }
