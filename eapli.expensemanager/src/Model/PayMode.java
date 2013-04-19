@@ -15,7 +15,7 @@ import java.util.Map;
 public class PayMode {
     //class member
     private PaymentType payT;
-    Map<String, Object> aditionalInformation;
+    private Map<String, Object> aditionalInformation;
     
     public PayMode(PaymentType paymentType,Map<String, Object> aditionalInformation)
     {
