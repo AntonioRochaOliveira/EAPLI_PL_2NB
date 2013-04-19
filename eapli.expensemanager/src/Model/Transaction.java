@@ -4,7 +4,6 @@
  */
 package Model;
 
-import eapli.util.DateTime;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -12,15 +11,15 @@ import java.util.Date;
  *
  * @author Márcio
  */
-public abstract class Transaction {
+public class Transaction {
     private BigDecimal amount;
-    private DateTime date;
+    private Date date;
     private String description; 
     
     public Transaction()
     {  
     }
-    public Transaction(BigDecimal amBigDecimal, DateTime date, String deString)
+    public Transaction(BigDecimal amBigDecimal, Date date, String deString)
     {
         amount = amBigDecimal;
         this.date = date;
@@ -44,14 +43,14 @@ public abstract class Transaction {
     /**
      * @return the date
      */
-    public DateTime getDate() {
+    public Date getDate() {
         return date;
     }
 
     /**
      * @param date the date to set
      */
-    public void setDate(DateTime date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
