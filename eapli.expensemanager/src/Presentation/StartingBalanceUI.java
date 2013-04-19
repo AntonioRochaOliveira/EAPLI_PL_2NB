@@ -17,17 +17,19 @@ public class StartingBalanceUI extends BaseUI{
     StartingBalanceController controller;
     public StartingBalanceUI()
     {
+        controller = new StartingBalanceController();
     }
     
-    public void mainLoop() {
-        System.out.println("\n* * *  STARTING BALANCE  * * *\n");
-        controller = new StartingBalanceController();
-        displayBalance();
+    public double mainLoop() {
+        //System.out.println("\n* * *  STARTING BALANCE  * * *\n");
+        //controller = new StartingBalanceController();
+        /*displayBalance();
         System.out.println("Current starting balance: "+ controller.getValue().toString());
-        double value = Console.readDouble("\n Amount:");
+        return Console.readDouble("\n Amount:");
 
         BigDecimal amount = new BigDecimal(value);
-        controller.setValue(amount);
+        controller.setValue(amount);*/
+        return Console.readDouble("\n Amount:");
     }
     
     /**
@@ -35,7 +37,20 @@ public class StartingBalanceUI extends BaseUI{
      * @return
      */
     @Override
-	public BaseController buildBaseController() {
-		return controller;
-	}
+    public BaseController buildBaseController() {
+	return controller;
+    }
+    
+    @Override
+    public String getTitle() {
+	return  "STARTING BALANCE UI";
+    }
+
+    @Override
+    public void showContent() {
+        double value = mainLoop();
+	BigDecimal amount = new BigDecimal(value);
+        controller.setValue(amount);
+	System.out.println("New Income Type Recorded.");
+    }
 }
