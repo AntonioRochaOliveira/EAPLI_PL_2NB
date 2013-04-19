@@ -17,8 +17,8 @@ import java.util.List;
 
 public class MonthlyExpenseUI extends BaseUI {
 
-    MonthlyExpenseController controller;
-    List<Expense> listExpense;
+    private MonthlyExpenseController controller;
+   
 
     public MonthlyExpenseUI() {
 
