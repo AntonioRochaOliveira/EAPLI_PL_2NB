@@ -104,27 +104,22 @@ public class CheckingAccount {
     public void add(Expense expense) {
         expenseRepo.save(expense);
     }
-    
-    
-    
+
     public BigDecimal getWeeklyExpense() {
-        Calendar today = Calendar.getInstance();        
+        Calendar today = Calendar.getInstance();
         Date todayDate = today.getTime();
-        
+
         BigDecimal weekExpense = BigDecimal.ZERO;
-        
-        
+
+
 
         for (Expense e : ExpenseRepository.getListExpense()) {
-            if(DateTime.getDateDiff(e.getDate(), todayDate, TimeUnit.DAYS) < 8 ) {         
+            if (DateTime.getDateDiff(e.getDate(), todayDate, TimeUnit.DAYS) < 8) {
                 weekExpense = weekExpense.add(e.getAmount());
             }
-            
-        }        
-        
+
+        }
+
         return weekExpense;
     }
-    
-    
-    
 }

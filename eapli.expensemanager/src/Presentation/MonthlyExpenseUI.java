@@ -6,33 +6,42 @@ package Presentation;
 
 /**
  *
- * @author João
+ * @author João Silva
  */
+import Controllers.BaseController;
 import Controllers.MonthlyExpenseController;
 import Controllers.RegisterPayModeController;
 import Model.Expense;
 import eapli.util.Console;
 import java.util.List;
 
-public class MonthlyExpenseUI {
+public class MonthlyExpenseUI extends BaseUI {
 
-    
-    List<Expense> listExpense;
+    private MonthlyExpenseController controller;
+   
 
     public MonthlyExpenseUI() {
 
-        MonthlyExpenseController controller = new MonthlyExpenseController();
+        controller = new MonthlyExpenseController();
+    }
 
-        System.out.println("* * *  Monthly Expense  * * *\n");
-        System.out.println("* * *  ***************  * * *\n");
+    public String getTitle() {
+
+        return "*Monthly Expense  ";
+    }
+
+    @Override
+    public void showContent() {
+
+       
         int mes;
         mes = Console.readInteger("What month:");
         float despesa = controller.getExpensesMonth(mes);
-        
-    //Este arraylist deve ser criado no controler  MonthlyExpense
-    //        listExpense = new ArrayList<Expense>();
-    //        ;
-        System.out.println("Despesas do mes " + mes + " despesas do mes total" + despesa);
+        System.out.println("Month Expense:  " + mes + " Total: " + despesa);
     }
-    
+
+    @Override
+    public BaseController buildBaseController() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
