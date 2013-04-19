@@ -63,7 +63,7 @@ public class MainMenu {
                     System.out.println("O saldo atual é " + a.buildBaseController().getBalance());
                     break;
                 case 8:
-                    new PayModeUI();
+                    new PayModeUI().showContent();
                     break;
 
             }
