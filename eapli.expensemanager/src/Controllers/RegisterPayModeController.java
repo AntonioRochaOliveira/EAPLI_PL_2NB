@@ -22,28 +22,30 @@ import java.util.Map;
 public class RegisterPayModeController extends BaseController {
 
     public RegisterPayModeController(PayModeUI ui) {
+        //Retorna os Tipos de Pagamento para uma lista;
         List<PaymentType> typeList = PaymentTypeRepository.getInstance().getPaymentType();
         
+        //Extrai a string name de todos os tipo de pagamento
         LinkedList<String> types = new LinkedList();
         for (PaymentType s : typeList) {
             types.add(s.getName());
         }
-
+        //Envia essas strings para a UI para que o utilizador escolha uma
         String type = ui.getPaymentType(types);
         PaymentType paymentType = null;
-
+        
+        //Escolhe o objecto que a string escolhida pertence
         for (PaymentType s : typeList) {
             if (type.equals(s.getName())) {
                 paymentType = s;
             }
         }
-
+        //Vai buscar 
         Map<String, Object> aditionalInformation = new HashMap<String,Object>();
         for (String s : paymentType.getAditionalInformationNames().keySet()) {
             aditionalInformation.put(s, ui.getAditionalInformation(s,paymentType.getAditionalInformationNames().get(s)));
         }
         PayModeRepository.getInstance().save(new PayMode(paymentType,aditionalInformation));
-        
     }
 
     @Override

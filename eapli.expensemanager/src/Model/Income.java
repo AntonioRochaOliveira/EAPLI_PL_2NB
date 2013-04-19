@@ -1,5 +1,6 @@
 package Model;
 
+import eapli.util.DateTime;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -7,27 +8,33 @@ import java.util.Date;
  *
  * @author jverde
  */
-public class Income {
+public class Income extends Transaction {
 
-    private BigDecimal amount;
     private IncomeType incomeType;
-    private String description;
     private Date dateOccurred;
 
-    public Income() {
+    public Income()  {
     }
 
     public Income(BigDecimal amount, IncomeType incomeType, String description, Date dateOccurred) {
-        this.amount = amount;
+        super(amount, dateOccurred, description);
         this.incomeType = incomeType;
-        this.description = description;
+    }
+
+    public Date getDateOccurred() {
+        return dateOccurred;
+    }
+
+    public IncomeType getIncomeType() {
+        return incomeType;
+    }
+
+    public void setDateOccurred(Date dateOccurred) {
         this.dateOccurred = dateOccurred;
     }
 
-
-	public BigDecimal getAmount() {
-		return amount;
-	}
-
+    public void setIncomeType(IncomeType incomeType) {
+        this.incomeType = incomeType;
+    }
 }
 
