@@ -15,18 +15,29 @@ import java.util.List;
  */
 public class ExpenseRepository implements IExpenseRepository {
     // class member
+    private static ExpenseRepository instance = null;
+    private static List<Expense> listExpense;
 
-    private static List<Expense> listExpense = new ArrayList<Expense>();
-
+    public static synchronized ExpenseRepository getInstance() {
+		
+		if (instance == null)
+			instance = new ExpenseRepository();
+		
+		return instance;
+    }
+    
+    public ExpenseRepository()
+    {
+        listExpense = new ArrayList<Expense>();
+    }
     /**
      * @return the listExpense
      */
-    public List<Expense> getListExpense() {
+    public static List<Expense> getListExpense() {
         return listExpense;
     }
 
-    public ExpenseRepository() {
-    }
+    
 
     @Override
     public void save(Expense exp) {
