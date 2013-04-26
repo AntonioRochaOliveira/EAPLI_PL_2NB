@@ -4,6 +4,7 @@
  */
 package Presentation;
 
+import Controllers.BaseController;
 import Controllers.RegisterIncomeController;
 import Model.IncomeType;
 import eapli.util.Console;
@@ -16,26 +17,30 @@ import java.util.List;
  *
  * @author Joel Ferreira
  */
-public class RegisterIncomeUI {
+public class RegisterIncomeUI extends BaseUI {
     
     RegisterIncomeController controller;
     List<IncomeType> listIncomeType;
 
-    public RegisterIncomeUI(){
-		controller = new RegisterIncomeController();
-		System.out.println("* * *  REGISTER AN INCOME  * * *\n");
-                
-                 BigDecimal amount = readAmount();
-                 Date date = readDate();
-                 String what = readDescription();
-                 
-                 listIncomeType = new ArrayList<IncomeType>();
-                 listIncomeType = controller.getIncomeTypes();
-                 IncomeType incomeType = selectIncomeType(listIncomeType);
+    public RegisterIncomeUI() {
+        controller = new RegisterIncomeController();
+    }
+    
+    @Override
+    public void showContent() {
+        
 
-		controller.createIncome(amount, incomeType, what, date);
-		System.out.println("New Income Recorded.");
-	}
+         BigDecimal amount = readAmount();
+         Date date = readDate();
+         String what = readDescription();
+
+         listIncomeType = new ArrayList<IncomeType>();
+         listIncomeType = controller.getIncomeTypes();
+         IncomeType incomeType = selectIncomeType(listIncomeType);
+
+        controller.createIncome(amount, incomeType, what, date);
+        System.out.println("New Income Recorded.");
+    }
     
     private BigDecimal readAmount(){
         return new BigDecimal(Console.readDouble("Amount:"));
@@ -65,4 +70,15 @@ public class RegisterIncomeUI {
             return listIncomeType.get(option-1);
         } else return selectIncomeType(listIncomeType);
     }
+
+    @Override
+    public String getTitle()
+    {
+		return "REGISTER AN INCOME";
+    }
+    
+    @Override
+	public BaseController buildBaseController() {
+		return controller;
+	}
 }

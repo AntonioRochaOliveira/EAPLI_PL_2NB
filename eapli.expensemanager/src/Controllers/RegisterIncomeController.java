@@ -16,7 +16,7 @@ import java.util.List;
  *
  * @author Joel Ferreira
  */
-public class RegisterIncomeController {
+public class RegisterIncomeController extends BaseController {
 
     IncomeTypeRepository incomeTypeRepository;
     
@@ -32,5 +32,10 @@ public class RegisterIncomeController {
     public void createIncome(BigDecimal amount, IncomeType incomeType, String what, Date date) {
         CheckingAccount checkingAccount = new CheckingAccount();
         checkingAccount.add(new Income(amount, incomeType, what, date));
+    }
+
+    @Override
+    public CheckingAccount buildCheckingAccount() {
+        return new CheckingAccount();
     }
 }

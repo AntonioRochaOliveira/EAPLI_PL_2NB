@@ -51,6 +51,7 @@ public class MainMenu {
                     break;
                 case 4:
                     RegisterIncomeUI uiRI = new RegisterIncomeUI();
+                    uiRI.show();
                     break;
                 case 5:
                     MonthlyExpenseUI uiME = new MonthlyExpenseUI();
