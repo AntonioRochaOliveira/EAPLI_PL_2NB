@@ -30,7 +30,7 @@ public class RegisterIncomeUI {
                  String what = readDescription();
                  
                  listIncomeType = new ArrayList<IncomeType>();
-                 listIncomeType = controller.getIncomesType();
+                 listIncomeType = controller.getIncomeTypes();
                  IncomeType incomeType = selectIncomeType(listIncomeType);
 
 		controller.createIncome(amount, incomeType, what, date);

@@ -24,7 +24,7 @@ public class RegisterIncomeController {
     	incomeTypeRepository = IncomeTypeRepository.getInstance();
     }
     
-    public List<IncomeType> getIncomesType(){
+    public List<IncomeType> getIncomeTypes(){
         
         return incomeTypeRepository.getIncomeTypes();
     }
