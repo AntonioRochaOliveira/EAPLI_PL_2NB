@@ -6,6 +6,7 @@ package Controllers;
 
 import Model.CheckingAccount;
 import Model.Saving;
+import Persistence.SavingRepository;
 import java.math.BigDecimal;
 
 /**
@@ -18,17 +19,15 @@ public class SavingController extends BaseController{
         
     }
     
-    public void Saving(BigDecimal amount, String description){
+    public void registerSaving(BigDecimal amount, String description){
         Saving sav = new Saving(amount, description);
-        SavingREpository repoSav = new SavingRepository();
+        SavingRepository repoSav = new SavingRepository();
         repoSav.save(sav);
         
     }
     @Override
     public CheckingAccount buildCheckingAccount() {
-        
-        
-        throw new UnsupportedOperationException("Not supported yet.");
+        return new CheckingAccount();
     }
     
 }

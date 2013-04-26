@@ -5,6 +5,7 @@
 package Presentation;
 
 import Controllers.BaseController;
+import Controllers.SavingController;
 import eapli.util.Console;
 import java.math.BigDecimal;
 
@@ -17,7 +18,7 @@ public class SavingUI extends BaseUI{
     private SavingController controller;
     
     public SavingUI(){
-        controller = new SavingContrller();
+        controller = new SavingController();
         showContent();
     }
     
