@@ -37,6 +37,8 @@ public class ExpenseRegisterController extends BaseController {
    
     public List<TypeOfExpense> getExpenseTypes()
     {
-        return new TypeOfExpenseRepository().getListTExpense();    
+ //       TypeOfExpenseRepository repo = PersistenceFactory.buildPersistenceFactory().TypeOfExpenseRepository();
+return PersistenceFactory.buildPersistenceFactory().TypeOfExpenseRepository().getListTExpense();
+ //       return new PersistenceFactory.buildPersistenceFactory().TypeOfExpenseRepository().getListTExpense();    
     }
 }

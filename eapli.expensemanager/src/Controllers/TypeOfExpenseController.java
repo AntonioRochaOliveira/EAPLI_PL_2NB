@@ -9,8 +9,11 @@ public class TypeOfExpenseController {
     }
     
     public void TypeOfExpense(String description) {
-        TypeOfExpense Texpense = new TypeOfExpense( description);
-        TypeOfExpenseRepository repoToE = new TypeOfExpenseRepository();
+        //ToDo... need 2 inputs
+        TypeOfExpense Texpense = new TypeOfExpense( description, description);
+       // TypeOfExpenseRepository repoToE = new TypeOfExpenseRepository();
+        TypeOfExpenseRepository repoToE = PersistenceFactory.buildPersistenceFactory().TypeOfExpenseRepository();
+
         repoToE.save(Texpense);
     }
  
