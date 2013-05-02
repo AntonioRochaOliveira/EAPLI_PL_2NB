@@ -1,6 +1,7 @@
 package Model;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -9,8 +10,10 @@ import javax.persistence.Id;
 public class TypeOfExpense implements Serializable  {
     @Id
      String shortName;
-     String description;;
-
+    @Column(name="Description")
+     String description;
+    
+   
     protected TypeOfExpense() {
     }
 
