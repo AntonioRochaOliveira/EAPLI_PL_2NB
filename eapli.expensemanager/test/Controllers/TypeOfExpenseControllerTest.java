@@ -43,8 +43,9 @@ public class TypeOfExpenseControllerTest {
     public void testTypeOfExpense() {
         System.out.println("TypeOfExpense");
         String description = "";
+        String shortName = "";
         TypeOfExpenseController instance = new TypeOfExpenseController();
-        instance.TypeOfExpense(description);
+        instance.TypeOfExpense(description, shortName);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
