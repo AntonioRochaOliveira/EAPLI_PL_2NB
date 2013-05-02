@@ -14,8 +14,7 @@ import java.util.Date;
  */
 
 public class Expense extends Transaction{
-    
-    
+      
     
     private TypeOfExpense type;
     private PayMode payM;

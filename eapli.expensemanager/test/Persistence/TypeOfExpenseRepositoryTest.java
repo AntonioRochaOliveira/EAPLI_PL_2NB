@@ -5,6 +5,7 @@
 package Persistence;
 
 import Model.TypeOfExpense;
+import Persistence.InMemory.TypeOfExpenseRepositoryImpl;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
@@ -29,8 +30,8 @@ public class TypeOfExpenseRepositoryTest {
     
     @AfterClass
     public static void tearDownClass() {
-        TypeOfExpense Texp = new TypeOfExpense("teste1");
-        TypeOfExpense Texp2 = new TypeOfExpense("teste2");
+        TypeOfExpense Texp = new TypeOfExpense("teste1","t1");
+        TypeOfExpense Texp2 = new TypeOfExpense("teste2","t2");
         List<TypeOfExpense> listaTeste=new ArrayList<TypeOfExpense>();
         listaTeste.add(Texp);
         listaTeste.add(Texp2);
@@ -51,9 +52,9 @@ public class TypeOfExpenseRepositoryTest {
     @Test
     public void testGetListTExpense() {
         System.out.println("getListTExpense");
-        TypeOfExpenseRepository instance = new TypeOfExpenseRepository();
-        List expResult = instance.getAllTypeOfExpenses();
-        List result = instance.getAllTypeOfExpenses();
+        TypeOfExpenseRepository instance = new TypeOfExpenseRepositoryImpl();
+        List expResult = instance.getListTExpense();
+        List result = instance.getListTExpense();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -65,9 +66,9 @@ public class TypeOfExpenseRepositoryTest {
     @Test
     public void testSave() {
         System.out.println("save");
-        TypeOfExpense Texp = new TypeOfExpense("teste1");
-        TypeOfExpense Texp2 = new TypeOfExpense("teste2");
-        TypeOfExpenseRepository instance = new TypeOfExpenseRepository();
+        TypeOfExpense Texp = new TypeOfExpense("teste1","t1");
+        TypeOfExpense Texp2 = new TypeOfExpense("teste2","t2");
+        TypeOfExpenseRepository instance = new Persistence.JPA.TypeOfExpenseRepositoryImpl();
         instance.save(Texp);
         instance.save(Texp2);
         // TODO review the generated test code and remove the default call to fail.
@@ -79,10 +80,10 @@ public class TypeOfExpenseRepositoryTest {
      */
     @Test
     public void testGetAllTypeOfExpenses() {
-        System.out.println("getAllTypeOfExpenses");
-        TypeOfExpenseRepository instance = new TypeOfExpenseRepository();
-        List expResult = instance.getAllTypeOfExpenses();
-        List result = instance.getAllTypeOfExpenses();
+        System.out.println("getListTExpenses");
+        TypeOfExpenseRepository instance = new TypeOfExpenseRepositoryImpl();
+        List expResult = instance.getListTExpense();
+        List result = instance.getListTExpense();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
