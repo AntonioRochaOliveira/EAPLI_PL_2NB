@@ -30,4 +30,11 @@ public class TypeOfExpense implements Serializable  {
         this.description = description;
     }
    
+    public String getShortName() {
+        return shortName;
+    }
+    
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
+    }
 }
