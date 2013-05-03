@@ -57,9 +57,9 @@ public class MainMenu {
                 case 5:
                     MonthlyExpenseUI uiME = new MonthlyExpenseUI();
                     break;
-                case 6:
-                    System.out.println("To be implemented.");
-                    /* WeeklyExpenseUI uiWE = new WeeklyExpenseUI(); */
+                case 6:                    
+                    WeeklyExpenseUI uiWE = new WeeklyExpenseUI();
+                    uiWE.show();
                     break;
                 case 7:
                     StartingBalanceUI uiSB = new StartingBalanceUI();
