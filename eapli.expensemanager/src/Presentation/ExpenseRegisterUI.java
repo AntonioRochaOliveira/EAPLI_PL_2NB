@@ -6,6 +6,7 @@ package Presentation;
 
 import Controllers.BaseController;
 import Controllers.ExpenseRegisterController;
+import Controllers.RegisterPayModeController;
 import Model.PayMode;
 import Model.TypeOfExpense;
 import Persistence.ExpenseRepository;
@@ -38,13 +39,15 @@ class ExpenseRegisterUI extends BaseUI{
     public void showContent() {
         System.out.println("* * *  REGISTER AN EXPENSE  * * *\n");
         
+        /* AMOUNT */
         double value = Console.readDouble("Amount:");
         BigDecimal amount = new BigDecimal(value);
         
-        System.out.println("Select type of expense");
-        ExpenseRepository eR = new ExpenseRepository();
-        List<TypeOfExpense> lista = new ArrayList<TypeOfExpense>();
-        lista = controller.getExpenseTypes();
+        /* TYPEOFEXPENSE */
+        TypeOfExpense tE = new TypeOfExpense("", "");
+        System.out.println("Select expense type. [0] to creat new.");
+        List<TypeOfExpense> lista = controller.getExpenseTypes();
+        
         int type;/* Index of type expense */
         if(lista.size() > 0)
         {
@@ -53,11 +56,19 @@ class ExpenseRegisterUI extends BaseUI{
             }
         }
         type = Console.readInteger("Option:");
+        if(type == 0) //If the user wishes to create a new
+        {
             
-        Date date = Console.readDate("Date of Expense:");
+        }else{
+            tE = lista.get(type - 1);
+        }
         
-        PayMode pM;
-        List<PayMode> listaPM = PayModeRepository.getInstance().getPayMode();
+        /* DATE */
+        Date date = Console.readDate("Date of Expense: dd-MM-yyyy");
+        
+        /* PAYMODE */
+        PayMode pM = new PayMode(null, null);// Var to insert on new Expense
+        List<PayMode> listaPM = PayModeRepository.getInstance().getPayMode(); // WRONG WAY. NEED TO COMUNICATE TO CONTROLLER OF PAYMODE
         System.out.println("Select PayMode of Expense. [0] to creat new.");
         for (int i = 0; i < listaPM.size(); i++)
         {
@@ -65,17 +76,26 @@ class ExpenseRegisterUI extends BaseUI{
         }
         int op = Console.readInteger("Option:");
         
-        if(op == 0)
+        if(op == 0) // If the user wishes to create a new
         {
-            PayModeUI pMUI = new PayModeUI();
+            PayModeUI pMUI;
+            pMUI = new PayModeUI(); //Creat new UI to creat new PayMode
             pMUI.showContent();
+            BaseController bC = pMUI.buildBaseController();
+            if(bC instanceof RegisterPayModeController)
+            {
+               RegisterPayModeController pMC = (RegisterPayModeController)pMUI.buildBaseController(); 
+               pM = pMC.getPayMode();
+            }    
+        }else{
+            pM = listaPM.get(op - 1);
         }
-        // DO NOT SUPORT ERRORS OF INDEX
-        pM = listaPM.get(op - 1);
-                
+        
+        /* DESCRIPTION */
         String what = Console.readLine("Description:");
         
-        controller.registerExpense(amount,lista.get(type - 1),date,pM,what);
+        /* SAVING */
+        controller.registerExpense(amount,tE,date,pM,what);
      
         System.out.println("expense recorded.");
     }

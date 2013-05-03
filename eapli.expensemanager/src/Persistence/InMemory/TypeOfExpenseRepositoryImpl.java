@@ -45,8 +45,8 @@ public class TypeOfExpenseRepositoryImpl implements TypeOfExpenseRepository {
         return Texp;
     }
 
-    @Override
-    public List<TypeOfExpense> getAllTypeOfExpenses() {
-        return listTExpense;
-    }
+//    @Override
+//    public List<TypeOfExpense> getAllTypeOfExpenses() {
+//        return listTExpense;
+//    }
 }

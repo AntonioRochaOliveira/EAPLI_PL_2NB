@@ -50,10 +50,10 @@ public class TypeOfExpenseRepositoryImpl extends JpaRepository<TypeOfExpense, St
         return super.all();
     }
      
-    public List<TypeOfExpense> getAllTypeOfExpenses() {
-     // ToDo
-        return super.all();
-    }
+//        public List<TypeOfExpense> getAllTypeOfExpenses() {
+//         // ToDo
+//            return super.all();
+//        }
     
     
 }
