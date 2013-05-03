@@ -6,6 +6,8 @@ package Model;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.ManyToOne;
 
 
 /**
@@ -15,8 +17,9 @@ import java.util.Date;
 
 public class Expense extends Transaction{
       
-    
+    @ManyToOne(cascade = CascadeType.ALL)
     private TypeOfExpense type;
+    @ManyToOne(cascade = CascadeType.ALL)
     private PayMode payM;
     
    
