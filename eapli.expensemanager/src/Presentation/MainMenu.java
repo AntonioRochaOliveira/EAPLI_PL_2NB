@@ -62,7 +62,7 @@ public class MainMenu {
                     break;
                 case 7:
                     StartingBalanceUI uiSB = new StartingBalanceUI();
-                    uiSB.mainLoop();
+                    uiSB.show();
                     break;
                 case 8:
                     BalanceUI a = new BalanceUI();
