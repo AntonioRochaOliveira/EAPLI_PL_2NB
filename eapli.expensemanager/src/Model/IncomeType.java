@@ -1,11 +1,20 @@
 package Model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class IncomeType {
+public class IncomeType implements Serializable{
+	/*
+	 * Campo necessário para a correta serialização da classe.
+	 * (serve para saber se a versão serializada é compatível,
+	 * no momento da leitura.
+	 */
+	private static final long serialVersionUID = 1;
+	
 	@Id
 	private String name;
 	@Column(name="Description")
