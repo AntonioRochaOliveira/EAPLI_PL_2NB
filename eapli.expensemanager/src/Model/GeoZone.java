@@ -14,23 +14,21 @@ import javax.persistence.Table;
  * @author Fernando Silva/Fábio Mendonça
  */
 @Entity
-@Table(name="GEOZONE")
+@Table(name = "GEOZONE")
 public class GeoZone {
+
     @Id
-   
     private int id;
-    @Column(name="CONTINENT")    
+    @Column(name = "CONTINENT")
     private String zone;
-    
     private String city;
-    
-    public GeoZone(){                
+
+    public GeoZone() {
     }
-    
-    public GeoZone(int id, String zone, String city){
-        this.id=id;
-        this.zone=zone;
-        this.city=city;
+
+    public GeoZone(int id, String zone, String city) {
+        this.id = id;
+        this.zone = zone;
+        this.city = city;
     }
-    
 }
