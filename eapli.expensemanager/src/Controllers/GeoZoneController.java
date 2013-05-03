@@ -20,9 +20,9 @@ public class GeoZoneController {
         geoZoneRepo=GeoZoneRepository.getInstance();
     }
     
-    public void save(String zone, String city){
+    public void save(int id,String zone, String city){
         
-        geoZoneRepo.save(new GeoZone(zone, city));
+        geoZoneRepo.save(new GeoZone(id,zone, city));
     }
     
 }

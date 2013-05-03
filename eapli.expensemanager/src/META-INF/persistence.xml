@@ -3,6 +3,7 @@
   <persistence-unit name="expensemanagerPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>Model.TypeOfExpense</class>
+    <class>Model.IncomeType</class>
     <class>Model.Transaction</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>

@@ -25,7 +25,7 @@ public abstract class BaseUI {
 	
 	public void showFooter(){
 		System.out.printf("* * *  CURRENT BALANCE  %.2f * * *\n",buildBaseController().getBalance());
-		System.out.printf("* * *  WEEKLY EXPENSES  %.2f * * *\n",buildBaseController().getWeeklyExpense());
+		/*System.out.printf("* * *  WEEKLY EXPENSES  %.2f * * *\n",buildBaseController().getWeeklyExpense());*/
 	}
 	
 	

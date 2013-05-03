@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  *
- * @author Joel Ferreira
+ * @author Joel Ferreira e Joana Verde teste
  */
 public class RegisterIncomeUI extends BaseUI {
     
