@@ -9,7 +9,7 @@ package Persistence;
  * @author arocha
  */
 public interface RepositoryFactory {    
-    //ExpenseRepository expenseRepository();
+    IExpenseRepository iexpenseRepository();
     TypeOfExpenseRepository TypeOfExpenseRepository();   
 
 }

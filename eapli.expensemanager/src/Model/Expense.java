@@ -4,6 +4,7 @@
  */
 package Model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.CascadeType;
@@ -16,7 +17,7 @@ import javax.persistence.ManyToOne;
  * @author Márcio Martins
  */
 @Entity
-public class Expense extends Transaction{
+public class Expense extends Transaction implements Serializable{
       
     @ManyToOne(cascade = CascadeType.ALL)
     private TypeOfExpense type;
