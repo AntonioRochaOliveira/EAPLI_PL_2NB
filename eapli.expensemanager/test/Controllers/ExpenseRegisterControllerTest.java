@@ -4,12 +4,10 @@
  */
 package Controllers;
 
-import Model.CheckingAccount;
-import Model.Expense;
 import Model.PayMode;
 import Model.TypeOfExpense;
-import Persistence.ExpenseRepository;
-import Persistence.TypeOfExpenseRepository;
+import Persistence.InMemory.ExpenseRepositoryImpl;
+import Persistence.InMemory.TypeOfExpenseRepositoryImpl;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -52,14 +50,14 @@ public class ExpenseRegisterControllerTest {
     public void testRegisterExpense() {
         System.out.println("registerExpense");
         BigDecimal amount = new BigDecimal(200);
-        TypeOfExpense type = new TypeOfExpense("Almoço");
+        TypeOfExpense type = new TypeOfExpense("Almoço","Descrição");
         Date date = new Date(2013, 04, 19);
         PayMode payM = null;
         String comment = "Almoço de Amigos";
         ExpenseRegisterController instance = new ExpenseRegisterController();
         instance.registerExpense(amount, type, date, payM, comment);
        
-        ExpenseRepository repo = new ExpenseRepository();
+        ExpenseRepositoryImpl repo = new ExpenseRepositoryImpl();
 
         String expResult = "Almoço de Amigos";
         String result = repo.getListExpense().get(repo.getListExpense().size() - 1).getDescription();
@@ -73,8 +71,8 @@ public class ExpenseRegisterControllerTest {
     public void testGetExpenseTypes() {
         System.out.println("getExpenseTypes");
         ExpenseRegisterController instance = new ExpenseRegisterController();
-        TypeOfExpenseRepository repo = new TypeOfExpenseRepository();
-        repo.save(new TypeOfExpense("Lazer"));
+        TypeOfExpenseRepositoryImpl repo = new TypeOfExpenseRepositoryImpl();
+        repo.save(new TypeOfExpense("Lazer","Descrição"));
         List<TypeOfExpense> lista = instance.getExpenseTypes();
         String expResult = "Lazer";
         String result = lista.get(lista.size()-1).getDescription();

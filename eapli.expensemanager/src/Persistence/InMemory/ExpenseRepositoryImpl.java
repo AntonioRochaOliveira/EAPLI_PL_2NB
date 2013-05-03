@@ -41,6 +41,5 @@ public class ExpenseRepositoryImpl implements IExpenseRepository{
             throw new IllegalArgumentException();
         }
         getListExpense().add(exp);
-
     }
 }
