@@ -31,14 +31,13 @@ public class GeoZoneRepository {
         listGeoZones = new ArrayList<GeoZone>();
     }
 
-    
     public void save(GeoZone geoZone) {
         if (geoZone == null) {
-                throw new IllegalArgumentException();
+            throw new IllegalArgumentException();
         }
         listGeoZones.add(geoZone);
     }
-    
+
     public static List<GeoZone> getListGeoZones() {
         return listGeoZones;
     }
