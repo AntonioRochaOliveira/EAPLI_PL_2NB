@@ -4,6 +4,9 @@
  */
 package Persistence;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -12,14 +15,26 @@ import java.util.logging.Logger;
  * @author arocha
  */
 public class PersistenceFactory {
-    
+    private final static String PROPERTIES_PATH = "config/persistence.properties";
     private PersistenceFactory() {
     }
 
     public static RepositoryFactory buildPersistenceFactory() {
-    JpaRepositoryFactory repo = new JpaRepositoryFactory();
-   // InMemoryRepositoryFactory repo= new InMemoryRepositoryFactory();
-        return (RepositoryFactory)  repo;
-  
+    	return loadRepositoryFactoryFromFile();
     }
+
+	private static RepositoryFactory loadRepositoryFactoryFromFile() {
+		Properties persistence = new Properties();
+		try{
+			persistence.load(new FileInputStream(PROPERTIES_PATH));
+			String property = PersistenceFactory.class.getSimpleName() + ".useFactory";
+			Class factoryClass = Class.forName(persistence.getProperty(property));
+			return (RepositoryFactory) factoryClass.newInstance();
+		}catch(Exception e){
+			System.err.println("Unable to load persistence factory");
+			e.printStackTrace(System.err);
+			System.err.println("Reverting to Memory");
+			return new InMemoryRepositoryFactory();
+		}
+	}
 }
