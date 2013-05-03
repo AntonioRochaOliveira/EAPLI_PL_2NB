@@ -29,6 +29,7 @@ public class MainMenu {
             System.out.println("7. Start Balance");
             System.out.println("8. View Balance");
             System.out.println("9. Register payment mode");
+            System.out.println("10. Register Geographic Zone");
             System.out.println("0. Exit\n\n");
 
             option = Console.readInteger("Please choose a option");
@@ -71,6 +72,10 @@ public class MainMenu {
                 case 9:
                     new PayModeUI();
                     new PayModeUI().showContent();
+                    break;
+                    
+                case 10:
+                    new GeoZoneRegisterUI();
                     break;
             }
         } while (option != 0);
