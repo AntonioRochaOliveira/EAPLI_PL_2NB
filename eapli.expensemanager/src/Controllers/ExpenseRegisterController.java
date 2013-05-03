@@ -11,6 +11,7 @@ import Model.CheckingAccount;
 import java.math.BigDecimal;
 import java.util.Date;
 import Persistence.*;
+import Persistence.InMemory.ExpenseRepositoryImpl;
 import java.util.List;
 /**
  *
@@ -23,7 +24,7 @@ public class ExpenseRegisterController extends BaseController {
 
     public void registerExpense(BigDecimal amount,TypeOfExpense type, Date date, PayMode payM,String comment) {
         Expense expense = new Expense(amount,type,date,payM,comment);
-        ExpenseRepository repo = new ExpenseRepository();
+        ExpenseRepositoryImpl repo = new ExpenseRepositoryImpl();
         repo.save(expense);
 //        ExpensesManagement em = new ExpensesManagement();
 //        System.out.println("Gasto Semanal: " + em.getWeeklyExpense().toString());                     
