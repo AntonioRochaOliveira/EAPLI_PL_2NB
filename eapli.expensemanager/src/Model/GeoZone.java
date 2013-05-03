@@ -17,11 +17,11 @@ import javax.persistence.Table;
 @Table(name="GEOZONE")
 public class GeoZone {
     @Id
-    @Column(name="ID")
+   
     private int id;
     @Column(name="CONTINENT")    
     private String zone;
-    @Column(name="CITY")
+    
     private String city;
     
     public GeoZone(){                
