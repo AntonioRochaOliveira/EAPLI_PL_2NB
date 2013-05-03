@@ -4,22 +4,31 @@
  */
 package Model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Fernando Silva/Fábio Mendonça
  */
+@Entity
+@Table(name="GEOZONE")
 public class GeoZone {
-    
+    @Id
+   
+    private int id;
+    @Column(name="CONTINENT")    
     private String zone;
+    
     private String city;
     
-    public GeoZone(){
-        
-        
+    public GeoZone(){                
     }
     
-    public GeoZone(String zone, String city){
-        
+    public GeoZone(int id, String zone, String city){
+        this.id=id;
         this.zone=zone;
         this.city=city;
     }

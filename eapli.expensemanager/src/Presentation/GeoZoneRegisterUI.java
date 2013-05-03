@@ -24,11 +24,12 @@ public class GeoZoneRegisterUI{
 
     public void registerZone() {
         
+        int id = Console.readInteger("Insert Id:");
         String zone=Console.readLine("Insert Continent:");
         
         String city=Console.readLine("Insert City");
         
-        controller.save(zone, city);
+        controller.save(id, zone, city);
     }
     
 }
