@@ -27,6 +27,11 @@ class JpaRepositoryFactory implements RepositoryFactory {
         return new Persistence.JPA.TypeOfExpenseRepositoryImpl();
     }
 
+	@Override
+	public IncomeTypeRepository buidIncomeTypeRepository() {
+		return new Persistence.JPA.IncomeTypeRepositoryImpl();
+	}
+
 
 }
 

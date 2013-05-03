@@ -5,30 +5,7 @@ import java.util.List;
 
 import Model.IncomeType;
 
-public class IncomeTypeRepository {
-	
-	private static IncomeTypeRepository instance = null;
-	
-	private List<IncomeType> list;
-
-	public static synchronized IncomeTypeRepository getInstance() {
-		
-		if (instance == null)
-			instance = new IncomeTypeRepository();
-		
-		return instance;
-	}
-	
-	private IncomeTypeRepository(){
-		list = new ArrayList<IncomeType>();
-	}
-
-	public void save(IncomeType incomeType) {
-		list.add(incomeType);
-	}
-      
-    public List<IncomeType> getIncomeTypes() {
-        return list;
-    }
-	
+public interface IncomeTypeRepository {
+	public void save(IncomeType incomeType);
+    public List<IncomeType> getIncomeTypes() ;	
 }

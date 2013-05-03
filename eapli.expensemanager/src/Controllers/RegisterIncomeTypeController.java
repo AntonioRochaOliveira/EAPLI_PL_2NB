@@ -3,6 +3,7 @@ package Controllers;
 import Model.CheckingAccount;
 import Model.IncomeType;
 import Persistence.IncomeTypeRepository;
+import Persistence.PersistenceFactory;
 
 public class RegisterIncomeTypeController extends BaseController{
 	
@@ -13,7 +14,7 @@ public class RegisterIncomeTypeController extends BaseController{
 
 	public void regIncomeType(String name, String description) {
 		IncomeType incomeType = new IncomeType(name,description);
-		IncomeTypeRepository repo = IncomeTypeRepository.getInstance();
+		IncomeTypeRepository repo = PersistenceFactory.buildPersistenceFactory().buidIncomeTypeRepository();
 		repo.save(incomeType);
 	}
 }

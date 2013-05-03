@@ -21,5 +21,10 @@ class InMemoryRepositoryFactory implements RepositoryFactory {
         return new Persistence.InMemory.TypeOfExpenseRepositoryImpl();
     }
 
+	@Override
+	public IncomeTypeRepository buidIncomeTypeRepository() {
+		return new Persistence.InMemory.IncomeTypeRepositoryImpl();
+	}
+
 
 }
