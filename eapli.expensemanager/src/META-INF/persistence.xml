@@ -6,6 +6,7 @@
     <class>Model.IncomeType</class>
     <class>Model.Transaction</class>
     <class>Model.Expense</class>
+    <class>Model.GeoZone</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>
       <property name="javax.persistence.jdbc.password" value="app"/>

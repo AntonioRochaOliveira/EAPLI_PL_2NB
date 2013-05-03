@@ -4,9 +4,9 @@
  */
 package Persistence;
 
-import Model.TypeOfExpense;
-import java.util.ArrayList;
 import java.util.List;
+
+import Model.TypeOfExpense;
 
 /**
  *

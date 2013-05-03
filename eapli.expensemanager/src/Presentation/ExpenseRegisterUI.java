@@ -4,19 +4,17 @@
  */
 package Presentation;
 
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+
 import Controllers.BaseController;
 import Controllers.ExpenseRegisterController;
 import Controllers.RegisterPayModeController;
 import Model.PayMode;
 import Model.TypeOfExpense;
-import Persistence.ExpenseRepository;
 import Persistence.PayModeRepository;
-
 import eapli.util.Console;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 /**
  *

@@ -1,7 +1,8 @@
 package Controllers;
 
-import Model.CheckingAccount;
 import java.math.BigDecimal;
+
+import Model.CheckingAccount;
 
 public class StartingBalanceController extends BaseController{
     public StartingBalanceController()

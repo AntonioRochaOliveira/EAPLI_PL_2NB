@@ -8,9 +8,10 @@ package Presentation;
  *
  * @author João Silva
  */
+import java.math.BigDecimal;
+
 import Controllers.BaseController;
 import Controllers.WeeklyExpenseController;
-import java.math.BigDecimal;
 
 public class WeeklyExpenseUI extends BaseUI {
 

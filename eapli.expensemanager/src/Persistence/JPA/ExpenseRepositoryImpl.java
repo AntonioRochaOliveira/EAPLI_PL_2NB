@@ -4,9 +4,10 @@
  */
 package Persistence.JPA;
 
+import java.util.List;
+
 import Model.Expense;
 import Persistence.IExpenseRepository;
-import java.util.List;
 
 
 /**

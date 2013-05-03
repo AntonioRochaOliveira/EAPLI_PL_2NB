@@ -10,10 +10,7 @@ package Presentation;
  */
 import Controllers.BaseController;
 import Controllers.MonthlyExpenseController;
-import Controllers.RegisterPayModeController;
-import Model.Expense;
 import eapli.util.Console;
-import java.util.List;
 
 public class MonthlyExpenseUI extends BaseUI {
 

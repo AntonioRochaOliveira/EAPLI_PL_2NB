@@ -4,10 +4,11 @@
  */
 package Presentation;
 
+import java.math.BigDecimal;
+
 import Controllers.BaseController;
 import Controllers.StartingBalanceController;
 import eapli.util.Console;
-import java.math.BigDecimal;
 
 
 public class StartingBalanceUI extends BaseUI{

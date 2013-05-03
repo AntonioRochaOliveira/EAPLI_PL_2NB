@@ -1,11 +1,12 @@
 
 package Persistence;
 
-import Model.PayMode;
-import Model.PaymentType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import Model.PayMode;
+import Model.PaymentType;
 
 /**
  *

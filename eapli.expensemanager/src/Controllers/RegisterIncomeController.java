@@ -4,15 +4,15 @@
  */
 package Controllers;
 
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+
 import Model.CheckingAccount;
 import Model.Income;
 import Model.IncomeType;
 import Persistence.IncomeTypeRepository;
 import Persistence.PersistenceFactory;
-
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
 
 /**
  *

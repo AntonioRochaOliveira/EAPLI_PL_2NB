@@ -1,8 +1,8 @@
 package Presentation;
 
-import eapli.util.Console;
 import Controllers.BaseController;
 import Controllers.RegisterIncomeTypeController;
+import eapli.util.Console;
 
 public class RegisterIncomeTypeUI extends BaseUI{
 	RegisterIncomeTypeController controller;

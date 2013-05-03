@@ -10,7 +10,7 @@ public class IncomeTypeRepositoryImpl implements IncomeTypeRepository {
 	JpaRepository<IncomeType, String> util;
 	
 	public IncomeTypeRepositoryImpl(){
-		util = new JpaRepository<>();
+		util = new JpaRepository<IncomeType, String>();
 	}
 	
 	@Override

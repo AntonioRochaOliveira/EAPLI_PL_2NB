@@ -4,7 +4,6 @@
  */
 package Persistence;
 
-import Persistence.JPA.ExpenseRepositoryImpl;
 
 
 /**

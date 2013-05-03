@@ -4,14 +4,15 @@
  */
 package Presentation;
 
-import Controllers.BaseController;
-import Controllers.RegisterIncomeController;
-import Model.IncomeType;
-import eapli.util.Console;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import Controllers.BaseController;
+import Controllers.RegisterIncomeController;
+import Model.IncomeType;
+import eapli.util.Console;
 
 /**
  *

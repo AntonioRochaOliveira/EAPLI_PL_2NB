@@ -4,15 +4,16 @@
  */
 package Controllers;
 
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+
+import Model.CheckingAccount;
 import Model.Expense;
 import Model.PayMode;
 import Model.TypeOfExpense;
-import Model.CheckingAccount;
-import java.math.BigDecimal;
-import java.util.Date;
-import Persistence.*;
-import Persistence.JPA.ExpenseRepositoryImpl;
-import java.util.List;
+import Persistence.IExpenseRepository;
+import Persistence.PersistenceFactory;
 /**
  *
  * @author Paulo Gandra Sousa

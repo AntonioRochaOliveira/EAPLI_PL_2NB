@@ -3,10 +3,11 @@
  * and open the template in the editor.
  */
 package Persistence.InMemory;
-import Model.TypeOfExpense;
-import Persistence.TypeOfExpenseRepository;
 import java.util.ArrayList;
 import java.util.List;
+
+import Model.TypeOfExpense;
+import Persistence.TypeOfExpenseRepository;
 
 /**
  *
