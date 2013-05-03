@@ -10,12 +10,11 @@ package Presentation;
  */
 import Controllers.BaseController;
 import Controllers.WeeklyExpenseController;
-
+import java.math.BigDecimal;
 
 public class WeeklyExpenseUI extends BaseUI {
 
     private WeeklyExpenseController controller;
-   
 
     public WeeklyExpenseUI() {
 
@@ -30,7 +29,9 @@ public class WeeklyExpenseUI extends BaseUI {
 
     @Override
     public void showContent() {
-        System.out.println("TO BE IMPLEMENTED");
+        BigDecimal weekExpense = controller.getWeeklyExpense();
+
+        System.out.println("Despesa Semanal: " + weekExpense);
     }
 
     @Override
