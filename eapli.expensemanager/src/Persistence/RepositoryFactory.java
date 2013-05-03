@@ -11,5 +11,5 @@ package Persistence;
 public interface RepositoryFactory {    
     IExpenseRepository iexpenseRepository();
     TypeOfExpenseRepository TypeOfExpenseRepository();   
-    IncomeTypeRepository buidIncomeTypeRepository();
+    IncomeTypeRepository buildIncomeTypeRepository();
 }

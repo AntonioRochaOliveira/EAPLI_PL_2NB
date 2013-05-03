@@ -30,7 +30,7 @@ class JpaRepositoryFactory implements RepositoryFactory {
     }
 
 	@Override
-	public IncomeTypeRepository buidIncomeTypeRepository() {
+	public IncomeTypeRepository buildIncomeTypeRepository() {
 		return new Persistence.JPA.IncomeTypeRepositoryImpl();
 	}
 

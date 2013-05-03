@@ -14,7 +14,7 @@ public class RegisterIncomeTypeController extends BaseController{
 
 	public void regIncomeType(String name, String description) {
 		IncomeType incomeType = new IncomeType(name,description);
-		IncomeTypeRepository repo = PersistenceFactory.buildPersistenceFactory().buidIncomeTypeRepository();
+		IncomeTypeRepository repo = PersistenceFactory.buildPersistenceFactory().buildIncomeTypeRepository();
 		repo.save(incomeType);
 	}
 }

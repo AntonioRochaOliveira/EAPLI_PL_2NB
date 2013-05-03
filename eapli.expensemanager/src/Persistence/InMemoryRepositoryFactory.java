@@ -22,7 +22,7 @@ class InMemoryRepositoryFactory implements RepositoryFactory {
     }
 
 	@Override
-	public IncomeTypeRepository buidIncomeTypeRepository() {
+	public IncomeTypeRepository buildIncomeTypeRepository() {
 		return new Persistence.InMemory.IncomeTypeRepositoryImpl();
 	}
 
