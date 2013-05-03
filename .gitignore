@@ -9,6 +9,7 @@
 # netbeans ignore personal stuff 
 nbproject/private/
 eapli.util/nbproject/private/
+eapli.util/nbproject/private/private.properties
 eapli.expensemanager/nbproject/private/
 
 ## generic files to ignore

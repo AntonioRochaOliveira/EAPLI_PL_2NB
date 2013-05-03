@@ -7,12 +7,10 @@ package Controllers;
 
 
 import Model.Expense;
-import Model.TypeOfExpense;
+import Persistence.InMemory.ExpenseRepositoryImpl;
 
 import java.util.Date;
-import Persistence.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 /**
  *
@@ -31,7 +29,7 @@ public class MonthlyExpenseController {
         Expense expense;
         Date data;
         
-        List<Expense> listExpense=ExpenseRepository.getListExpense();
+        List<Expense> listExpense=ExpenseRepositoryImpl.getInstance().getListExpense();
         
         for(int i=0;i<listExpense.size(); i++){
        

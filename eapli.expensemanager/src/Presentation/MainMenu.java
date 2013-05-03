@@ -29,6 +29,7 @@ public class MainMenu {
             System.out.println("7. Start Balance");
             System.out.println("8. View Balance");
             System.out.println("9. Register payment mode");
+            System.out.println("10. Register Geographic Zone");
             System.out.println("0. Exit\n\n");
 
             option = Console.readInteger("Please choose a option");
@@ -56,13 +57,13 @@ public class MainMenu {
                 case 5:
                     MonthlyExpenseUI uiME = new MonthlyExpenseUI();
                     break;
-                case 6:
-                    System.out.println("To be implemented.");
-                    /* WeeklyExpenseUI uiWE = new WeeklyExpenseUI(); */
+                case 6:                    
+                    WeeklyExpenseUI uiWE = new WeeklyExpenseUI();
+                    uiWE.show();
                     break;
                 case 7:
                     StartingBalanceUI uiSB = new StartingBalanceUI();
-                    uiSB.mainLoop();
+                    uiSB.show();
                     break;
                 case 8:
                     BalanceUI a = new BalanceUI();
@@ -71,6 +72,10 @@ public class MainMenu {
                 case 9:
                     new PayModeUI();
                     new PayModeUI().showContent();
+                    break;
+                    
+                case 10:
+                    new GeoZoneRegisterUI();
                     break;
             }
         } while (option != 0);

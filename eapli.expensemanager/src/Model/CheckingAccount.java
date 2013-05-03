@@ -5,6 +5,7 @@
 package Model;
 
 import Persistence.ExpenseRepository;
+import Persistence.InMemory.ExpenseRepositoryImpl;
 import Persistence.IncomeRepository;
 import Persistence.StartingBalanceRepository;
 import eapli.util.DateTime;
@@ -21,11 +22,11 @@ import java.util.concurrent.TimeUnit;
 public class CheckingAccount {
 
     IncomeRepository incomeRepo;
-    ExpenseRepository expenseRepo;
+    ExpenseRepositoryImpl expenseRepo;
 
     public CheckingAccount() {
         incomeRepo = new IncomeRepository();
-        expenseRepo = new ExpenseRepository();
+        expenseRepo = new ExpenseRepositoryImpl();
     }
     //Methods
 
@@ -52,7 +53,7 @@ public class CheckingAccount {
         BigDecimal amount;
 
         //Get all expenses from ExpensesRepository
-        List<Expense> listExpense = ExpenseRepository.getListExpense();
+        List<Expense> listExpense = ExpenseRepositoryImpl.getInstance().getListExpense();
 
         for (int i = 0; i < listExpense.size(); i++) {
 
@@ -105,21 +106,4 @@ public class CheckingAccount {
         expenseRepo.save(expense);
     }
 
-    public BigDecimal getWeeklyExpense() {
-        Calendar today = Calendar.getInstance();
-        Date todayDate = today.getTime();
-
-        BigDecimal weekExpense = BigDecimal.ZERO;
-
-
-
-        for (Expense e : ExpenseRepository.getListExpense()) {
-            if (DateTime.getDateDiff(e.getDate(), todayDate, TimeUnit.DAYS) < 8) {
-                weekExpense = weekExpense.add(e.getAmount());
-            }
-
-        }
-
-        return weekExpense;
-    }
 }

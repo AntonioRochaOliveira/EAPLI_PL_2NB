@@ -4,6 +4,8 @@
  */
 package Persistence;
 
+import Persistence.JPA.ExpenseRepositoryImpl;
+
 
 /**
  *
@@ -17,10 +19,10 @@ package Persistence;
  
 class JpaRepositoryFactory implements RepositoryFactory {
 
-//    @Override
-//    public ExpenseRepository expenseRepository() {
-//        return new expensemanager.persistence.jpa.ExpenseRepositoryImpl();
-//    }
+    @Override
+    public IExpenseRepository iexpenseRepository() {
+        return new Persistence.JPA.ExpenseRepositoryImpl();
+    }
 
     @Override
     public TypeOfExpenseRepository TypeOfExpenseRepository() {
@@ -31,6 +33,7 @@ class JpaRepositoryFactory implements RepositoryFactory {
 	public IncomeTypeRepository buidIncomeTypeRepository() {
 		return new Persistence.JPA.IncomeTypeRepositoryImpl();
 	}
+
 
 
 }

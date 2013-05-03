@@ -4,19 +4,24 @@
  */
 package Model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 
 /**
  *
  * @author Márcio Martins
  */
-
-public class Expense extends Transaction{
+@Entity
+public class Expense extends Transaction implements Serializable{
       
-    
+    @ManyToOne(cascade = CascadeType.ALL)
     private TypeOfExpense type;
+    @ManyToOne(cascade = CascadeType.ALL)
     private PayMode payM;
     
    

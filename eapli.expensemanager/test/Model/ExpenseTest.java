@@ -46,7 +46,7 @@ public class ExpenseTest {
     @Test
     public void testGetType() {
         System.out.println("getType");
-        Expense instance = new Expense(new BigDecimal(10),new TypeOfExpense("Carro"),new Date(2013, 04, 19),new PayMode(null, null),"Lavagem Auto");
+        Expense instance = new Expense(new BigDecimal(10),new TypeOfExpense("Carro","Descrição"),new Date(2013, 04, 19),new PayMode(null, null),"Lavagem Auto");
         String expResult = "Carro";
         String result = instance.getType().getDescription();
         assertEquals(expResult, result);
@@ -60,7 +60,7 @@ public class ExpenseTest {
     @Test
     public void testSetType() {
         System.out.println("setType");
-        TypeOfExpense type = new TypeOfExpense("Carro");
+        TypeOfExpense type = new TypeOfExpense("Carro","Descrição");
         Expense instance = new Expense(new BigDecimal(10),null,new Date(2013, 04, 19),new PayMode(null, null),"Lavagem Auto");
         instance.setType(type);
         String expResult = "Carro";
@@ -76,7 +76,7 @@ public class ExpenseTest {
     @Test
     public void testSetDate() {
         System.out.println("setDate");
-        TypeOfExpense type = new TypeOfExpense("Carro");
+        TypeOfExpense type = new TypeOfExpense("Carro","Descrição");
         Expense instance = new Expense(new BigDecimal(10),null,null,new PayMode(null, null),"Lavagem Auto");
         instance.setDate(new Date(2013, 04, 19));
         int expResult = 4;

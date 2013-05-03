@@ -36,11 +36,11 @@ public class ExpenseRepositoryImpl implements IExpenseRepository{
     }
     
     @Override
-    public void save(Expense exp) {
+    public Expense save(Expense exp) {
         if (exp == null) {
             throw new IllegalArgumentException();
         }
         getListExpense().add(exp);
-
+        return exp;
     }
 }

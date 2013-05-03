@@ -5,12 +5,19 @@
 package Persistence.JPA;
 
 import Model.Expense;
-import Persistence.ExpenseRepository;
+import Persistence.IExpenseRepository;
+import java.util.List;
+
 
 /**
  *
  * @author Márcio
  */
-public class ExpenseRepositoryImpl extends JpaRepository<Expense, String> implements ExpenseRepository{
+public class ExpenseRepositoryImpl extends JpaRepository<Expense, String> implements IExpenseRepository{
+
+    @Override
+    public List<Expense> getListExpense() {
+        return super.all();
+    }    
     
 }
