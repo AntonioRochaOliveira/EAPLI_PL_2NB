@@ -14,5 +14,5 @@ public interface IExpenseRepository {
      * @return the listExpense
      */
     public List<Expense> getListExpense();
-    public void save(Expense exp);       
+    public Expense save(Expense exp);       
 }
