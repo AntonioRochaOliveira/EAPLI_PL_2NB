@@ -7,6 +7,7 @@ package Model;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
 
@@ -14,7 +15,7 @@ import javax.persistence.ManyToOne;
  *
  * @author Márcio Martins
  */
-
+@Entity
 public class Expense extends Transaction{
       
     @ManyToOne(cascade = CascadeType.ALL)
