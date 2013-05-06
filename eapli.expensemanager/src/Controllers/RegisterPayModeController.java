@@ -12,8 +12,10 @@ import java.util.Map;
 import Model.CheckingAccount;
 import Model.PayMode;
 import Model.PaymentType;
-import Persistence.PayModeRepository;
-import Persistence.PaymentTypeRepository;
+import Persistence.IPayModeRepository;
+import Persistence.IPaymentTypeRepository;
+import Persistence.PersistenceFactory;
+import Persistence.RepositoryFactory;
 import Presentation.PayModeUI;
 
 /**
@@ -29,14 +31,20 @@ public class RegisterPayModeController extends BaseController {
     }
     
     public RegisterPayModeController(PayModeUI ui) {
-        //Retorna os Tipos de Pagamento para uma lista;
-        List<PaymentType> typeList = PaymentTypeRepository.getInstance().getPaymentType();
-
+      
+        RepositoryFactory repFac = PersistenceFactory.buildPersistenceFactory();
+        
+        IPaymentTypeRepository paymentTypeRep = repFac.buildPaymentTypeRepository();
+        
+          //Retorna os Tipos de Pagamento para uma lista;
+        List<PaymentType> typeList = paymentTypeRep.all();
+        
         //Extrai a string name de todos os tipo de pagamento
         LinkedList<String> types = new LinkedList();
         for (PaymentType s : typeList) {
             types.add(s.getName());
         }
+        
         //Envia essas strings para a UI para que o utilizador escolha uma
         String type = ui.getPaymentType(types);
         PaymentType paymentType = null;
@@ -47,6 +55,7 @@ public class RegisterPayModeController extends BaseController {
                 paymentType = s;
             }
         }
+        
         //Vai buscar todas as variaveis a preencher pelo utilizador do paymentType
         Map<String, Object> aditionalInformation = new HashMap<String, Object>();
         for (String s : paymentType.getAditionalInformationNames().keySet()) {
@@ -54,8 +63,10 @@ public class RegisterPayModeController extends BaseController {
             aditionalInformation.put(s, ui.getAditionalInformation(s, paymentType.getAditionalInformationNames().get(s)));
         }
         payMode = new PayMode(paymentType, aditionalInformation);
+        
         //Guarda no Repositorio
-        PayModeRepository.getInstance().save(payMode);
+        IPayModeRepository payModeRep = repFac.buildPayModeRepository();
+        payModeRep.save(payMode);
     }
 
     @Override

@@ -5,11 +5,15 @@
 package Persistence;
 
 import Model.PayMode;
+import java.util.List;
 
 /**
  *
  * @author xiko
  */
 public interface IPayModeRepository {
-     void save(PayMode paymode);
+     PayMode save(PayMode paymode);
+     void delete(PayMode payMode);
+     long size();    
+     List<PayMode> all();
 }

@@ -4,11 +4,11 @@
  */
 package Persistence;
 
+
 /**
  *
  * @author arocha
  */
-
 class InMemoryRepositoryFactory implements RepositoryFactory {
 
     @Override
@@ -21,10 +21,18 @@ class InMemoryRepositoryFactory implements RepositoryFactory {
         return new Persistence.InMemory.TypeOfExpenseRepositoryImpl();
     }
 
-	@Override
-	public IncomeTypeRepository buildIncomeTypeRepository() {
-		return new Persistence.InMemory.IncomeTypeRepositoryImpl();
-	}
+    @Override
+    public IncomeTypeRepository buildIncomeTypeRepository() {
+        return new Persistence.InMemory.IncomeTypeRepositoryImpl();
+    }
 
+    @Override
+    public IPaymentTypeRepository buildPaymentTypeRepository() {
+        return Persistence.InMemory.PaymentTypeRepositoryImpl.getInstance();
+    }
 
+    @Override
+    public IPayModeRepository buildPayModeRepository() {
+        return Persistence.InMemory.PayModeRepositoryImpl.getInstance();
+    }
 }

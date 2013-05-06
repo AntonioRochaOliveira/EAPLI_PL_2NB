@@ -13,7 +13,9 @@ import Controllers.ExpenseRegisterController;
 import Controllers.RegisterPayModeController;
 import Model.PayMode;
 import Model.TypeOfExpense;
-import Persistence.PayModeRepository;
+import Persistence.IPayModeRepository;
+import Persistence.PersistenceFactory;
+import Persistence.RepositoryFactory;
 import eapli.util.Console;
 
 /**
@@ -35,6 +37,7 @@ class ExpenseRegisterUI extends BaseUI{
 
     @Override
     public void showContent() {
+        RepositoryFactory repFac = PersistenceFactory.buildPersistenceFactory();
         System.out.println("* * *  REGISTER AN EXPENSE  * * *\n");
         
         /* AMOUNT */
@@ -66,7 +69,11 @@ class ExpenseRegisterUI extends BaseUI{
         
         /* PAYMODE */
         PayMode pM = new PayMode(null, null);// Var to insert on new Expense
-        List<PayMode> listaPM = PayModeRepository.getInstance().getPayMode(); // WRONG WAY. NEED TO COMUNICATE TO CONTROLLER OF PAYMODE
+        
+       
+        IPayModeRepository payModeRep = repFac.buildPayModeRepository();
+       
+        List<PayMode> listaPM = payModeRep.all(); // WRONG WAY. NEED TO COMUNICATE TO CONTROLLER OF PAYMODE
         System.out.println("Select PayMode of Expense. [0] to creat new.");
         for (int i = 0; i < listaPM.size(); i++)
         {

@@ -2,31 +2,31 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Persistence;
-
-import java.util.ArrayList;
-import java.util.List;
+package Persistence.InMemory;
 
 import Model.PaymentType;
+import Persistence.IPaymentTypeRepository;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author xiko
  */
-public class PaymentTypeRepository implements IPaymentTypeRepository {
-    private static PaymentTypeRepository instance = null;
+public class PaymentTypeRepositoryImpl implements IPaymentTypeRepository {
+    private static PaymentTypeRepositoryImpl instance = null;
 	
 	private List<PaymentType> list;
 
-	public static synchronized PaymentTypeRepository getInstance() {
+	public static synchronized PaymentTypeRepositoryImpl getInstance() {
 		
 		if (instance == null)
-			instance = new PaymentTypeRepository();
+			instance = new PaymentTypeRepositoryImpl();
 		
 		return instance;
 	}
 	
-	private PaymentTypeRepository(){
+	private PaymentTypeRepositoryImpl(){
 		list = new ArrayList<PaymentType>();
                 PaymentType check = new PaymentType("Check");
                 check.addAditionalInformationName("Number","Integer");
@@ -47,11 +47,24 @@ public class PaymentTypeRepository implements IPaymentTypeRepository {
 	}
 
     @Override
-	public void save(PaymentType incomeType) {
-		list.add(incomeType);
+	public PaymentType save(PaymentType paymentType) {
+		list.add(paymentType);
+        return paymentType;
 	}
       
-        public List getPaymentType() {
-                return list;
+
+    @Override
+    public void delete(PaymentType paymentType) {
+         list.remove(paymentType);
+       }
+
+    @Override
+    public long size() {
+        return list.size();
         }
+
+    @Override
+    public List<PaymentType> all() {
+       return list;
+    }
 }

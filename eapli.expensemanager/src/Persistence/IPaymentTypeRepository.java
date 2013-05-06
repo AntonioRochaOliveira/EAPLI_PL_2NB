@@ -5,12 +5,16 @@
 package Persistence;
 
 import Model.PaymentType;
+import java.util.List;
 
 
 /**
  *
  * @author xiko
  */
-public interface IPaymentTypeRepository {
-      void save(PaymentType exp);
+public interface IPaymentTypeRepository  {
+     PaymentType save(PaymentType paymentType);
+     void delete(PaymentType paymentType);
+     long size();    
+     List<PaymentType> all();
 }

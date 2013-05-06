@@ -12,4 +12,6 @@ public interface RepositoryFactory {
     IExpenseRepository iexpenseRepository();
     TypeOfExpenseRepository TypeOfExpenseRepository();   
     IncomeTypeRepository buildIncomeTypeRepository();
+    IPaymentTypeRepository buildPaymentTypeRepository();
+    IPayModeRepository buildPayModeRepository();
 }

@@ -33,6 +33,16 @@ class JpaRepositoryFactory implements RepositoryFactory {
 		return new Persistence.JPA.IncomeTypeRepositoryImpl();
 	}
 
+    @Override
+    public IPaymentTypeRepository buildPaymentTypeRepository() {
+         return new Persistence.JPA.PaymentTypeRepositoryImpl();
+    }
+
+    @Override
+    public IPayModeRepository buildPayModeRepository() {
+         return new Persistence.JPA.PayModeTypeRepositoryImpl();
+    }
+
 
 
 }
