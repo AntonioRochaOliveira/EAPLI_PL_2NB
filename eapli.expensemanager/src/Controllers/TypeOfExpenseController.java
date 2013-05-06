@@ -1,7 +1,8 @@
 package Controllers;
 
 import Model.TypeOfExpense;
-import Persistence.*;
+import Persistence.PersistenceFactory;
+import Persistence.TypeOfExpenseRepository;
 
 public class TypeOfExpenseController {
     

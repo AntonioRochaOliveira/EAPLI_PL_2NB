@@ -6,14 +6,12 @@ package Controllers;
  */
 
 
-import Model.Expense;
-import Model.TypeOfExpense;
-
-import java.util.Date;
-import Persistence.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import Model.Expense;
+import Persistence.InMemory.ExpenseRepositoryImpl;
 /**
  *
  * @author Mak3r
@@ -31,7 +29,7 @@ public class MonthlyExpenseController {
         Expense expense;
         Date data;
         
-        List<Expense> listExpense=ExpenseRepository.getListExpense();
+        List<Expense> listExpense=ExpenseRepositoryImpl.getInstance().getListExpense();
         
         for(int i=0;i<listExpense.size(); i++){
        

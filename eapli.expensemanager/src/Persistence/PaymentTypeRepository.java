@@ -4,9 +4,10 @@
  */
 package Persistence;
 
-import Model.PaymentType;
 import java.util.ArrayList;
 import java.util.List;
+
+import Model.PaymentType;
 
 /**
  *

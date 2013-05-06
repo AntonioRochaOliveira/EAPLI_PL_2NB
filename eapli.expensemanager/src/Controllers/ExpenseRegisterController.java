@@ -4,15 +4,16 @@
  */
 package Controllers;
 
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+
+import Model.CheckingAccount;
 import Model.Expense;
 import Model.PayMode;
 import Model.TypeOfExpense;
-import Model.CheckingAccount;
-import java.math.BigDecimal;
-import java.util.Date;
-import Persistence.*;
-import Persistence.InMemory.ExpenseRepositoryImpl;
-import java.util.List;
+import Persistence.IExpenseRepository;
+import Persistence.PersistenceFactory;
 /**
  *
  * @author Paulo Gandra Sousa
@@ -24,7 +25,7 @@ public class ExpenseRegisterController extends BaseController {
 
     public void registerExpense(BigDecimal amount,TypeOfExpense type, Date date, PayMode payM,String comment) {
         Expense expense = new Expense(amount,type,date,payM,comment);
-        ExpenseRepositoryImpl repo = new ExpenseRepositoryImpl();
+        IExpenseRepository repo = PersistenceFactory.buildPersistenceFactory().iexpenseRepository();
         repo.save(expense);
 //        ExpensesManagement em = new ExpensesManagement();
 //        System.out.println("Gasto Semanal: " + em.getWeeklyExpense().toString());                     

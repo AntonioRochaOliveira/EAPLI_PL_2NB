@@ -11,15 +11,20 @@ package Persistence;
 
 class InMemoryRepositoryFactory implements RepositoryFactory {
 
-//    @Override
-//    public ExpenseRepository expenseRepository() {
-//        return new eapli.expensemanager.persistence.inmemory.ExpenseRepositoryImpl();
-//    }
+    @Override
+    public IExpenseRepository iexpenseRepository() {
+        return new Persistence.JPA.ExpenseRepositoryImpl();
+    }
 
     @Override
     public TypeOfExpenseRepository TypeOfExpenseRepository() {
         return new Persistence.InMemory.TypeOfExpenseRepositoryImpl();
     }
+
+	@Override
+	public IncomeTypeRepository buildIncomeTypeRepository() {
+		return new Persistence.InMemory.IncomeTypeRepositoryImpl();
+	}
 
 
 }

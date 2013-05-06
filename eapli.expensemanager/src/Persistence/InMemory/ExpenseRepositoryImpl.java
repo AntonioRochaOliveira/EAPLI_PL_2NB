@@ -4,11 +4,11 @@
  */
 package Persistence.InMemory;
 
-import Model.Expense;
-import Persistence.ExpenseRepository;
-import Persistence.IExpenseRepository;
 import java.util.ArrayList;
 import java.util.List;
+
+import Model.Expense;
+import Persistence.IExpenseRepository;
 
 /**
  *
@@ -36,11 +36,11 @@ public class ExpenseRepositoryImpl implements IExpenseRepository{
     }
     
     @Override
-    public void save(Expense exp) {
+    public Expense save(Expense exp) {
         if (exp == null) {
             throw new IllegalArgumentException();
         }
         getListExpense().add(exp);
-
+        return exp;
     }
 }

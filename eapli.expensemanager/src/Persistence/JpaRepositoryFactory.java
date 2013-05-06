@@ -5,6 +5,7 @@
 package Persistence;
 
 
+
 /**
  *
  * @author arocha
@@ -17,15 +18,21 @@ package Persistence;
  
 class JpaRepositoryFactory implements RepositoryFactory {
 
-//    @Override
-//    public ExpenseRepository expenseRepository() {
-//        return new expensemanager.persistence.jpa.ExpenseRepositoryImpl();
-//    }
+    @Override
+    public IExpenseRepository iexpenseRepository() {
+        return new Persistence.JPA.ExpenseRepositoryImpl();
+    }
 
     @Override
     public TypeOfExpenseRepository TypeOfExpenseRepository() {
         return new Persistence.JPA.TypeOfExpenseRepositoryImpl();
     }
+
+	@Override
+	public IncomeTypeRepository buildIncomeTypeRepository() {
+		return new Persistence.JPA.IncomeTypeRepositoryImpl();
+	}
+
 
 
 }

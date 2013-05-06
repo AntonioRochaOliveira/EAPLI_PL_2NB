@@ -4,13 +4,15 @@
  */
 package Controllers;
 
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+
 import Model.CheckingAccount;
 import Model.Income;
 import Model.IncomeType;
 import Persistence.IncomeTypeRepository;
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
+import Persistence.PersistenceFactory;
 
 /**
  *
@@ -21,7 +23,7 @@ public class RegisterIncomeController extends BaseController {
     IncomeTypeRepository incomeTypeRepository;
     
     public RegisterIncomeController() {
-    	incomeTypeRepository = IncomeTypeRepository.getInstance();
+    	incomeTypeRepository = PersistenceFactory.buildPersistenceFactory().buildIncomeTypeRepository();
     }
     
     public List<IncomeType> getIncomeTypes(){

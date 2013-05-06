@@ -3,12 +3,11 @@
  * and open the template in the editor.
  */
 package Controllers;
-import Model.Expense;
-import Model.Income;
-import Persistence.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+
+import Model.Expense;
+import Persistence.IncomeRepository;
+import Persistence.InMemory.ExpenseRepositoryImpl;
 /**
  *
  * @author Fábio Mendonça/Fernando Silva
@@ -45,7 +44,7 @@ public class ValuesCalculator {
     public float getExpensesTotal(){
         
         //New Object ExpensesRepository
-        ExpenseRepository repository=new ExpenseRepository();
+        ExpenseRepositoryImpl repository=new ExpenseRepositoryImpl();
         
         float sum=0.0f;
         Expense expense;

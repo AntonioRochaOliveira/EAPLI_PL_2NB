@@ -4,10 +4,11 @@
  */
 package Presentation;
 
+import java.math.BigDecimal;
+
 import Controllers.BaseController;
 import Controllers.PlacementSavingsController;
 import eapli.util.Console;
-import java.math.BigDecimal;
 
 /**
  *

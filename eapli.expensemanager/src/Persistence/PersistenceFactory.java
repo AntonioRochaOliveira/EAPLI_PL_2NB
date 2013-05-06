@@ -5,17 +5,13 @@
 package Persistence;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author arocha
  */
 public class PersistenceFactory {
-    private final static String PROPERTIES_PATH = "config/persistence.properties";
     private PersistenceFactory() {
     }
 
@@ -25,6 +21,7 @@ public class PersistenceFactory {
 
 	private static RepositoryFactory loadRepositoryFactoryFromFile() {
 		Properties persistence = new Properties();
+		String PROPERTIES_PATH = "config/persistence.properties";
 		try{
 			persistence.load(new FileInputStream(PROPERTIES_PATH));
 			String property = PersistenceFactory.class.getSimpleName() + ".useFactory";

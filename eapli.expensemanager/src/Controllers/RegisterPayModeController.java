@@ -4,16 +4,17 @@
  */
 package Controllers;
 
-import Model.CheckingAccount;
-import Model.PaymentType;
-import Model.PayMode;
-import Persistence.PayModeRepository;
-import Persistence.PaymentTypeRepository;
-import Presentation.PayModeUI;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
+import Model.CheckingAccount;
+import Model.PayMode;
+import Model.PaymentType;
+import Persistence.PayModeRepository;
+import Persistence.PaymentTypeRepository;
+import Presentation.PayModeUI;
 
 /**
  *

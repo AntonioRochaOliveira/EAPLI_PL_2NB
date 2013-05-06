@@ -9,9 +9,9 @@ import java.util.List;
 
 import Model.Expense;
 import Model.Income;
-import Persistence.ExpenseRepository;
 import Persistence.IncomeRepository;
 import Persistence.StartingBalanceRepository;
+import Persistence.InMemory.ExpenseRepositoryImpl;
 
 /**
  *
@@ -45,7 +45,7 @@ public class Accounting {
         BigDecimal amount;
 
         //Get all expenses from ExpensesRepository
-        List<Expense> listExpense = ExpenseRepository.getListExpense();
+        List<Expense> listExpense = ExpenseRepositoryImpl.getInstance().getListExpense();
 
         for (int i = 0; i < listExpense.size(); i++) {
 

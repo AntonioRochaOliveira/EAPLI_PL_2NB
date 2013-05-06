@@ -3,8 +3,9 @@
  * and open the template in the editor.
  */
 package Persistence;
-import Model.*;
 import java.util.List;
+
+import Model.Expense;
 /**
  *
  * @author losa
@@ -14,5 +15,5 @@ public interface IExpenseRepository {
      * @return the listExpense
      */
     public List<Expense> getListExpense();
-    public void save(Expense exp);       
+    public Expense save(Expense exp);       
 }

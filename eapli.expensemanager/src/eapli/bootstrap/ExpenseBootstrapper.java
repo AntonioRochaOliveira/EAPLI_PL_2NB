@@ -4,7 +4,7 @@
  */
 package eapli.bootstrap;
 
-import Persistence.ExpenseRepository;
+import Persistence.InMemory.ExpenseRepositoryImpl;
 
 /**
  *
@@ -13,7 +13,7 @@ import Persistence.ExpenseRepository;
 public class ExpenseBootstrapper {
 
     static {
-        ExpenseRepository repo = new ExpenseRepository();
+        ExpenseRepositoryImpl repo = new ExpenseRepositoryImpl();
         /*
         repo.save(new Expense("Autocarro", 2013, 3, 4, new BigDecimal(2.4)));
         repo.save(new Expense("Almoço", 2013, 3, 5, new BigDecimal(12.4)));

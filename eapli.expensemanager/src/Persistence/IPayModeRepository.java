@@ -4,7 +4,6 @@
  */
 package Persistence;
 
-import Model.Expense;
 import Model.PayMode;
 
 /**

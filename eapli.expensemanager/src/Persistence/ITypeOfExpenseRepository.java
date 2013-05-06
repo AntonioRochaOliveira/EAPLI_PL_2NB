@@ -3,8 +3,9 @@
  * and open the template in the editor.
  */
 package Persistence;
-import Model.TypeOfExpense;
 import java.util.List;
+
+import Model.TypeOfExpense;
 
 /**
  *
