@@ -20,12 +20,12 @@ public abstract class BaseUI {
 	}
 	
 	public void showHeader(){
-		System.out.print("* * * "+ getTitle() +" * * *\n");
+		System.out.print("* * * " + getTitle() + " * * *\n");
 	}
 	
 	public void showFooter(){
 		System.out.printf("* * *  CURRENT BALANCE  %.2f * * *\n",buildBaseController().getBalance());
-		/*System.out.printf("* * *  WEEKLY EXPENSES  %.2f * * *\n",buildBaseController().getWeeklyExpense());*/
+		System.out.printf("* * *      LAST 7 DAYS  %.2f * * *\n",buildBaseController().getWeeklyExpense());
 	}
 	
 	

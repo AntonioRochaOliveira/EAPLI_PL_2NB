@@ -6,16 +6,17 @@ package Presentation;
 
 /**
  *
- * @author João Silva
+ * @author  Paulo Mendes
+ * @author  Sérgio Castro
  */
-import java.math.BigDecimal;
 
 import Controllers.BaseController;
 import Controllers.WeeklyExpenseController;
+import java.math.BigDecimal;
 
 public class WeeklyExpenseUI extends BaseUI {
 
-    private WeeklyExpenseController controller;
+    private WeeklyExpenseController controller = null;
 
     public WeeklyExpenseUI() {
 
@@ -30,13 +31,16 @@ public class WeeklyExpenseUI extends BaseUI {
 
     @Override
     public void showContent() {
+        
         BigDecimal weekExpense = controller.getWeeklyExpense();
 
         System.out.println("Despesa Semanal: " + weekExpense);
+        
     }
 
     @Override
     public BaseController buildBaseController() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        //throw new UnsupportedOperationException("Not supported yet.");
+        return controller;
     }
 }

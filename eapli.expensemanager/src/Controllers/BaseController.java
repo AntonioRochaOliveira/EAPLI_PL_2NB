@@ -13,5 +13,11 @@ public abstract class BaseController {
 		return buildCheckingAccount().getBalance();
 
 	}
+        
+        public BigDecimal getWeeklyExpense() {
+            return buildCheckingAccount().getWeeklyExpense();
+        }
+        
+        
 		
 }

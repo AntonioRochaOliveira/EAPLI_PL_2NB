@@ -22,9 +22,10 @@ public class StartingBalanceRepository {
     
     public static StartingBalanceRepository instance(){
         if(instance == null) {
-         instance = new StartingBalanceRepository();
-         return instance;
+            instance = new StartingBalanceRepository();
+            return instance;
         }
+        
         return instance;
     }
     

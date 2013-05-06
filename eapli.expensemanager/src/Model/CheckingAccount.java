@@ -10,6 +10,10 @@ import java.util.List;
 import Persistence.IncomeRepository;
 import Persistence.StartingBalanceRepository;
 import Persistence.InMemory.ExpenseRepositoryImpl;
+import eapli.util.DateTime;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -82,6 +86,22 @@ public class CheckingAccount {
         sum = sum.add(amount);
 
         return sum;
+    }
+    
+    public BigDecimal getWeeklyExpense() {
+        Calendar today = Calendar.getInstance();
+        Date todayDate = today.getTime();
+
+        BigDecimal weekExpense = BigDecimal.ZERO;
+
+        for (Expense e : ExpenseRepositoryImpl.getInstance().getListExpense()) {
+            if (DateTime.getDateDiff(e.getDate(), todayDate, TimeUnit.DAYS) < 8) {
+                weekExpense = weekExpense.add(e.getAmount());
+            }
+
+        }
+
+        return weekExpense;
     }
 
     //Sets the inicial balance
