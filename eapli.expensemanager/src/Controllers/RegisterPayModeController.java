@@ -7,8 +7,9 @@ package Controllers;
 import Model.CheckingAccount;
 import Model.PaymentType;
 import Model.PayMode;
-import Persistence.PayModeRepository;
-import Persistence.PaymentTypeRepository;
+import Persistence.IPayModeRepository;
+import Persistence.InMemory.PayModeRepositoryImpl;
+import Persistence.InMemory.PaymentTypeRepositoryImpl;
 import Presentation.PayModeUI;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -29,7 +30,7 @@ public class RegisterPayModeController extends BaseController {
     
     public RegisterPayModeController(PayModeUI ui) {
         //Retorna os Tipos de Pagamento para uma lista;
-        List<PaymentType> typeList = PaymentTypeRepository.getInstance().getPaymentType();
+        List<PaymentType> typeList = PaymentTypeRepositoryImpl.getInstance().all();
 
         //Extrai a string name de todos os tipo de pagamento
         LinkedList<String> types = new LinkedList();
@@ -54,7 +55,9 @@ public class RegisterPayModeController extends BaseController {
         }
         payMode = new PayMode(paymentType, aditionalInformation);
         //Guarda no Repositorio
-        PayModeRepository.getInstance().save(payMode);
+        //Falta o Factory
+        IPayModeRepository rep = PayModeRepositoryImpl.getInstance();
+        rep.save(payMode);
     }
 
     @Override

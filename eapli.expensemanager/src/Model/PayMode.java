@@ -34,7 +34,7 @@ public class PayMode {
     @Override
     public String toString() {
          StringBuilder temp=new StringBuilder();
-         temp.append(payT.name);
+         temp.append(payT.getName());
 
         for (String key : aditionalInformation.keySet())
             {

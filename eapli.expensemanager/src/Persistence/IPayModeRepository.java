@@ -4,8 +4,8 @@
  */
 package Persistence;
 
-import Model.Expense;
 import Model.PayMode;
+import java.util.List;
 
 /**
  *
@@ -13,4 +13,7 @@ import Model.PayMode;
  */
 public interface IPayModeRepository {
      void save(PayMode paymode);
+     void delete(PayMode payMode);
+     long size();    
+     List<PayMode> all();
 }
