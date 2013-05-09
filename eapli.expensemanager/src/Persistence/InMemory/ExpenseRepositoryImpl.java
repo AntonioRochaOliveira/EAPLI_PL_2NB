@@ -14,27 +14,29 @@ import Persistence.IExpenseRepository;
  *
  * @author Márcio
  */
-public class ExpenseRepositoryImpl implements IExpenseRepository{
+public class ExpenseRepositoryImpl implements IExpenseRepository {
+
     private static ExpenseRepositoryImpl instance = null;
     private static List<Expense> listExpense;
 
     public static synchronized ExpenseRepositoryImpl getInstance() {
-		
-		if (instance == null)
-			instance = new ExpenseRepositoryImpl();
-		
-		return instance;
+
+        if (instance == null) {
+            instance = new ExpenseRepositoryImpl();
+        }
+
+        return instance;
     }
-    public ExpenseRepositoryImpl()
-    {
+
+    public ExpenseRepositoryImpl() {
         listExpense = new ArrayList<Expense>();
     }
-    
+
     @Override
     public List<Expense> getListExpense() {
         return listExpense;
     }
-    
+
     @Override
     public Expense save(Expense exp) {
         if (exp == null) {

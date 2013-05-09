@@ -6,16 +6,9 @@ package Presentation;
 
 import Controllers.BaseController;
 import Controllers.NotificationsController;
-import Controllers.RegisterPayModeController;
-import Model.PayMode;
-import Model.TypeOfExpense;
-import Persistence.IPayModeRepository;
-import Persistence.PersistenceFactory;
-import Persistence.RepositoryFactory;
 import eapli.util.Console;
 import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
+
 
 /**
  *
@@ -36,6 +29,15 @@ public class NotificationsUI extends BaseUI {
     @Override
     public void showContent() {
 
+        String weeklyLimitText;
+        BigDecimal weekLimit = controller.getWeekLimit();
+        
+        if (weekLimit.compareTo(BigDecimal.ZERO) == 0) {
+            weeklyLimitText = " [NOT SET]";
+        } else {
+            weeklyLimitText = " [" + weekLimit.toString() + "€]";
+        }
+        
         int option;
         do {
             System.out.println("===================");
@@ -43,7 +45,9 @@ public class NotificationsUI extends BaseUI {
             System.out.println("===================");
             System.out.println();
 
-            System.out.println("1. Weekly Limit");
+            System.out.println("1. Weekly Limit" + weeklyLimitText);
+            System.out.println("2. Monthly Limit" + weeklyLimitText);
+            System.out.println("");
             System.out.println("0. Back to Main Menu");
             System.out.println();
             System.out.println();
@@ -54,8 +58,10 @@ public class NotificationsUI extends BaseUI {
                 case 0:
                     return;
 
-                case 1:
-                   
+                case 1:                                        
+                    break;
+                
+                case 2:                                        
                     break;
             }
         } while (option != 0);
