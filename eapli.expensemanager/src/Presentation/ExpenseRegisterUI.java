@@ -17,6 +17,8 @@ import Persistence.IPayModeRepository;
 import Persistence.PersistenceFactory;
 import Persistence.RepositoryFactory;
 import eapli.util.Console;
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  *
@@ -73,7 +75,8 @@ class ExpenseRegisterUI extends BaseUI{
        
         IPayModeRepository payModeRep = repFac.buildPayModeRepository();
        
-        List<PayMode> listaPM = payModeRep.all(); // WRONG WAY. NEED TO COMUNICATE TO CONTROLLER OF PAYMODE
+        Collection<PayMode> collectionPayMode = payModeRep.findAll(); // WRONG WAY. NEED TO COMUNICATE TO CONTROLLER OF PAYMODE
+        ArrayList<PayMode> listaPM = new ArrayList(collectionPayMode);
         System.out.println("Select PayMode of Expense. [0] to creat new.");
         for (int i = 0; i < listaPM.size(); i++)
         {

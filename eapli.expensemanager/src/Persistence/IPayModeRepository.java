@@ -5,6 +5,8 @@
 package Persistence;
 
 import Model.PayMode;
+import Model.PaymentType;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -15,5 +17,5 @@ public interface IPayModeRepository {
      PayMode save(PayMode paymode);
      void delete(PayMode payMode);
      long size();    
-     List<PayMode> all();
+     Collection<PayMode> findAll();
 }

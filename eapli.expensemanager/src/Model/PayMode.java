@@ -4,26 +4,44 @@
  */
 package Model;
 
+import java.io.Serializable;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
  * @author Miguel Ribeiro
  */
-public class PayMode {
+@Entity
+@Table(name = "paymentMode")
+public class PayMode implements Serializable {
     //class member
+    @Id
+    @GeneratedValue
+    private int id;
+    
+    @ManyToOne
     private PaymentType payT;
-    private Map<String, Object> aditionalInformation;
+    
+    @Lob
+    private HashMap<String, Object> aditionalInformation;
     
     public PayMode(PaymentType paymentType,Map<String, Object> aditionalInformation)
     {
        payT=paymentType;
-       this.aditionalInformation=aditionalInformation;
+       this.aditionalInformation=new HashMap(aditionalInformation);
     }
 
-    PayMode() {
+   public PayMode() {
         
     }
     

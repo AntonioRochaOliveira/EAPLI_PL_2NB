@@ -17,6 +17,7 @@ import Persistence.IPaymentTypeRepository;
 import Persistence.PersistenceFactory;
 import Persistence.RepositoryFactory;
 import Presentation.PayModeUI;
+import java.util.Collection;
 
 /**
  *
@@ -37,7 +38,7 @@ public class RegisterPayModeController extends BaseController {
         IPaymentTypeRepository paymentTypeRep = repFac.buildPaymentTypeRepository();
         
           //Retorna os Tipos de Pagamento para uma lista;
-        List<PaymentType> typeList = paymentTypeRep.all();
+        Collection<PaymentType> typeList = paymentTypeRep.findAll();
         
         //Extrai a string name de todos os tipo de pagamento
         LinkedList<String> types = new LinkedList();

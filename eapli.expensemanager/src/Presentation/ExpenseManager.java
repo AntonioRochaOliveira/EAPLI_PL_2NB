@@ -4,6 +4,8 @@
  */
 package Presentation;
 
+import eapli.bootstrap.ExpenseBootstrapper;
+
 
 /**
  *
@@ -15,6 +17,7 @@ public class ExpenseManager {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        new ExpenseBootstrapper();
         MainMenu menu = new MainMenu();
         menu.mainLoop();
     }

@@ -42,7 +42,7 @@ public class PayModeRepositoryImpl implements IPayModeRepository {
     }
 
     @Override
-    public List<PayMode> all() {
+    public List<PayMode> findAll() {
         return list;
     }
 }
