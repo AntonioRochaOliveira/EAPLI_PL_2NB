@@ -14,4 +14,5 @@ public interface RepositoryFactory {
     IncomeTypeRepository buildIncomeTypeRepository();
     IPaymentTypeRepository buildPaymentTypeRepository();
     IPayModeRepository buildPayModeRepository();
+    StartingBalanceRepository buildStartingBalanceRepository();
 }

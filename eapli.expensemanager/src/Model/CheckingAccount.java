@@ -10,6 +10,7 @@ import java.util.List;
 import Persistence.IncomeRepository;
 import Persistence.StartingBalanceRepository;
 import Persistence.InMemory.ExpenseRepositoryImpl;
+import Persistence.PersistenceFactory;
 import eapli.util.DateTime;
 import java.util.Calendar;
 import java.util.Date;
@@ -20,13 +21,14 @@ import java.util.concurrent.TimeUnit;
  * @author joel
  */
 public class CheckingAccount {
-
+    BigDecimal saldoI;
     IncomeRepository incomeRepo;
     ExpenseRepositoryImpl expenseRepo;
 
     public CheckingAccount() {
         incomeRepo = new IncomeRepository();
         expenseRepo = new ExpenseRepositoryImpl();
+        saldoI = new BigDecimal(0);
     }
     //Methods
 
@@ -106,12 +108,12 @@ public class CheckingAccount {
 
     //Sets the inicial balance
     public void setValue(BigDecimal inicial) {
-        StartingBalanceRepository.setValue(inicial);
+        saldoI = inicial;
     }
 
     //Gets the initial balance
     public BigDecimal getValue() {
-        return StartingBalanceRepository.getValue();
+        return saldoI;
     }
 
     public void add(Income income) {
@@ -121,5 +123,4 @@ public class CheckingAccount {
     public void add(Expense expense) {
         expenseRepo.save(expense);
     }
-
 }

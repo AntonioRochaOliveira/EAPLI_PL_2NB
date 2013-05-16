@@ -11,30 +11,8 @@ import java.math.BigDecimal;
  *
  * @author i111057
  */
-public class StartingBalanceRepository {
-    private static StartingBalanceRepository instance = null;
-    private BigDecimal initial;
+public interface StartingBalanceRepository {
     
-    protected StartingBalanceRepository()
-    {
-         initial = new BigDecimal(0);
-    }
-    
-    public static StartingBalanceRepository instance(){
-        if(instance == null) {
-            instance = new StartingBalanceRepository();
-            return instance;
-        }
-        
-        return instance;
-    }
-    
-    public static BigDecimal getValue() {
-      return instance.initial;
-   }
-    
-    public static void setValue(BigDecimal value) {
-
-         instance.initial = value;
-   }
+    public BigDecimal getValue();
+    public void setValue(BigDecimal value);
 }
