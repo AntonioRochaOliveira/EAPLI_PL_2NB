@@ -5,14 +5,12 @@
 package Persistence.JPA;
 
 
+import Model.TypeOfExpense;
+import Persistence.TypeOfExpenseRepository;
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
-
-import Model.TypeOfExpense;
-import Persistence.TypeOfExpenseRepository;
 
 /**
  *
@@ -46,6 +44,7 @@ public class TypeOfExpenseRepositoryImpl extends JpaRepository<TypeOfExpense, St
 //        return super.read(key);
 //    }
     
+    @Override
     public List<TypeOfExpense> getListTExpense() {
         // ToDo
         return super.all();
