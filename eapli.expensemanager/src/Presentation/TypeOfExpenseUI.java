@@ -16,11 +16,13 @@ public class TypeOfExpenseUI extends BaseUI{
         System.out.println("Type of expense recorded.");
     }
 
+     
     @Override
     public void showContent() {
-        
+     
     }
 
+    
     @Override
     public BaseController buildBaseController() {
         return controller;
