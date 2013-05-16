@@ -1,10 +1,11 @@
 package Controllers;
 
+import Model.CheckingAccount;
 import Model.TypeOfExpense;
 import Persistence.PersistenceFactory;
 import Persistence.TypeOfExpenseRepository;
 
-public class TypeOfExpenseController {
+public class TypeOfExpenseController extends BaseController {
     
     public TypeOfExpenseController(){
     }
@@ -16,6 +17,11 @@ public class TypeOfExpenseController {
         TypeOfExpenseRepository repoToE = PersistenceFactory.buildPersistenceFactory().TypeOfExpenseRepository();
 
         repoToE.save(Texpense);
+    }
+
+    @Override
+    public CheckingAccount buildCheckingAccount() {
+        return new CheckingAccount();
     }
  
 }
