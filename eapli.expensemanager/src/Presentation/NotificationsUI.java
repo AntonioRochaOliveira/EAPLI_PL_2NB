@@ -46,7 +46,7 @@ public class NotificationsUI extends BaseUI {
             System.out.println();
 
             System.out.println("1. Weekly Limit" + weeklyLimitText);
-            System.out.println("2. Monthly Limit" + weeklyLimitText);
+            System.out.println("2. Monthly Limit");
             System.out.println("");
             System.out.println("0. Back to Main Menu");
             System.out.println();
