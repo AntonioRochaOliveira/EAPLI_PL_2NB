@@ -9,7 +9,6 @@ import Controllers.ExpensesLimitsController;
 import eapli.util.Console;
 import java.math.BigDecimal;
 
-
 /**
  *
  * @author sdcastro
@@ -17,27 +16,25 @@ import java.math.BigDecimal;
 public class NotificationsUI extends BaseUI {
 
     private ExpensesLimitsController controller = null;
-    
+
     public void showSubMenu() {
-        
+
         controller = new ExpensesLimitsController();
-        showContent();        
+        showContent();
     }
-   
-    
 
     @Override
     public void showContent() {
 
         String weeklyLimitText;
-        BigDecimal weekLimit = controller.getWeeklyLimit();
-        
-        if (weekLimit.compareTo(BigDecimal.ZERO) == 0) {
+        BigDecimal weeklyLimit = controller.getWeeklyLimit();
+
+        if (weeklyLimit.compareTo(BigDecimal.ZERO) == 0) {
             weeklyLimitText = " [NOT SET]";
         } else {
-            weeklyLimitText = " [" + weekLimit.toString() + "€]";
+            weeklyLimitText = " [" + weeklyLimit.toString() + "€]";
         }
-        
+
         int option;
         do {
             System.out.println("===================");
@@ -58,20 +55,23 @@ public class NotificationsUI extends BaseUI {
                 case 0:
                     return;
 
-                case 1:                                        
+                case 1:
+                    int value = Console.readInteger("New Weekly Limit");                    
+                    BigDecimal newWeeklyLimit = new BigDecimal(value);
+                    controller.setWeeklyLimit(newWeeklyLimit);
                     break;
-                
-                case 2:                                        
+
+                case 2:
                     break;
             }
         } while (option != 0);
 
 
-       
+
     }
 
     @Override
-    public BaseController buildBaseController() {        
+    public BaseController buildBaseController() {
         return controller;
     }
 }

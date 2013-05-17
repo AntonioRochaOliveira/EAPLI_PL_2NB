@@ -7,8 +7,14 @@ package Controllers;
 import java.math.BigDecimal;
 
 import Model.CheckingAccount;
+import Model.Expense;
+import Model.ExpensesLimits;
+import Model.PayMode;
+import Model.TypeOfExpense;
+import Persistence.IExpenseRepository;
 import Persistence.IExpensesLimitsRepository;
 import Persistence.PersistenceFactory;
+import java.util.Date;
 
 /**
  *
@@ -26,7 +32,21 @@ public class ExpensesLimitsController extends BaseController {
     public BigDecimal getWeeklyLimit() {
         return PersistenceFactory.buildPersistenceFactory().buildExpensesLimitsRepository().getWeeklyLimit();
     }
-    
+
+    public void registerExpense(BigDecimal amount, TypeOfExpense type, Date date, PayMode payM, String comment) {
+        Expense expense = new Expense(amount, type, date, payM, comment);
+        IExpenseRepository repo = PersistenceFactory.buildPersistenceFactory().iexpenseRepository();
+        repo.save(expense);
+//        ExpensesManagement em = new ExpensesManagement();
+//        System.out.println("Gasto Semanal: " + em.getWeeklyExpense().toString());                     
+
+    }
+
+    public void setWeeklyLimit(BigDecimal newWeeklyLimit) {
+        ExpensesLimits expensesLimits = new ExpensesLimits("weekly", newWeeklyLimit);
+        IExpensesLimitsRepository repo = PersistenceFactory.buildPersistenceFactory().buildExpensesLimitsRepository();
+        repo.save(expensesLimits);
+    }
 
     @Override
     public CheckingAccount buildCheckingAccount() {
