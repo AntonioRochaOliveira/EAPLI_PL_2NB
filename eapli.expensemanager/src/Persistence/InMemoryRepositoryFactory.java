@@ -41,4 +41,9 @@ class InMemoryRepositoryFactory implements RepositoryFactory {
 		// TODO Implementar método buildStartingBalanceRepository() in InMemoryRepositoryFactory class
 		return null;
 	}
+
+    @Override
+    public IncomeRepository buildIncomeRepository() {
+        return Persistence.InMemory.IncomeRepositoryImpl.getInstance();
+    }
 }
