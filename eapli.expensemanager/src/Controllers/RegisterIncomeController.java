@@ -12,11 +12,13 @@ import Model.CheckingAccount;
 import Model.Income;
 import Model.IncomeType;
 import Persistence.IncomeTypeRepository;
+import java.util.ArrayList;
 import Persistence.PersistenceFactory;
+
 
 /**
  *
- * @author Joel Ferreira
+ * @author Joel Ferreira | jverde
  */
 public class RegisterIncomeController extends BaseController {
 
@@ -28,7 +30,7 @@ public class RegisterIncomeController extends BaseController {
     
     public List<IncomeType> getIncomeTypes(){
         
-        return incomeTypeRepository.getIncomeTypes();
+        return PersistenceFactory.buildPersistenceFactory().buildIncomeTypeRepository().getIncomeTypes();
     }
     
     public void createIncome(BigDecimal amount, IncomeType incomeType, String what, Date date) {
