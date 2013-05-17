@@ -5,6 +5,6 @@ import java.util.List;
 import Model.IncomeType;
 
 public interface IncomeTypeRepository {
-	public void save(IncomeType incomeType);
+	public void saveIncomeType(IncomeType incomeType);
     public List<IncomeType> getIncomeTypes() ;	
 }

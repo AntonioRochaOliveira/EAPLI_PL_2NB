@@ -24,7 +24,7 @@ public class IncomeTypeRepositoryImpl implements IncomeTypeRepository{
 		return instance;
 	}
 
-	public void save(IncomeType incomeType) {
+	public void saveIncomeType(IncomeType incomeType) {
 		list.add(incomeType);
 	}
       
