@@ -28,7 +28,7 @@ public class ExpenseRepositoryImpl implements IExpenseRepository {
         return instance;
     }
 
-    public ExpenseRepositoryImpl() {
+    private ExpenseRepositoryImpl() {
         listExpense = new ArrayList<Expense>();
     }
 

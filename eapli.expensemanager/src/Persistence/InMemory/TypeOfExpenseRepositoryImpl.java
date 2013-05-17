@@ -14,9 +14,9 @@ import Persistence.TypeOfExpenseRepository;
  * @author arocha
  */
 public class TypeOfExpenseRepositoryImpl implements TypeOfExpenseRepository {
-     
-    
     private static TypeOfExpenseRepository uniqueInstance=null;
+    
+    private TypeOfExpenseRepositoryImpl(){}
     
     public static TypeOfExpenseRepository instance(){
         if (uniqueInstance==null){

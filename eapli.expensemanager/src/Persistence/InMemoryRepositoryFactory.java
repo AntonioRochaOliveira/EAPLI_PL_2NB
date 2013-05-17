@@ -13,17 +13,17 @@ class InMemoryRepositoryFactory implements RepositoryFactory {
 
     @Override
     public IExpenseRepository iexpenseRepository() {
-        return new Persistence.JPA.ExpenseRepositoryImpl();
+        return Persistence.InMemory.ExpenseRepositoryImpl.getInstance();
     }
 
     @Override
     public TypeOfExpenseRepository TypeOfExpenseRepository() {
-        return new Persistence.InMemory.TypeOfExpenseRepositoryImpl();
+        return Persistence.InMemory.TypeOfExpenseRepositoryImpl.instance();
     }
 
     @Override
     public IncomeTypeRepository buildIncomeTypeRepository() {
-        return new Persistence.InMemory.IncomeTypeRepositoryImpl();
+        return Persistence.InMemory.IncomeTypeRepositoryImpl.getInstance();
     }
 
     @Override
@@ -35,4 +35,10 @@ class InMemoryRepositoryFactory implements RepositoryFactory {
     public IPayModeRepository buildPayModeRepository() {
         return Persistence.InMemory.PayModeRepositoryImpl.getInstance();
     }
+
+	@Override
+	public StartingBalanceRepository buildStartingBalanceRepository() {
+		// TODO Implementar método buildStartingBalanceRepository() in InMemoryRepositoryFactory class
+		return null;
+	}
 }
