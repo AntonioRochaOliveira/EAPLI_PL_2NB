@@ -53,8 +53,5 @@ class JpaRepositoryFactory implements RepositoryFactory {
     public IncomeRepository buildIncomeRepository() {
         return new Persistence.JPA.IncomeRepositoryImpl();
     }
-
-
-
 }
 
