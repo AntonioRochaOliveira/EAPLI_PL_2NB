@@ -41,4 +41,5 @@ class InMemoryRepositoryFactory implements RepositoryFactory {
 		// TODO Implementar método buildStartingBalanceRepository() in InMemoryRepositoryFactory class
 		return null;
 	}
+
 }
