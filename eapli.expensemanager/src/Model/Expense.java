@@ -20,7 +20,12 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Expense extends Transaction implements Serializable{
       
-    @ManyToOne(cascade = CascadeType.ALL)
+    /**
+	 * número de série da classe por defeito.
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
     private TypeOfExpense type;
     @ManyToOne(cascade = CascadeType.ALL)
     private PayMode payM;

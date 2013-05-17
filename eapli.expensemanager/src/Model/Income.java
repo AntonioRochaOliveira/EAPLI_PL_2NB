@@ -21,6 +21,11 @@ public class Income extends Transaction {
 	 * @ManyToOne(cascade = CascadeType.ALL)
 	 * -- Bruno Flávio 
 	 */
+	
+	/**
+	 * número de série da classe por defeito.
+	 */
+	private static final long serialVersionUID = 1L;
     
     @JoinColumn(name="IncomeType")
     private IncomeType incomeType;

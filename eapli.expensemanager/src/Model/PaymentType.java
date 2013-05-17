@@ -22,6 +22,11 @@ import javax.persistence.Table;
 @Table(name = "paymentType")
 public class PaymentType implements Serializable {
 
+	/**
+	 * número de série da classe por defeito.
+	 */
+	private static final long serialVersionUID = 1L;
+	
     @Id
     @GeneratedValue
     private int id;
