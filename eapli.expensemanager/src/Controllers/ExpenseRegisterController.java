@@ -23,10 +23,11 @@ public class ExpenseRegisterController extends BaseController {
     public ExpenseRegisterController() {
     }
 
-    public void registerExpense(BigDecimal amount,TypeOfExpense type, Date date, PayMode payM,String comment) {
+    public Expense registerExpense(BigDecimal amount,TypeOfExpense type, Date date, PayMode payM,String comment) {
         Expense expense = new Expense(amount,type,date,payM,comment);
         IExpenseRepository repo = PersistenceFactory.buildPersistenceFactory().iexpenseRepository();
         repo.save(expense);
+        return expense;
 //        ExpensesManagement em = new ExpensesManagement();
 //        System.out.println("Gasto Semanal: " + em.getWeeklyExpense().toString());                     
     
@@ -40,5 +41,9 @@ public class ExpenseRegisterController extends BaseController {
     public List<Expense> getExpenses()
     {
         return PersistenceFactory.buildPersistenceFactory().iexpenseRepository().getListExpense();
+    }
+    public List<TypeOfExpense> getRTypeOfExpenses()
+    {
+        return PersistenceFactory.buildPersistenceFactory().TypeOfExpenseRepository().getListTExpense();
     }
 }

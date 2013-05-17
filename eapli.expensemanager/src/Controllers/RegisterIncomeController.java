@@ -11,24 +11,24 @@ import java.util.List;
 import Model.CheckingAccount;
 import Model.Income;
 import Model.IncomeType;
-import Persistence.IncomeTypeRepository;
+import Persistence.IncomeRepository;
 import Persistence.PersistenceFactory;
+
 
 /**
  *
- * @author Joel Ferreira
+ * @author Joel Ferreira | jverde
  */
 public class RegisterIncomeController extends BaseController {
 
-    IncomeTypeRepository incomeTypeRepository;
+    IncomeRepository incomeRepository;
     
     public RegisterIncomeController() {
-    	incomeTypeRepository = PersistenceFactory.buildPersistenceFactory().buildIncomeTypeRepository();
+    	incomeRepository = PersistenceFactory.buildPersistenceFactory().buildIncomeRepository();
     }
     
     public List<IncomeType> getIncomeTypes(){
-        
-        return incomeTypeRepository.getIncomeTypes();
+        return PersistenceFactory.buildPersistenceFactory().buildIncomeTypeRepository().getIncomeTypes();
     }
     
     public void createIncome(BigDecimal amount, IncomeType incomeType, String what, Date date) {

@@ -7,6 +7,7 @@ package Controllers;
 import Model.Income;
 import Model.IncomeType;
 import Persistence.IncomeRepository;
+import Persistence.PersistenceFactory;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -19,7 +20,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author joel
+ * @author joel | jverde
  */
 public class RegisterIncomeControllerTest {
     
@@ -61,7 +62,7 @@ public class RegisterIncomeControllerTest {
         RegisterIncomeController controller = new RegisterIncomeController();
         controller.createIncome(amount, incomeType, what, date);
 
-        List<Income> listIncome = IncomeRepository.getListIncome();
+        List<Income> listIncome = PersistenceFactory.buildPersistenceFactory().buildIncomeRepository().getListIncome();
         
         if(!listIncome.contains(income)) // erro Junit.framework.AssertionFailedError 
         fail("The test case is a prototype.");

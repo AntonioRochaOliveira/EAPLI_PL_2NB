@@ -59,6 +59,7 @@ public class RegisterPayModeController extends BaseController {
         
         //Vai buscar todas as variaveis a preencher pelo utilizador do paymentType
         Map<String, Object> aditionalInformation = new HashMap<String, Object>();
+
         for (String s : paymentType.getAditionalInformationNames().keySet()) {
             //Envia para a UI o nome e tipo da Variavel e retorna um objecto com esse tipo
             aditionalInformation.put(s, ui.getAditionalInformation(s, paymentType.getAditionalInformationNames().get(s)));

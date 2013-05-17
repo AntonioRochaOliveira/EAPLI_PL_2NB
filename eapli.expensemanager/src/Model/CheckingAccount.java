@@ -4,6 +4,7 @@
  */
 package Model;
 
+import Persistence.IExpenseRepository;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -23,11 +24,11 @@ import java.util.concurrent.TimeUnit;
 public class CheckingAccount {
     BigDecimal saldoI;
     IncomeRepository incomeRepo;
-    ExpenseRepositoryImpl expenseRepo;
+    IExpenseRepository expenseRepo;
 
     public CheckingAccount() {
-        incomeRepo = new IncomeRepository();
-        expenseRepo = new ExpenseRepositoryImpl();
+        incomeRepo = PersistenceFactory.buildPersistenceFactory().buildIncomeRepository();
+        expenseRepo = PersistenceFactory.buildPersistenceFactory().iexpenseRepository();
         saldoI = new BigDecimal(0);
     }
     //Methods
@@ -74,7 +75,7 @@ public class CheckingAccount {
         BigDecimal amount;
 
         //Get all incomes from IncomesRepository
-        List<Income> listIncome = IncomeRepository.getListIncome();
+        List<Income> listIncome = incomeRepo.getListIncome();
 
         for (int i = 0; i < listIncome.size(); i++) {
 

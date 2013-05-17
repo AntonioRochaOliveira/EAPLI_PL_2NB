@@ -4,7 +4,6 @@
  */
 package Persistence;
 
-
 /**
  *
  * @author arocha
@@ -36,9 +35,26 @@ class InMemoryRepositoryFactory implements RepositoryFactory {
         return Persistence.InMemory.PayModeRepositoryImpl.getInstance();
     }
 
-	@Override
-	public StartingBalanceRepository buildStartingBalanceRepository() {
-		// TODO Implementar método buildStartingBalanceRepository() in InMemoryRepositoryFactory class
-		return null;
-	}
+    @Override
+    public StartingBalanceRepository buildStartingBalanceRepository() {
+        // TODO Implementar método buildStartingBalanceRepository() in InMemoryRepositoryFactory class
+        return null;
+    }
+
+    @Override
+    public IExpensesLimitsRepository buildExpensesLimitsRepository() {
+        return Persistence.InMemory.ExpensesLimitsRepositoryImpl.getInstance();
+    }
+
+    @Override
+    public IncomeRepository buildIncomeRepository() {
+        return Persistence.InMemory.IncomeRepositoryImpl.getInstance();
+
+    }
+
+    @Override
+    public CheckingAccountRepository buildCheckingAccountRepository() {
+        // TODO Implementar método buildStartingBalanceRepository() in InMemoryRepositoryFactory class
+        return null;
+    }
 }
