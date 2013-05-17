@@ -15,4 +15,5 @@ public interface CheckingAccountRepository {
     public BigDecimal getValue();
 
     public void setValue(BigDecimal value);
+    
 }
