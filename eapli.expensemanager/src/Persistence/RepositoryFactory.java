@@ -25,4 +25,5 @@ public interface RepositoryFactory {
     IExpensesLimitsRepository buildExpensesLimitsRepository();
 
     IncomeRepository buildIncomeRepository();
+    CheckingAccountRepository buildCheckingAccountRepository();
 }
