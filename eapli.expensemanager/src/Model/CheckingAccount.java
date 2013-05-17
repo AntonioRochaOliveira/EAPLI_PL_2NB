@@ -27,7 +27,7 @@ public class CheckingAccount {
     IExpenseRepository expenseRepo;
 
     public CheckingAccount() {
-        incomeRepo = new IncomeRepository();
+        incomeRepo = PersistenceFactory.buildPersistenceFactory().buildIncomeRepository();
         expenseRepo = PersistenceFactory.buildPersistenceFactory().iexpenseRepository();
         saldoI = new BigDecimal(0);
     }
@@ -75,7 +75,7 @@ public class CheckingAccount {
         BigDecimal amount;
 
         //Get all incomes from IncomesRepository
-        List<Income> listIncome = IncomeRepository.getListIncome();
+        List<Income> listIncome = incomeRepo.getListIncome();
 
         for (int i = 0; i < listIncome.size(); i++) {
 

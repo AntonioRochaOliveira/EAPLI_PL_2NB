@@ -39,6 +39,7 @@ class JpaRepositoryFactory implements RepositoryFactory {
         return new Persistence.JPA.PayModeTypeRepositoryImpl();
     }
 
+
     @Override
     public StartingBalanceRepository buildStartingBalanceRepository() {
         // TODO // TODO Implementar método buildStartingBalanceRepository() in JPARepositoryFactory class
@@ -47,6 +48,14 @@ class JpaRepositoryFactory implements RepositoryFactory {
     
     @Override
     public IExpensesLimitsRepository buildExpensesLimitsRepository() {
-        return null;
+        return new Persistence.JPA.ExpensesLimitsRepositoryImpl();
     }
+
+
+    @Override
+    public IncomeRepository buildIncomeRepository() {
+        return new Persistence.JPA.IncomeRepositoryImpl();
+    }
+
+
 }
