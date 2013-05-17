@@ -5,7 +5,7 @@
 package Presentation;
 
 import Controllers.BaseController;
-import Controllers.NotificationsController;
+import Controllers.ExpensesLimitsController;
 import eapli.util.Console;
 import java.math.BigDecimal;
 
@@ -16,11 +16,11 @@ import java.math.BigDecimal;
  */
 public class NotificationsUI extends BaseUI {
 
-    private NotificationsController controller = null;
+    private ExpensesLimitsController controller = null;
     
-    public void showSubmenu() {
+    public void showSubMenu() {
         
-        controller = new NotificationsController();
+        controller = new ExpensesLimitsController();
         showContent();        
     }
    
@@ -30,7 +30,7 @@ public class NotificationsUI extends BaseUI {
     public void showContent() {
 
         String weeklyLimitText;
-        BigDecimal weekLimit = controller.getWeekLimit();
+        BigDecimal weekLimit = controller.getWeeklyLimit();
         
         if (weekLimit.compareTo(BigDecimal.ZERO) == 0) {
             weeklyLimitText = " [NOT SET]";

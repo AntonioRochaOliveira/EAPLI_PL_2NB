@@ -80,7 +80,7 @@ public class MainMenu {
                     
                 case 11:
                     NotificationsUI uiN = new NotificationsUI();
-                    uiN.showSubmenu();           
+                    uiN.showSubMenu();           
                     break;
             }
         } while (option != 0);
