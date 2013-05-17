@@ -7,6 +7,7 @@ package Model;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -25,7 +26,7 @@ public class PaymentType implements Serializable {
     @GeneratedValue
     private int id;
     
-    
+    @Column(unique=true)
     private String name;
     
     @Lob	
