@@ -3,10 +3,13 @@ package Controllers;
 import java.math.BigDecimal;
 
 import Model.CheckingAccount;
+import Persistence.PersistenceFactory;
 
 public abstract class BaseController {
 
-	public abstract CheckingAccount buildCheckingAccount();
+	public CheckingAccount buildCheckingAccount(){
+		return new CheckingAccount();
+	}
 	
 	public BigDecimal getBalance() {
 		
