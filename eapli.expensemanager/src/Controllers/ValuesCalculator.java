@@ -68,7 +68,7 @@ public class ValuesCalculator {
     public float getIncomesTotal(){
         
         //New Object IncomeRepository
-        IncomeRepository repository=new IncomeRepository();
+        IncomeRepository repository = PersistenceFactory.buildPersistenceFactory().buildIncomeRepository();
         
         float sum=0.0f;
         Expense expense;
