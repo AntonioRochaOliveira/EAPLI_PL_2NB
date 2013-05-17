@@ -89,4 +89,20 @@ public class PaymentType implements Serializable {
             }
         return temp.toString(); 
     } 
+
+    @Override
+    public boolean equals(Object obj) {
+       if (!(obj instanceof PaymentType))
+        {
+            return false;
+        }
+        
+        PaymentType p = (PaymentType) obj;
+        if (p.aditionalInformationNames.equals(aditionalInformationNames) && p.name.equals(name))
+        {
+            return true;
+        }
+        return false;
+    }
+     
 }
