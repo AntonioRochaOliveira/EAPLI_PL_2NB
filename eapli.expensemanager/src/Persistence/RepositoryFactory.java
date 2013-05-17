@@ -8,12 +8,22 @@ package Persistence;
  *
  * @author arocha
  */
-public interface RepositoryFactory {    
+public interface RepositoryFactory {
+
     IExpenseRepository iexpenseRepository();
-    TypeOfExpenseRepository TypeOfExpenseRepository();   
+
+    TypeOfExpenseRepository TypeOfExpenseRepository();
+
     IncomeTypeRepository buildIncomeTypeRepository();
+
     IPaymentTypeRepository buildPaymentTypeRepository();
+
     IPayModeRepository buildPayModeRepository();
+
     StartingBalanceRepository buildStartingBalanceRepository();
+
+    IExpensesLimitsRepository buildExpensesLimitsRepository();
+
     IncomeRepository buildIncomeRepository();
+    CheckingAccountRepository buildCheckingAccountRepository();
 }
