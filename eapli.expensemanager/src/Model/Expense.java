@@ -64,4 +64,15 @@ public class Expense extends Transaction implements Serializable{
     public void setPayM(PayMode payM) {
         this.payM = payM;
     }
+    
+    @Override
+    public String toString(){
+       String retorno = "";
+       retorno += "Amount: "+super.getAmount()+"\n"
+               + "Expense Date: "+super.getDate()+"\n"
+               + "Expense Description: "+super.getDescription()+"\n"
+               + "Expense Type: "+getType()+"\n"
+               + "Pay Mode: "+getPayM();
+       return retorno;
+    }
 }
