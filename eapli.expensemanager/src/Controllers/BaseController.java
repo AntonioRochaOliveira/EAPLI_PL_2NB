@@ -3,7 +3,6 @@ package Controllers;
 import java.math.BigDecimal;
 
 import Model.CheckingAccount;
-import Persistence.PersistenceFactory;
 
 public abstract class BaseController {
 
