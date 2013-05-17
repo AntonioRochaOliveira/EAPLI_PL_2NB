@@ -64,4 +64,19 @@ public class PayMode implements Serializable {
             }
         return temp.toString(); 
     } 
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof PayMode))
+        {
+            return false;
+        }
+        
+        PayMode p = (PayMode) obj;
+        if (p.payT.equals(payT) && p.aditionalInformation.equals(aditionalInformation))
+        {
+            return true;
+        }
+        return false;
+    }    
 }

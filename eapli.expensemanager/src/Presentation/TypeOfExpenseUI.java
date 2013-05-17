@@ -12,7 +12,7 @@ public class TypeOfExpenseUI extends BaseUI{
         String desc = Console.readLine("Description: ");
         String shortName = Console.readLine("Short name: ");
         TypeOfExpenseController controller = new TypeOfExpenseController();
-        controller.TypeOfExpense(desc, shortName);
+        controller.TypeOfExpense(shortName, desc);
         System.out.println("Type of expense recorded.");
     }
 
