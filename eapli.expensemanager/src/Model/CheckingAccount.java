@@ -118,7 +118,7 @@ public class CheckingAccount {
     }
 
     public void add(Income income) {
-        incomeRepo.save(income);
+        incomeRepo.saveIncome(income);
     }
 
     public void add(Expense expense) {
