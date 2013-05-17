@@ -70,9 +70,7 @@ class ExpenseRegisterUI extends BaseUI{
         Date date = Console.readDate("Date of Expense: dd-MM-yyyy");
         
         /* PAYMODE */
-        PayMode pM = new PayMode(null, null);// Var to insert on new Expense
-        
-       
+        PayMode pM;
         IPayModeRepository payModeRep = repFac.buildPayModeRepository();
        
         Collection<PayMode> collectionPayMode = payModeRep.findAll(); // WRONG WAY. NEED TO COMUNICATE TO CONTROLLER OF PAYMODE
@@ -90,11 +88,8 @@ class ExpenseRegisterUI extends BaseUI{
             pMUI = new PayModeUI(); //Creat new UI to creat new PayMode
             pMUI.showContent();
             BaseController bC = pMUI.buildBaseController();
-            if(bC instanceof RegisterPayModeController)
-            {
-               RegisterPayModeController pMC = (RegisterPayModeController)pMUI.buildBaseController(); 
-               pM = pMC.getPayMode();
-            }    
+            RegisterPayModeController pMC = (RegisterPayModeController)pMUI.buildBaseController(); 
+            pM = pMC.getPayMode();
         }else{
             pM = listaPM.get(op - 1);
         }
