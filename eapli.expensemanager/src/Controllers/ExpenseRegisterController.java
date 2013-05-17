@@ -41,4 +41,8 @@ public class ExpenseRegisterController extends BaseController {
     {
         return PersistenceFactory.buildPersistenceFactory().iexpenseRepository().getListExpense();
     }
+    public List<TypeOfExpense> getRTypeOfExpenses()
+    {
+        return PersistenceFactory.buildPersistenceFactory().TypeOfExpenseRepository().getListTExpense();
+    }
 }

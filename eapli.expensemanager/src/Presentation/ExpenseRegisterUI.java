@@ -49,7 +49,7 @@ class ExpenseRegisterUI extends BaseUI{
         /* TYPEOFEXPENSE */
         TypeOfExpense tE = new TypeOfExpense("", "");
         System.out.println("Select expense type. [0] to creat new.");
-        List<TypeOfExpense> lista = controller.getExpenseTypes();
+        List<TypeOfExpense> lista = controller.getRTypeOfExpenses();
         
         int type;/* Index of type expense */
         if(lista.size() > 0)

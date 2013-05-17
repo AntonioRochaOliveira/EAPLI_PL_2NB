@@ -6,8 +6,11 @@ package Controllers;
 
 import Model.PayMode;
 import Model.TypeOfExpense;
+import Persistence.IExpenseRepository;
 import Persistence.InMemory.ExpenseRepositoryImpl;
 import Persistence.InMemory.TypeOfExpenseRepositoryImpl;
+import Persistence.PersistenceFactory;
+import Persistence.TypeOfExpenseRepository;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -57,7 +60,7 @@ public class ExpenseRegisterControllerTest {
         ExpenseRegisterController instance = new ExpenseRegisterController();
         instance.registerExpense(amount, type, date, payM, comment);
        
-        ExpenseRepositoryImpl repo = new ExpenseRepositoryImpl();
+        IExpenseRepository repo = PersistenceFactory.buildPersistenceFactory().iexpenseRepository();
 
         String expResult = "Almoço de Amigos";
         String result = repo.getListExpense().get(repo.getListExpense().size() - 1).getDescription();
@@ -71,9 +74,9 @@ public class ExpenseRegisterControllerTest {
     public void testGetExpenseTypes() {
         System.out.println("getExpenseTypes");
         ExpenseRegisterController instance = new ExpenseRegisterController();
-        TypeOfExpenseRepositoryImpl repo = new TypeOfExpenseRepositoryImpl();
+        TypeOfExpenseRepository repo = PersistenceFactory.buildPersistenceFactory().TypeOfExpenseRepository();
         repo.save(new TypeOfExpense("Lazer","Descrição"));
-        List<TypeOfExpense> lista = instance.getExpenseTypes();
+        List<TypeOfExpense> lista = repo.getListTExpense();
         String expResult = "Lazer";
         String result = lista.get(lista.size()-1).getDescription();
         assertEquals(expResult, result);
