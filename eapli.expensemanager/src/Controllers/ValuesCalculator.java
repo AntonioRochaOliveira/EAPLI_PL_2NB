@@ -6,8 +6,10 @@ package Controllers;
 import java.math.BigDecimal;
 
 import Model.Expense;
+import Persistence.IExpenseRepository;
 import Persistence.IncomeRepository;
 import Persistence.InMemory.ExpenseRepositoryImpl;
+import Persistence.PersistenceFactory;
 /**
  *
  * @author Fábio Mendonça/Fernando Silva
@@ -44,7 +46,7 @@ public class ValuesCalculator {
     public float getExpensesTotal(){
         
         //New Object ExpensesRepository
-        ExpenseRepositoryImpl repository=new ExpenseRepositoryImpl();
+        IExpenseRepository repo = PersistenceFactory.buildPersistenceFactory().iexpenseRepository();
         
         float sum=0.0f;
         Expense expense;
