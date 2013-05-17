@@ -35,7 +35,7 @@ public class PayMode implements Serializable {
     public PayMode(PaymentType paymentType,Map<String, Object> aditionalInformation)
     {
        payT=paymentType;
-       this.aditionalInformation=new HashMap(aditionalInformation);
+       this.aditionalInformation=new HashMap<String, Object>(aditionalInformation);
     }
 
    public PayMode() {

@@ -25,7 +25,7 @@ public class PersistenceFactory {
 		try{
 			persistence.load(new FileInputStream(PROPERTIES_PATH));
 			String property = PersistenceFactory.class.getSimpleName() + ".useFactory";
-			Class factoryClass = Class.forName(persistence.getProperty(property));
+			Class<?> factoryClass = Class.forName(persistence.getProperty(property));
 			return (RepositoryFactory) factoryClass.newInstance();
 		}catch(Exception e){
 			System.err.println("Unable to load persistence factory");
