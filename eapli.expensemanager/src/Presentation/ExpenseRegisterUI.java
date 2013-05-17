@@ -11,6 +11,7 @@ import java.util.List;
 import Controllers.BaseController;
 import Controllers.ExpenseRegisterController;
 import Controllers.RegisterPayModeController;
+import Model.Expense;
 import Model.PayMode;
 import Model.TypeOfExpense;
 import Persistence.IPayModeRepository;
@@ -95,12 +96,15 @@ class ExpenseRegisterUI extends BaseUI{
         }
         
         /* DESCRIPTION */
-        String what = Console.readLine("Description:");
+        String what = Console.readLine("Expense Description:");
         
         /* SAVING */
-        controller.registerExpense(amount,tE,date,pM,what);
-     
-        System.out.println("expense recorded.");
+        Expense retorno = controller.registerExpense(amount,tE,date,pM,what);
+        System.out.println("_________________________________________________________________");
+        System.out.println("*Expense recorded:");
+        System.out.println(retorno);
+        System.out.println("_________________________________________________________________");
+        
     }
     @Override
     public String getTitle()
