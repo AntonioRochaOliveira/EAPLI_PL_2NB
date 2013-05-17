@@ -4,7 +4,11 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import Persistence.JPA.JpaRepository;
 
 @Entity
 public class IncomeType implements Serializable{
@@ -16,6 +20,9 @@ public class IncomeType implements Serializable{
 	private static final long serialVersionUID = 1;
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
+	@Column(name="Name")
 	private String name;
 	@Column(name="Description")
 	private String description;
