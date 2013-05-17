@@ -1,10 +1,8 @@
 package Persistence;
 
-import java.util.List;
+import Model.ExpensesLimits;
 
-import Model.IncomeType;
+public interface IExpensesLimitsRepository {
 
-public interface IncomeTypeRepository {
-	public void save(IncomeType incomeType);
-    public List<IncomeType> getIncomeTypes() ;	
+    public void save(ExpensesLimits expensesLimits);
 }

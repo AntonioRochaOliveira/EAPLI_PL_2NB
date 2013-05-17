@@ -1,35 +1,35 @@
 package Persistence.InMemory;
 
+import Model.ExpensesLimits;
+import Model.IncomeType;
+import Persistence.IExpensesLimitsRepository;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.sql.rowset.spi.SyncResolver;
+public class ExpensesLimitsRepositoryImpl implements IExpensesLimitsRepository {
 
-import Model.IncomeType;
-import Persistence.IncomeTypeRepository;
+    private static IExpensesLimitsRepository instance = null;
+    private BigDecimal weeklyLimit;
+    private List<ExpensesLimits> list;
 
-public class IncomeTypeRepositoryImpl implements IncomeTypeRepository{
-	private static IncomeTypeRepository instance = null; 
-	
-	private List<IncomeType> list;
-	
-	private IncomeTypeRepositoryImpl(){
-		list = new ArrayList<IncomeType>();
-	}
-	
-	public static synchronized IncomeTypeRepository getInstance(){
-		if(instance == null){
-			instance = new IncomeTypeRepositoryImpl();
-		}
-		return instance;
-	}
-
-	public void save(IncomeType incomeType) {
-		list.add(incomeType);
-	}
-      
-    public List<IncomeType> getIncomeTypes() {
-        return list;
+    private ExpensesLimitsRepositoryImpl() {
+        list = new ArrayList<ExpensesLimits>();
     }
-	
+
+    public static synchronized IExpensesLimitsRepository getInstance() {
+        if (instance == null) {
+            instance = new ExpensesLimitsRepositoryImpl();
+        }
+        return instance;
+    }
+
+    @Override
+    public void save(Expenses weeklyLimit) {
+        this.weeklyLimit = weeklyLimit;
+    }
+
+    public BigDecimal getWeeklyLimit() {
+        return weeklyLimit;
+    }
 }

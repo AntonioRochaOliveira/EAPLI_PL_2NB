@@ -1,29 +1,26 @@
 package Persistence.JPA;
 
-import java.util.List;
+import Model.ExpensesLimits;
+import Persistence.IExpensesLimitsRepository;
 
-import Model.IncomeType;
-import Persistence.IncomeTypeRepository;
 
-public class IncomeTypeRepositoryImpl implements IncomeTypeRepository {
+public class ExpensesLimitsRepositoryImpl implements IExpensesLimitsRepository {
 
-	JpaRepository<IncomeType, String> util;
-	
-	public IncomeTypeRepositoryImpl(){
-		util = new JpaRepository<IncomeType, String>();
-	}
-	
-	@Override
-	public void save(IncomeType incomeType) {
-		if(incomeType.getName() == null || incomeType.getName().trim().length() == 0){
-			throw new IllegalArgumentException();
-		}
-		incomeType = util.save(incomeType);
-	}
+    JpaRepository<ExpensesLimits, Integer> util;
 
-	@Override
-	public List<IncomeType> getIncomeTypes() {
-		return util.all();
-	}
+    public ExpensesLimitsRepositoryImpl() {
+        util = new JpaRepository<ExpensesLimits, Integer>();
+    }
 
+    @Override
+    public void save(ExpensesLimits expensesLimits) {
+        //ToDo: Validação
+        //if (expensesLimits.getId() == ... {
+        //    			throw new IllegalArgumentException();
+        //}
+
+        util.save(expensesLimits);
+    }
+    
+    
 }
