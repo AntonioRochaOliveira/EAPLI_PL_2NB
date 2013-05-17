@@ -35,12 +35,11 @@ class InMemoryRepositoryFactory implements RepositoryFactory {
         return Persistence.InMemory.PayModeRepositoryImpl.getInstance();
     }
 
-	@Override
-	public StartingBalanceRepository buildStartingBalanceRepository() {
-		// TODO Implementar método buildStartingBalanceRepository() in InMemoryRepositoryFactory class
-		return null;
-	}
-
+    @Override
+    public StartingBalanceRepository buildStartingBalanceRepository() {
+        // TODO Implementar método buildStartingBalanceRepository() in InMemoryRepositoryFactory class
+        return null;
+    }
 
     @Override
     public IExpensesLimitsRepository buildExpensesLimitsRepository() {
@@ -58,5 +57,4 @@ class InMemoryRepositoryFactory implements RepositoryFactory {
         // TODO Implementar método buildStartingBalanceRepository() in InMemoryRepositoryFactory class
         return null;
     }
-
 }
