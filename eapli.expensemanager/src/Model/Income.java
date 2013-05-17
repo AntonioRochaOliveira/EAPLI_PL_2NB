@@ -17,7 +17,7 @@ import javax.persistence.Temporal;
 public class Income extends Transaction {
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @Column(name="IncomeType")
+    @JoinColumn(name="IncomeType")
     private IncomeType incomeType;
     @Column(name="dateOccurred")
     @Temporal(javax.persistence.TemporalType.DATE)
