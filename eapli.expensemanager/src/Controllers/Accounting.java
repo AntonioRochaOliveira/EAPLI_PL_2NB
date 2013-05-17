@@ -12,6 +12,7 @@ import Model.Income;
 import Persistence.IncomeRepository;
 import Persistence.StartingBalanceRepository;
 import Persistence.InMemory.ExpenseRepositoryImpl;
+import Persistence.PersistenceFactory;
 
 /**
  *
@@ -21,5 +22,4 @@ public class Accounting {
 
     public Accounting() {
     }
-
 }
