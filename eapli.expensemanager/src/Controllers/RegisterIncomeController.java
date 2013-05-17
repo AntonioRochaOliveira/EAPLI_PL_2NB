@@ -27,8 +27,8 @@ public class RegisterIncomeController extends BaseController {
     	incomeRepository = PersistenceFactory.buildPersistenceFactory().buildIncomeRepository();
     }
     
-    public List<Income> getIncomeTypes(){
-        return PersistenceFactory.buildPersistenceFactory().buildIncomeRepository().getListIncome();
+    public List<IncomeType> getIncomeTypes(){
+        return PersistenceFactory.buildPersistenceFactory().buildIncomeTypeRepository().getIncomeTypes();
     }
     
     public void createIncome(BigDecimal amount, IncomeType incomeType, String what, Date date) {
