@@ -16,8 +16,13 @@ import javax.persistence.Temporal;
 
 @Entity
 public class Income extends Transaction {
-
-    @ManyToOne(cascade = CascadeType.ALL)
+	/* FIXME: Esta linha faz com que um income type que já tinha sido criado
+	 * (os que aparecem na lista de seleção) seja novamente guardado na base
+	 * de dados:
+	 * @ManyToOne(cascade = CascadeType.ALL)
+	 * -- Bruno Flávio 
+	 */
+    
     @JoinColumn(name="IncomeType")
     private IncomeType incomeType;
     @Column(name="dateOccurred")
