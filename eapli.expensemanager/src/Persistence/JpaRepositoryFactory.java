@@ -4,8 +4,6 @@
  */
 package Persistence;
 
-
-
 /**
  *
  * @author arocha
@@ -14,8 +12,6 @@ package Persistence;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
- 
 class JpaRepositoryFactory implements RepositoryFactory {
 
     @Override
@@ -28,28 +24,30 @@ class JpaRepositoryFactory implements RepositoryFactory {
         return new Persistence.JPA.TypeOfExpenseRepositoryImpl();
     }
 
-	@Override
-	public IncomeTypeRepository buildIncomeTypeRepository() {
-		return new Persistence.JPA.IncomeTypeRepositoryImpl();
-	}
+    @Override
+    public IncomeTypeRepository buildIncomeTypeRepository() {
+        return new Persistence.JPA.IncomeTypeRepositoryImpl();
+    }
 
     @Override
     public IPaymentTypeRepository buildPaymentTypeRepository() {
-         return new Persistence.JPA.PaymentTypeRepositoryImpl();
+        return new Persistence.JPA.PaymentTypeRepositoryImpl();
     }
 
     @Override
     public IPayModeRepository buildPayModeRepository() {
-         return new Persistence.JPA.PayModeTypeRepositoryImpl();
+        return new Persistence.JPA.PayModeTypeRepositoryImpl();
     }
 
-	@Override
-	public StartingBalanceRepository buildStartingBalanceRepository() {
-		// TODO // TODO Implementar método buildStartingBalanceRepository() in JPARepositoryFactory class
-		return null;
-	}
-
-
-
+    @Override
+    public StartingBalanceRepository buildStartingBalanceRepository() {
+        // TODO // TODO Implementar método buildStartingBalanceRepository() in JPARepositoryFactory class
+        return null;
+    }
+    
+    @Override
+    public CheckingAccountRepository buildCheckingAccountRepository() {
+        // TODO Implementar método buildStartingBalanceRepository() in InMemoryRepositoryFactory class
+        return null;
+    }
 }
-
