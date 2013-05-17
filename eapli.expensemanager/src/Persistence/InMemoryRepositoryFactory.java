@@ -37,18 +37,18 @@ class InMemoryRepositoryFactory implements RepositoryFactory {
 
     @Override
     public StartingBalanceRepository buildStartingBalanceRepository() {
-        // TODO // TODO Implementar método buildStartingBalanceRepository() in JPARepositoryFactory class
-        return null;
-    }
-
-    @Override
-    public CheckingAccountRepository buildCheckingAccountRepository() {
         // TODO Implementar método buildStartingBalanceRepository() in InMemoryRepositoryFactory class
         return null;
     }
 
     @Override
+    public IExpensesLimitsRepository buildExpensesLimitsRepository() {
+        return Persistence.InMemory.ExpensesLimitsRepositoryImpl.getInstance();
+    }
+
+    @Override
     public IncomeRepository buildIncomeRepository() {
         return Persistence.InMemory.IncomeRepositoryImpl.getInstance();
+
     }
 }
