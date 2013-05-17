@@ -8,8 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import Persistence.JPA.JpaRepository;
-
 @Entity
 public class IncomeType implements Serializable{
 	/*

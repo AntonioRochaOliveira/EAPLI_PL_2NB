@@ -6,7 +6,6 @@ package eapli.bootstrap;
 
 import Model.PaymentType;
 import Persistence.IPaymentTypeRepository;
-import Persistence.InMemory.ExpenseRepositoryImpl;
 import Persistence.PersistenceFactory;
 import Persistence.RepositoryFactory;
 

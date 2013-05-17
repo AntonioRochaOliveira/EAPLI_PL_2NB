@@ -3,8 +3,6 @@ package Persistence.InMemory;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.sql.rowset.spi.SyncResolver;
-
 import Model.IncomeType;
 import Persistence.IncomeTypeRepository;
 

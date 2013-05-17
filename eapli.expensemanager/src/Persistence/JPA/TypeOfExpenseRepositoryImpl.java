@@ -6,8 +6,6 @@ package Persistence.JPA;
 
 import Model.TypeOfExpense;
 import Persistence.TypeOfExpenseRepository;
-import eapli.util.Console;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;

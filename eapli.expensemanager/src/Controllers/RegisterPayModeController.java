@@ -4,9 +4,9 @@
  */
 package Controllers;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 import Model.CheckingAccount;
@@ -17,7 +17,6 @@ import Persistence.IPaymentTypeRepository;
 import Persistence.PersistenceFactory;
 import Persistence.RepositoryFactory;
 import Presentation.PayModeUI;
-import java.util.Collection;
 
 /**
  *

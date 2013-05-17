@@ -4,9 +4,9 @@
  */
 package Persistence.JPA;
 
-import Model.Expense;
-import Persistence.StartingBalanceRepository;
 import java.math.BigDecimal;
+
+import Persistence.StartingBalanceRepository;
 
 /**
  *
