@@ -12,6 +12,7 @@ import Model.Income;
 import Persistence.IncomeRepository;
 import Persistence.StartingBalanceRepository;
 import Persistence.InMemory.ExpenseRepositoryImpl;
+import Persistence.PersistenceFactory;
 
 /**
  *
@@ -64,7 +65,7 @@ public class Accounting {
         BigDecimal amount;
 
         //Get all incomes from IncomesRepository
-        List<Income> listIncome = IncomeRepository.getListIncome();
+        List<Income> listIncome = PersistenceFactory.buildPersistenceFactory().buildIncomeRepository().getListIncome();
 
         for (int i = 0; i < listIncome.size(); i++) {
 
