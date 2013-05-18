@@ -4,9 +4,9 @@
  */
 package Controllers;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 import Model.CheckingAccount;
@@ -17,7 +17,6 @@ import Persistence.IPaymentTypeRepository;
 import Persistence.PersistenceFactory;
 import Persistence.RepositoryFactory;
 import Presentation.PayModeUI;
-import java.util.Collection;
 
 /**
  *
@@ -41,7 +40,7 @@ public class RegisterPayModeController extends BaseController {
         Collection<PaymentType> typeList = paymentTypeRep.findAll();
         
         //Extrai a string name de todos os tipo de pagamento
-        LinkedList<String> types = new LinkedList();
+        LinkedList<String> types = new LinkedList<String>();
         for (PaymentType s : typeList) {
             types.add(s.getName());
         }

@@ -3,8 +3,6 @@ package Persistence.InMemory;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.sql.rowset.spi.SyncResolver;
-
 import Model.IncomeType;
 import Persistence.IncomeTypeRepository;
 
@@ -24,7 +22,7 @@ public class IncomeTypeRepositoryImpl implements IncomeTypeRepository{
 		return instance;
 	}
 
-	public void save(IncomeType incomeType) {
+	public void saveIncomeType(IncomeType incomeType) {
 		list.add(incomeType);
 	}
       

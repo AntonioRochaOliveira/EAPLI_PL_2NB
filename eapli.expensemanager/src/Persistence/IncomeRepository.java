@@ -14,6 +14,6 @@ import Model.Income;
  */
 public interface IncomeRepository {
     
-    public Income save(Income income);
+    public Income saveIncome(Income income);
     public List<Income> getListIncome();
 }

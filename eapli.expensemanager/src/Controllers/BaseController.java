@@ -6,7 +6,9 @@ import Model.CheckingAccount;
 
 public abstract class BaseController {
 
-	public abstract CheckingAccount buildCheckingAccount();
+	public CheckingAccount buildCheckingAccount(){
+		return new CheckingAccount();
+	}
 	
 	public BigDecimal getBalance() {
 		
