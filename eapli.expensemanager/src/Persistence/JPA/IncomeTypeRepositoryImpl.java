@@ -12,7 +12,7 @@ public class IncomeTypeRepositoryImpl extends JpaRepository<IncomeType, Integer>
 		if(incomeType.getName() == null || incomeType.getName().trim().length() == 0){
 			throw new IllegalArgumentException();
 		}
-		incomeType = save(incomeType);
+		save(incomeType);
 	}
 
 	@Override
