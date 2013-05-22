@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 
 public interface IExpensesLimitsRepository {
 
-    public void save(ExpensesLimits expensesLimits);
+    public void saveLimits(ExpensesLimits expensesLimits);
     
     public BigDecimal getWeeklyLimit();
 }

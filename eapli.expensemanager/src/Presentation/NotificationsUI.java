@@ -27,16 +27,18 @@ public class NotificationsUI extends BaseUI {
     public void showContent() {
 
         String weeklyLimitText;
-        BigDecimal weeklyLimit = controller.getWeeklyLimit();
-
-        if (weeklyLimit.compareTo(BigDecimal.ZERO) == 0) {
-            weeklyLimitText = " [NOT SET]";
-        } else {
-            weeklyLimitText = " [" + weeklyLimit.toString() + "€]";
-        }
-
+        BigDecimal weeklyLimit;
         int option;
+
         do {
+            weeklyLimit = controller.getWeeklyLimit();
+
+            if (weeklyLimit.compareTo(BigDecimal.ZERO) == 0) {
+                weeklyLimitText = " [NOT SET]";
+            } else {
+                weeklyLimitText = " [" + weeklyLimit.toString() + "€]";
+            }
+
             System.out.println("===================");
             System.out.println("   NOTIFICATIONS   ");
             System.out.println("===================");
@@ -56,9 +58,8 @@ public class NotificationsUI extends BaseUI {
                     return;
 
                 case 1:
-                    int value = Console.readInteger("New Weekly Limit");                    
-                    BigDecimal newWeeklyLimit = new BigDecimal(value);
-                    controller.setWeeklyLimit(newWeeklyLimit);
+                    int value = Console.readInteger("New Weekly Limit");
+                    controller.setWeeklyLimit(new BigDecimal(value));
                     break;
 
                 case 2:

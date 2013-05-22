@@ -36,7 +36,7 @@ public abstract class BaseUI {
 	}
 	
 	private void displayWeeklyExpenses(){
-		System.out.printf("* * *      LAST 7 DAYS  %.2f * * *\n",buildBaseController().getWeeklyExpense());
+		System.out.printf("* * *   WEEKLY EXPENSE  %.2f * * *\n",buildBaseController().getWeeklyExpense());
 	}
 	
 }

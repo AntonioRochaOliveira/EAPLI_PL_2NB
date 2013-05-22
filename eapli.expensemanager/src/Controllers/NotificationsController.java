@@ -13,31 +13,35 @@ import java.util.Properties;
  *
  * @author sdcastro
  */
-public class NotificationsController extends BaseController{
+public class NotificationsController extends BaseController {
+
     public NotificationsController() {
     }
-   
-    
-    public BigDecimal getWeekLimit() {
-        Properties prop = new Properties();
 
-        String fileName = "config/limits.properties";
-        BigDecimal weekLimit;
+    /* NOT USED
+     * 
+     
+     public BigDecimal getWeekLimit() {
+     Properties prop = new Properties();
 
-        try {
-            //load a properties file
-            prop.load(new FileInputStream(fileName));
+     String fileName = "config/limits.properties";
+     BigDecimal weekLimit;
 
-            //get the property value
-            System.out.println();
-            weekLimit = new BigDecimal(prop.getProperty("weekly"));
+     try {
+     //load a properties file
+     prop.load(new FileInputStream(fileName));
 
-        } catch (Exception ex) {
-            weekLimit = BigDecimal.ZERO;
-        }
+     //get the property value
+     System.out.println();
+     weekLimit = new BigDecimal(prop.getProperty("weekly"));
 
-        return weekLimit;                
-    }
+     } catch (Exception ex) {
+     weekLimit = BigDecimal.ZERO;
+     }
+
+     return weekLimit;                
+     }
+     * */
     
     @Override
     public CheckingAccount buildCheckingAccount() {

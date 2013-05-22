@@ -48,6 +48,10 @@ public class ExpensesLimits implements Serializable {
         return limitValue;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public void setLimitType(String limitType) {
         this.limitType = limitType;
     }

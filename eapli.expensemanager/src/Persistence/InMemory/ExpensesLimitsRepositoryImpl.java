@@ -22,20 +22,35 @@ public class ExpensesLimitsRepositoryImpl implements IExpensesLimitsRepository {
         return instance;
     }
 
-    
     @Override
-    public void save(ExpensesLimits expensesLimits) {
-        list.add(expensesLimits);
+    public void saveLimits(ExpensesLimits expensesLimits) {
+        // Cria ou atualiza o limite semanal
+        if (expensesLimits.getLimitType().equalsIgnoreCase("weekly")) {
+            boolean exist = false;
+            for (ExpensesLimits limit : list) {
+                if (limit.getLimitType().equalsIgnoreCase("weekly")) {
+                    exist = true;
+                    System.out.println("Limite atualizado");
+                    limit.setLimitValue(expensesLimits.getLimitValue());
+                }
+            }
+            
+            if (!exist) {
+                System.out.println("Limite criado");
+                list.add(expensesLimits);
+            }
+        }
+
     }
 
     @Override
     public BigDecimal getWeeklyLimit() {
         for (ExpensesLimits limit : list) {
-            if ( limit.getLimitType().equalsIgnoreCase("weekly") ) {
+            if (limit.getLimitType().equalsIgnoreCase("weekly")) {
                 return limit.getLimitValue();
             }
         }
-        
+
         return BigDecimal.ZERO;
     }
 }
