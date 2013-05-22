@@ -77,4 +77,24 @@ public class IncomeTypeTest {
 		assertEquals(typeNameCopy, test.getName());
 	}
 
+	@Test
+	public void testEquals() throws Exception {
+		String typeName = "typeName";
+		String typeNameCopy = new String(typeName);
+		String typeDescription = "typeDescription";
+		String typeDescriptionCopy = new String(typeDescription);
+		
+		IncomeType testA = new IncomeType(typeName, typeDescription);
+		IncomeType testB = new IncomeType(typeNameCopy, typeDescriptionCopy);
+				
+		assertTrue(testA.equals(testB));
+		
+		testB = new IncomeType(typeNameCopy, "other");
+		assertFalse(testA.equals(testB));
+		
+		testB = new IncomeType("other", typeDescriptionCopy);
+		assertFalse(testA.equals(testB));
+		
+	}
+
 }

@@ -49,4 +49,16 @@ public class IncomeType implements Serializable{
         this.name = name;
     }
     
+    @Override
+    public boolean equals(Object other){
+    	if (!(other instanceof IncomeType)) return false;
+    	
+    	IncomeType otherIncomeType = (IncomeType) other;
+    	
+    	if (this.id != otherIncomeType.id) return false;    	
+    	if (!this.name.equals(otherIncomeType.name)) return false;    	
+    	if (!this.description.equals(otherIncomeType.description)) return false;
+    	
+		return true;
+    }
 }
