@@ -62,7 +62,9 @@ class ExpenseRegisterUI extends BaseUI{
         type = Console.readInteger("Option:");
         if(type == 0) //If the user wishes to create a new
         {
-            
+            TypeOfExpenseUI uiTE = new TypeOfExpenseUI();
+            uiTE.mainLoop();
+            //TypeOfExpense tEAux = uiTE.buildBaseController().
         }else{
             tE = lista.get(type - 1);
         }
@@ -74,7 +76,7 @@ class ExpenseRegisterUI extends BaseUI{
         PayMode pM;
         IPayModeRepository payModeRep = controller.getPayModes();
        
-        Collection<PayMode> collectionPayMode = payModeRep.findAll(); // WRONG WAY. NEED TO COMUNICATE TO CONTROLLER OF PAYMODE
+        Collection<PayMode> collectionPayMode = payModeRep.findAll();
         ArrayList<PayMode> listaPM = new ArrayList<PayMode>(collectionPayMode);
         System.out.println("Select PayMode of Expense. [0] to creat new.");
         for (int i = 0; i < listaPM.size(); i++)

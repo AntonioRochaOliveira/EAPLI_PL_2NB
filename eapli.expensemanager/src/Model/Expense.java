@@ -75,7 +75,7 @@ public class Expense extends Transaction implements Serializable{
        retorno += "Amount: "+super.getAmount()+"\n"
                + "Expense Date: "+super.getDate()+"\n"
                + "Expense Description: "+super.getDescription()+"\n"
-               + "Expense Type: "+getType()+"\n"
+               + "Expense Type: "+getType().shortName+"\n"
                + "Pay Mode: "+getPayM();
        return retorno;
     }
