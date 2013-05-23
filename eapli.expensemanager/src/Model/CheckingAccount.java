@@ -13,6 +13,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import Persistence.IExpenseRepository;
+import Persistence.IncomeRepository;
+import Persistence.PersistenceFactory;
+import Persistence.InMemory.ExpenseRepositoryImpl;
+import eapli.util.DateTime;
+import java.util.Iterator;
 
 /**
  *
