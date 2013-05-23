@@ -72,7 +72,7 @@ class ExpenseRegisterUI extends BaseUI{
         
         /* PAYMODE */
         PayMode pM;
-        IPayModeRepository payModeRep = repFac.buildPayModeRepository();
+        IPayModeRepository payModeRep = controller.getPayModes();
        
         Collection<PayMode> collectionPayMode = payModeRep.findAll(); // WRONG WAY. NEED TO COMUNICATE TO CONTROLLER OF PAYMODE
         ArrayList<PayMode> listaPM = new ArrayList<PayMode>(collectionPayMode);
