@@ -13,7 +13,9 @@ import Model.Expense;
 import Model.PayMode;
 import Model.TypeOfExpense;
 import Persistence.IExpenseRepository;
+import Persistence.IPayModeRepository;
 import Persistence.PersistenceFactory;
+import Persistence.RepositoryFactory;
 /**
  *
  * @author Paulo Gandra Sousa
@@ -45,5 +47,10 @@ public class ExpenseRegisterController extends BaseController {
     public List<TypeOfExpense> getRTypeOfExpenses()
     {
         return PersistenceFactory.buildPersistenceFactory().TypeOfExpenseRepository().getListTExpense();
+    }
+    public IPayModeRepository getPayModes()
+    {
+        RepositoryFactory repFac = PersistenceFactory.buildPersistenceFactory();
+        return repFac.buildPayModeRepository();
     }
 }
