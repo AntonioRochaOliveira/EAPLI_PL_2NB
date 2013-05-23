@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author joel
+ * @author joel | jverde
  */
 public class RegisterIncomeControllerTest {
     

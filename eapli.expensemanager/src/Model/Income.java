@@ -2,10 +2,10 @@ package Model;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
 import javax.persistence.Temporal;
 
 /**
@@ -15,9 +15,19 @@ import javax.persistence.Temporal;
 
 @Entity
 public class Income extends Transaction {
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @Column(name="IncomeType")
+	/* FIXME: Esta linha faz com que um income type que já tinha sido criado
+	 * (os que aparecem na lista de seleção) seja novamente guardado na base
+	 * de dados:
+	 * @ManyToOne(cascade = CascadeType.ALL)
+	 * -- Bruno Flávio 
+	 */
+	
+	/**
+	 * número de série da classe por defeito.
+	 */
+	private static final long serialVersionUID = 1L;
+    
+    @JoinColumn(name="IncomeType")
     private IncomeType incomeType;
     @Column(name="dateOccurred")
     @Temporal(javax.persistence.TemporalType.DATE)

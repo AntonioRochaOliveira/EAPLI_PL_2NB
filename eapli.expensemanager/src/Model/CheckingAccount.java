@@ -4,17 +4,10 @@
  */
 package Model;
 
-import Persistence.IExpenseRepository;
 import java.math.BigDecimal;
-import java.util.List;
-
-import Persistence.IncomeRepository;
-import Persistence.StartingBalanceRepository;
-import Persistence.InMemory.ExpenseRepositoryImpl;
-import Persistence.PersistenceFactory;
-import eapli.util.DateTime;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -100,24 +93,43 @@ public class CheckingAccount {
 
         return sum;
     }
-    
-    public BigDecimal getWeeklyExpense() {
-        Calendar today = Calendar.getInstance();
-        Date todayDate = today.getTime();
 
-        BigDecimal weekExpense = BigDecimal.ZERO;
+    public BigDecimal getLastSevenDaysExpense() {
+        Calendar now = Calendar.getInstance();
+        Date today = now.getTime();
 
-        for (Expense e : ExpenseRepositoryImpl.getInstance().getListExpense()) {
-            if (DateTime.getDateDiff(e.getDate(), todayDate, TimeUnit.DAYS) < 8) {
-                weekExpense = weekExpense.add(e.getAmount());
+        BigDecimal last7DaysExpense = BigDecimal.ZERO;
+        for (Iterator<Expense> it = expenseRepo.getListExpense().iterator(); it.hasNext();) {
+            Expense e = it.next();
+            if (DateTime.getDateDiff(e.getDate(), today, TimeUnit.DAYS) < 8) {
+                last7DaysExpense = last7DaysExpense.add(e.getAmount());
             }
-
         }
 
-        return weekExpense;
+        return last7DaysExpense;
     }
 
-    //Sets the inicial balance
+    public BigDecimal getWeeklyExpense() {
+        Calendar now = Calendar.getInstance();
+        now.setFirstDayOfWeek(1); //Início da semana SEGUNDA
+
+        Date today = now.getTime();
+
+
+        BigDecimal weeklyExpense = BigDecimal.ZERO;
+        for (Iterator<Expense> it = expenseRepo.getListExpense().iterator(); it.hasNext();) {
+            Expense e = it.next();
+
+            if (DateTime.getDateDiff(e.getDate(), today, TimeUnit.DAYS) < 8) {
+                weeklyExpense = weeklyExpense.add(e.getAmount());
+            }
+        }
+
+        return weeklyExpense;
+
+    }
+
+//Sets the inicial balance
     public void setValue(BigDecimal inicial) {
         saldoI = inicial;
     }
@@ -128,7 +140,7 @@ public class CheckingAccount {
     }
 
     public void add(Income income) {
-        incomeRepo.save(income);
+        incomeRepo.saveIncome(income);
     }
 
     public void add(Expense expense) {

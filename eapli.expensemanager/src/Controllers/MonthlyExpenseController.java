@@ -7,6 +7,7 @@ package Controllers;
 
 
 import java.math.BigDecimal;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -36,7 +37,9 @@ public class MonthlyExpenseController {
             expense=(Expense)listExpense.get(i);
             amount=expense.getAmount();
             data=expense.getDate();
-            int m = data.getMonth();
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(data);
+            int m = cal.get(Calendar.MONTH);
          
             if(m==mes)
                 sum+=amount.floatValue();

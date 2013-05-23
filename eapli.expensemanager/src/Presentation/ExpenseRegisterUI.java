@@ -11,6 +11,7 @@ import java.util.List;
 import Controllers.BaseController;
 import Controllers.ExpenseRegisterController;
 import Controllers.RegisterPayModeController;
+import Model.Expense;
 import Model.PayMode;
 import Model.TypeOfExpense;
 import Persistence.IPayModeRepository;
@@ -70,13 +71,11 @@ class ExpenseRegisterUI extends BaseUI{
         Date date = Console.readDate("Date of Expense: dd-MM-yyyy");
         
         /* PAYMODE */
-        PayMode pM = new PayMode(null, null);// Var to insert on new Expense
-        
-       
+        PayMode pM;
         IPayModeRepository payModeRep = repFac.buildPayModeRepository();
        
         Collection<PayMode> collectionPayMode = payModeRep.findAll(); // WRONG WAY. NEED TO COMUNICATE TO CONTROLLER OF PAYMODE
-        ArrayList<PayMode> listaPM = new ArrayList(collectionPayMode);
+        ArrayList<PayMode> listaPM = new ArrayList<PayMode>(collectionPayMode);
         System.out.println("Select PayMode of Expense. [0] to creat new.");
         for (int i = 0; i < listaPM.size(); i++)
         {
@@ -90,22 +89,22 @@ class ExpenseRegisterUI extends BaseUI{
             pMUI = new PayModeUI(); //Creat new UI to creat new PayMode
             pMUI.showContent();
             BaseController bC = pMUI.buildBaseController();
-            if(bC instanceof RegisterPayModeController)
-            {
-               RegisterPayModeController pMC = (RegisterPayModeController)pMUI.buildBaseController(); 
-               pM = pMC.getPayMode();
-            }    
+            RegisterPayModeController pMC = (RegisterPayModeController)pMUI.buildBaseController(); 
+            pM = pMC.getPayMode();
         }else{
             pM = listaPM.get(op - 1);
         }
         
         /* DESCRIPTION */
-        String what = Console.readLine("Description:");
+        String what = Console.readLine("Expense Description:");
         
         /* SAVING */
-        controller.registerExpense(amount,tE,date,pM,what);
-     
-        System.out.println("expense recorded.");
+        Expense retorno = controller.registerExpense(amount,tE,date,pM,what);
+        System.out.println("_________________________________________________________________");
+        System.out.println("*Expense recorded:");
+        System.out.println(retorno);
+        System.out.println("_________________________________________________________________");
+        
     }
     @Override
     public String getTitle()

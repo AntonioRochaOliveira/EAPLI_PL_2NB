@@ -5,10 +5,9 @@
 package Presentation;
 
 import Controllers.BaseController;
-import Controllers.NotificationsController;
+import Controllers.ExpensesLimitsController;
 import eapli.util.Console;
 import java.math.BigDecimal;
-
 
 /**
  *
@@ -16,30 +15,30 @@ import java.math.BigDecimal;
  */
 public class NotificationsUI extends BaseUI {
 
-    private NotificationsController controller = null;
-    
-    public void showSubmenu() {
-        
-        controller = new NotificationsController();
-        showContent();        
+    private ExpensesLimitsController controller = null;
+
+    public void showSubMenu() {
+
+        controller = new ExpensesLimitsController();
+        showContent();
     }
-   
-    
 
     @Override
     public void showContent() {
 
         String weeklyLimitText;
-        BigDecimal weekLimit = controller.getWeekLimit();
-        
-        if (weekLimit.compareTo(BigDecimal.ZERO) == 0) {
-            weeklyLimitText = " [NOT SET]";
-        } else {
-            weeklyLimitText = " [" + weekLimit.toString() + "€]";
-        }
-        
+        BigDecimal weeklyLimit;
         int option;
+
         do {
+            weeklyLimit = controller.getWeeklyLimit();
+
+            if (weeklyLimit.compareTo(BigDecimal.ZERO) == 0) {
+                weeklyLimitText = " [NOT SET]";
+            } else {
+                weeklyLimitText = " [" + weeklyLimit.toString() + "€]";
+            }
+
             System.out.println("===================");
             System.out.println("   NOTIFICATIONS   ");
             System.out.println("===================");
@@ -58,20 +57,22 @@ public class NotificationsUI extends BaseUI {
                 case 0:
                     return;
 
-                case 1:                                        
+                case 1:
+                    int value = Console.readInteger("New Weekly Limit");
+                    controller.setWeeklyLimit(new BigDecimal(value));
                     break;
-                
-                case 2:                                        
+
+                case 2:
                     break;
             }
         } while (option != 0);
 
 
-       
+
     }
 
     @Override
-    public BaseController buildBaseController() {        
+    public BaseController buildBaseController() {
         return controller;
     }
 }

@@ -7,35 +7,16 @@
     <class>Model.Transaction</class>
     <class>Model.Expense</class>
     <class>Model.GeoZone</class>
-    <class>Model.ExpensesLimits</class>
     <class>Model.PayMode</class>
     <class>Model.PaymentType</class>
+    <class>Model.ExpensesLimits</class>
     <class>Model.Income</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>
-      <property name="javax.persistence.jdbc.password" value="app"/>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
-      <property name="javax.persistence.jdbc.user" value="app"/>
+      <property name="javax.persistence.jdbc.user" value="APP"/>
+      <property name="javax.persistence.jdbc.password" value="APP"/>
       <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
-    </properties>
-  </persistence-unit>
-  <persistence-unit name="DerbyexpensemanagerPU" transaction-type="RESOURCE_LOCAL">
-    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>Model.TypeOfExpense</class>
-    <class>Model.IncomeType</class>
-    <class>Model.Transaction</class>
-    <class>Model.Expense</class>
-    <class>Model.GeoZone</class>
-    <class>Model.ExpensesLimits</class>
-    <class>Model.PayMode</class>
-    <class>Model.PaymentType</class>
-    <class>Model.Income</class>
-    <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>
-      <property name="javax.persistence.jdbc.password" value="app"/>
-      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
-      <property name="javax.persistence.jdbc.user" value="app"/>
-      <property name="eclipselink.ddl-generation" value="create-tables"/>
     </properties>
   </persistence-unit>
 </persistence>

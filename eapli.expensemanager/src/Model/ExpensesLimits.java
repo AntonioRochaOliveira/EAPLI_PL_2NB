@@ -31,7 +31,9 @@ public class ExpensesLimits implements Serializable {
     protected ExpensesLimits() {
     }
 
-    public ExpensesLimits(String limit, String description) {
+    public ExpensesLimits(String limitType, BigDecimal limitValue) {
+        this.limitType = limitType;
+        this.limitValue = limitValue;
     }
 
     public int getId() {
@@ -46,6 +48,10 @@ public class ExpensesLimits implements Serializable {
         return limitValue;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public void setLimitType(String limitType) {
         this.limitType = limitType;
     }

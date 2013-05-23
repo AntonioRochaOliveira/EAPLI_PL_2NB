@@ -4,10 +4,9 @@
  */
 package Persistence;
 
-import Model.PayMode;
-import Model.PaymentType;
 import java.util.Collection;
-import java.util.List;
+
+import Model.PayMode;
 
 /**
  *

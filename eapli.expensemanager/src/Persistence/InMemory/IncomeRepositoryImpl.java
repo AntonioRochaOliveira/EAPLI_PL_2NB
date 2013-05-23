@@ -33,7 +33,7 @@ public class IncomeRepositoryImpl implements IncomeRepository {
     }
 
     @Override
-    public Income save(Income income) {
+    public Income saveIncome(Income income) {
         if (income == null) {
                 throw new IllegalArgumentException();
         }

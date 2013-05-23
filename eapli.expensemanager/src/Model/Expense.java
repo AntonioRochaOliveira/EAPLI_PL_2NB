@@ -11,7 +11,6 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
 
 
 /**
@@ -21,7 +20,12 @@ import javax.persistence.Transient;
 @Entity
 public class Expense extends Transaction implements Serializable{
       
-    @ManyToOne(cascade = CascadeType.ALL)
+    /**
+	 * número de série da classe por defeito.
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
     private TypeOfExpense type;
     @ManyToOne(cascade = CascadeType.ALL)
     private PayMode payM;
@@ -63,5 +67,16 @@ public class Expense extends Transaction implements Serializable{
      */
     public void setPayM(PayMode payM) {
         this.payM = payM;
+    }
+    
+    @Override
+    public String toString(){
+       String retorno = "";
+       retorno += "Amount: "+super.getAmount()+"\n"
+               + "Expense Date: "+super.getDate()+"\n"
+               + "Expense Description: "+super.getDescription()+"\n"
+               + "Expense Type: "+getType()+"\n"
+               + "Pay Mode: "+getPayM();
+       return retorno;
     }
 }

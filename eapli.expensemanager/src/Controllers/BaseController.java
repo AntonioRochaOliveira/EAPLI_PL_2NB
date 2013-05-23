@@ -6,18 +6,17 @@ import Model.CheckingAccount;
 
 public abstract class BaseController {
 
-	public abstract CheckingAccount buildCheckingAccount();
-	
-	public BigDecimal getBalance() {
-		
-		return buildCheckingAccount().getBalance();
+    public CheckingAccount buildCheckingAccount() {
+        return new CheckingAccount();
+    }
 
-	}
-        
-        public BigDecimal getWeeklyExpense() {
-            return buildCheckingAccount().getWeeklyExpense();
-        }
-        
-        
-		
+    public BigDecimal getBalance() {
+
+        return buildCheckingAccount().getBalance();
+
+    }
+
+    public BigDecimal getWeeklyExpense() {        
+        return buildCheckingAccount().getWeeklyExpense();
+    }
 }

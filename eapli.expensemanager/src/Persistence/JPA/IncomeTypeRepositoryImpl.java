@@ -5,25 +5,19 @@ import java.util.List;
 import Model.IncomeType;
 import Persistence.IncomeTypeRepository;
 
-public class IncomeTypeRepositoryImpl implements IncomeTypeRepository {
+public class IncomeTypeRepositoryImpl extends JpaRepository<IncomeType, Integer>  implements IncomeTypeRepository {
 
-	JpaRepository<IncomeType, String> util;
-	
-	public IncomeTypeRepositoryImpl(){
-		util = new JpaRepository<IncomeType, String>();
-	}
-	
 	@Override
-	public void save(IncomeType incomeType) {
+	public void saveIncomeType(IncomeType incomeType) {
 		if(incomeType.getName() == null || incomeType.getName().trim().length() == 0){
 			throw new IllegalArgumentException();
 		}
-		incomeType = util.save(incomeType);
+		save(incomeType);
 	}
 
 	@Override
 	public List<IncomeType> getIncomeTypes() {
-		return util.all();
+		return all();
 	}
 
 }

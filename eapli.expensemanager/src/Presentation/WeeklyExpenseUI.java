@@ -26,15 +26,15 @@ public class WeeklyExpenseUI extends BaseUI {
     @Override
     public String getTitle() {
 
-        return "*Weekly Expense  ";
+        return "  Weekly Expense  ";
     }
 
     @Override
     public void showContent() {
         
-        BigDecimal weekExpense = controller.getWeeklyExpense();
+        BigDecimal weeklyExpense = controller.getWeeklyExpense();
 
-        System.out.println("Despesa Semanal: " + weekExpense);
+        System.out.println("Despesa Semanal: " + weeklyExpense);
         
     }
 

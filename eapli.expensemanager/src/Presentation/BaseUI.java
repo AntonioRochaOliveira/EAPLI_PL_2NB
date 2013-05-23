@@ -4,15 +4,6 @@ import Controllers.BaseController;
 
 public abstract class BaseUI {
 	
-//	public BaseUI(){
-//	}
-//
-//	public void displayBalance(){
-//		System.out.printf("* * *  CURRENT BALANCE  %.2f * * *\n",buildBaseController().getBalance());
-//	}
-//	
-//	public abstract BaseController buildBaseController();
-	
 	public void show(){
 		showHeader();
 		showContent();
@@ -24,8 +15,8 @@ public abstract class BaseUI {
 	}
 	
 	public void showFooter(){
-		System.out.printf("* * *  CURRENT BALANCE  %.2f * * *\n",buildBaseController().getBalance());
-		System.out.printf("* * *      LAST 7 DAYS  %.2f * * *\n",buildBaseController().getWeeklyExpense());
+		displayBalance();
+		displayWeeklyExpenses();
 	}
 	
 	
@@ -39,5 +30,13 @@ public abstract class BaseUI {
 	
 	//Return your controller 
 	public abstract BaseController buildBaseController();
+	
+	private void displayBalance(){
+		System.out.printf("* * *  CURRENT BALANCE  %.2f * * *\n",buildBaseController().getBalance());
+	}
+	
+	private void displayWeeklyExpenses(){
+		System.out.printf("* * *   WEEKLY EXPENSE  %.2f * * *\n",buildBaseController().getWeeklyExpense());
+	}
 	
 }
