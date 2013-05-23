@@ -9,7 +9,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 import Persistence.IExpenseRepository;
 import Persistence.IncomeRepository;
 import Persistence.PersistenceFactory;
@@ -21,10 +24,15 @@ import java.util.Iterator;
  *
  * @author joel
  */
+@Entity
 public class CheckingAccount {
-
+    @Id
+    int id=1;
+    @Column(name="saldoinicial")
     BigDecimal saldoI;
+    @Transient
     IncomeRepository incomeRepo;
+    @Transient
     IExpenseRepository expenseRepo;
 
     public CheckingAccount() {
@@ -107,24 +115,18 @@ public class CheckingAccount {
         return last7DaysExpense;
     }
 
-    
-    public BigDecimal getWeeklyExpense() {  
-                  
-        Calendar now = Calendar.getInstance();        
+    public BigDecimal getWeeklyExpense() {
+        Calendar now = Calendar.getInstance();
+        now.setFirstDayOfWeek(1); //Início da semana SEGUNDA
 
         Date today = now.getTime();
 
-        //Início da semana é domingo
-        //ToDo: Verificar se início da semana foi no ano passado
-        Calendar startOfWeek = DateTime.firstDateOfWeek(DateTime.currentYear(), DateTime.currentWeekNumber());        
-        
-        long daysDiff = DateTime.getDateDiff(startOfWeek.getTime(), today, TimeUnit.DAYS ) + 1;
-                                
+
         BigDecimal weeklyExpense = BigDecimal.ZERO;
         for (Iterator<Expense> it = expenseRepo.getListExpense().iterator(); it.hasNext();) {
             Expense e = it.next();
 
-            if (DateTime.getDateDiff(e.getDate(), today, TimeUnit.DAYS) <= daysDiff) {
+            if (DateTime.getDateDiff(e.getDate(), today, TimeUnit.DAYS) < 8) {
                 weeklyExpense = weeklyExpense.add(e.getAmount());
             }
         }

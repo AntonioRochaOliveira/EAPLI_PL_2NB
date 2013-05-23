@@ -57,7 +57,6 @@ class JpaRepositoryFactory implements RepositoryFactory {
 
     @Override
     public CheckingAccountRepository buildCheckingAccountRepository() {
-        // TODO Implementar método buildStartingBalanceRepository() in InMemoryRepositoryFactory class
-        return null;
+        return new Persistence.JPA.CheckingAccountImpl();
     }
 }
