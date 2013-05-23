@@ -117,7 +117,7 @@ public class CheckingAccount {
         //Início da semana é domingo
         //ToDo: Verificar se início da semana foi no ano passado
         Calendar startOfWeek = DateTime.firstDateOfWeek(DateTime.currentYear(), DateTime.currentWeekNumber());        
-        Calendar t2 = DateTime.lastDateOfWeek(2013, DateTime.currentWeekNumber());        
+        
         long daysDiff = DateTime.getDateDiff(startOfWeek.getTime(), today, TimeUnit.DAYS ) + 1;
                                 
         BigDecimal weeklyExpense = BigDecimal.ZERO;
