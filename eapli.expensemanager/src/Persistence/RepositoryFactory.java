@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -25,5 +25,6 @@ public interface RepositoryFactory {
     IExpensesLimitsRepository buildExpensesLimitsRepository();
 
     IncomeRepository buildIncomeRepository();
+    
     CheckingAccountRepository buildCheckingAccountRepository();
 }
