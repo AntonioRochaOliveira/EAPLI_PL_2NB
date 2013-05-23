@@ -4,6 +4,7 @@
  */
 package Persistence;
 
+import Model.CheckingAccount;
 import java.math.BigDecimal;
 
 /**
@@ -14,6 +15,6 @@ public interface CheckingAccountRepository {
 
     public BigDecimal getValue();
 
-    public void setValue(BigDecimal value);
+    public CheckingAccount save(CheckingAccount ChAc);
     
 }
