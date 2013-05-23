@@ -52,7 +52,7 @@ public class TypeOfExpenseRepositoryTest {
     @Test
     public void testGetListTExpense() {
         System.out.println("getListTExpense");
-        TypeOfExpenseRepository instance = new TypeOfExpenseRepositoryImpl();
+        TypeOfExpenseRepository instance = new Persistence.JPA.TypeOfExpenseRepositoryImpl();
         List expResult = instance.getListTExpense();
         List result = instance.getListTExpense();
         assertEquals(expResult, result);
@@ -81,7 +81,7 @@ public class TypeOfExpenseRepositoryTest {
     @Test
     public void testGetAllTypeOfExpenses() {
         System.out.println("getListTExpenses");
-        TypeOfExpenseRepository instance = new TypeOfExpenseRepositoryImpl();
+        TypeOfExpenseRepository instance = new Persistence.JPA.TypeOfExpenseRepositoryImpl();
         List expResult = instance.getListTExpense();
         List result = instance.getListTExpense();
         assertEquals(expResult, result);
