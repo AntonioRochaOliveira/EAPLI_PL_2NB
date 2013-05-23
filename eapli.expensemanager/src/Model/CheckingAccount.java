@@ -16,14 +16,24 @@ import eapli.util.DateTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 
 /**
  *
  * @author joel
  */
+@Entity
 public class CheckingAccount {
+    @Id
+    int id=1;
+    @Column(name="saldoinicial")
     BigDecimal saldoI;
+    @Transient
     IncomeRepository incomeRepo;
+    @Transient
     IExpenseRepository expenseRepo;
 
     public CheckingAccount() {

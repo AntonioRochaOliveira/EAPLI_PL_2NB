@@ -36,7 +36,7 @@ public class StartingBalanceUI extends BaseUI{
     public void showContent() {
         double value = mainLoop();
 	BigDecimal amount = new BigDecimal(value);
-        controller.setValue(amount);
+        controller.Save(amount);
 	System.out.println("New Starting Balance Recorded.");
     }
 }
