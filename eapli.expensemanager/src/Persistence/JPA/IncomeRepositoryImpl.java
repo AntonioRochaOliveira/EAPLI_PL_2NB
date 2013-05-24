@@ -15,22 +15,9 @@ import java.util.List;
  */
 
 public class IncomeRepositoryImpl extends JpaRepository<Income, String> implements IncomeRepository {
-
-//	FIXME: Verificar se esta alteração faz sentido: - Bruno Flávio.
-//	Modifiquei para podermos inserir tipos de Rendimentos.
-	
-//     JpaRepository<Income, String> util;
-//	
-//	public IncomeRepositoryImpl(){
-//		util = new JpaRepository<Income, String>();
-//	}
-//    
+    
     @Override
     public List<Income> getListIncome() {
-//    	FIXME: Verificar se esta alteração faz sentido: - Bruno Flávio.
-//    	Modifiquei para podermos inserir tipos de Rendimentos.
-    	//return util.all();
-    	
         return all();
     }
     
@@ -45,10 +32,7 @@ public class IncomeRepositoryImpl extends JpaRepository<Income, String> implemen
             if(income.getAmount() == new BigDecimal(0.0) ){
                     throw new IllegalArgumentException();
             }
-//        	FIXME: Verificar se esta alteração faz sentido: - Bruno Flávio.
-//        	Modifiquei para podermos inserir tipos de Rendimentos.
-        	//income = util.saveIncome(income);   
-            
+
             income = save(income);
             return income;
     }
