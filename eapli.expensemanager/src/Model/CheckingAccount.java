@@ -38,7 +38,7 @@ public class CheckingAccount {
     public CheckingAccount() {
         incomeRepo = PersistenceFactory.buildPersistenceFactory().buildIncomeRepository();
         expenseRepo = PersistenceFactory.buildPersistenceFactory().iexpenseRepository();
-        saldoI = new BigDecimal(0);
+        saldoI = PersistenceFactory.buildPersistenceFactory().buildCheckingAccountRepository().getValue();
     }
     //Methods
 
@@ -142,6 +142,7 @@ public class CheckingAccount {
 
     //Gets the initial balance
     public BigDecimal getValue() {
+        saldoI = PersistenceFactory.buildPersistenceFactory().buildCheckingAccountRepository().getValue();
         return saldoI;
     }
 
