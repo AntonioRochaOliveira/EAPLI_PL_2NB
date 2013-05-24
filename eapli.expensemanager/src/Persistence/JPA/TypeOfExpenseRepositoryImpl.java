@@ -45,26 +45,8 @@ public class TypeOfExpenseRepositoryImpl extends JpaRepository<TypeOfExpense, St
         // ToDo
         return super.all();
 
-//        TypeOfExpense tE = new TypeOfExpense("", "");
-//        List<TypeOfExpense> lista = getListTExpense();
-//
-//        int type;/* Index of type expense */
-//        if (lista.size() > 0) {
-//            for (int i = 0; i < lista.size(); i++) {
-//                System.out.println(i + 1 + ":" + lista.get(i));
-//            }
-//        }
-//        type = Console.readInteger("Option:");
-//        if (type == 0) //If the user wishes to create a new
-//        {
-//        } else {
-//            tE = lista.get(type - 1);
-//        }
-//
-//        return lista;
+        //List<TypeOfExpense> lista = new ArrayList<TypeOfExpense>();
+
+
     }
-//        public List<TypeOfExpense> getAllTypeOfExpenses() {
-//         // ToDo
-//            return super.all();
-//        }
 }

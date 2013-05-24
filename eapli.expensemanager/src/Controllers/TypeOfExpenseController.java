@@ -30,5 +30,5 @@ public class TypeOfExpenseController extends BaseController {
     public TypeOfExpense getTexpense() {
         return Texpense;
     }
- 
+  
 }

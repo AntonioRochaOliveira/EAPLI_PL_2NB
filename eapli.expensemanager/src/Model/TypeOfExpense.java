@@ -13,7 +13,7 @@ public class TypeOfExpense implements Serializable  {
 	 * número de série da classe por defeito.
 	 */
 	private static final long serialVersionUID = 1L;
-	
+	 
 	@Id
      String shortName;
     @Column(name="Description")

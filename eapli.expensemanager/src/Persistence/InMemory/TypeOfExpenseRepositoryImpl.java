@@ -24,7 +24,7 @@ public class TypeOfExpenseRepositoryImpl implements TypeOfExpenseRepository {
         }
         return uniqueInstance;
     }
-
+ 
        
      // class member
     private static List<TypeOfExpense> listTExpense = new ArrayList<TypeOfExpense>();

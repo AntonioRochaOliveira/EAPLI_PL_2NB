@@ -19,5 +19,5 @@ public interface TypeOfExpenseRepository {
     public List<TypeOfExpense> getListTExpense() ;
     public TypeOfExpense save(TypeOfExpense Texp) ;
    //public List<TypeOfExpense> getAllTypeOfExpenses();
-
+ 
 }
