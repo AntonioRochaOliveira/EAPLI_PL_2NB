@@ -14,14 +14,15 @@ import eapli.util.Console;
 
 public class MonthlyExpenseUI extends BaseUI {
 
-    private MonthlyExpenseController controller;
+    MonthlyExpenseController controller = null;
    
 
     public MonthlyExpenseUI() {
 
         controller = new MonthlyExpenseController();
     }
-
+    
+    @Override
     public String getTitle() {
 
         return "*Monthly Expense  ";
@@ -29,8 +30,6 @@ public class MonthlyExpenseUI extends BaseUI {
 
     @Override
     public void showContent() {
-
-       
         int mes;
         mes = Console.readInteger("What month:");
         float despesa = controller.getExpensesMonth(mes);

@@ -56,6 +56,7 @@ public class MainMenu {
                     break;
                 case 5:
                     MonthlyExpenseUI uiME = new MonthlyExpenseUI();
+                    uiME.show();
                     break;
                 case 6:                    
                     WeeklyExpenseUI uiWE = new WeeklyExpenseUI();

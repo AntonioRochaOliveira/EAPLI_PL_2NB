@@ -12,7 +12,9 @@ import java.util.Date;
 import java.util.List;
 
 import Model.Expense;
-import Persistence.InMemory.ExpenseRepositoryImpl;
+import Model.CheckingAccount;
+//import Persistence.InMemory.ExpenseRepositoryImpl;
+
 /**
  *
  * @author Mak3r
@@ -29,24 +31,25 @@ public class MonthlyExpenseController {
         float sum=0.0f;
         Expense expense;
         Date data;
+        CheckingAccount ca = new CheckingAccount();
+        List <Expense> listMonthlyExpense = null;
+        listMonthlyExpense = ca.getListExpense();
         
-        List<Expense> listExpense=ExpenseRepositoryImpl.getInstance().getListExpense();
-        
-        for(int i=0;i<listExpense.size(); i++){
-       
-            expense=(Expense)listExpense.get(i);
-            amount=expense.getAmount();
-            data=expense.getDate();
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(data);
-            int m = cal.get(Calendar.MONTH);
+     
+        for(Expense list : listMonthlyExpense){
+          amount = list.getAmount();
+          data= list.getDate();
+          Calendar cal = Calendar.getInstance();
+          cal.setTime(data);
+          int m = cal.get(Calendar.MONTH);
          
-            if(m==mes)
-                sum+=amount.floatValue();
+          if(m==mes)
+               sum+=amount.floatValue();
 
         
         }
         return sum;
     }
+    
     
 }
